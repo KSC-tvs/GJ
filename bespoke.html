@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bespoke Creation | Gulshan Jewellers · Est. 1950</title>
+  <meta name="description" content="A piece that begins with you. Transform loose certified gemstones into handcrafted heirloom rings and pendants in 22K, 18K gold or 925 silver.">
+
+  <link rel="stylesheet" href="/src/css/tokens.css">
+  <link rel="stylesheet" href="/src/css/base.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+  <link rel="stylesheet" href="/src/css/pages.css">
+  <link rel="stylesheet" href="/src/css/animations.css">
+  
+  <style>
+    .slider-comparison-box {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      overflow: hidden;
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-xs);
+      background-color: #07080A;
+    }
+    .slider-comparison-box img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      user-select: none;
+      pointer-events: none;
+    }
+    .slider-overlay-wrap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 50%;
+      overflow: hidden;
+      border-right: 2px solid var(--color-gold-champagne);
+    }
+    .slider-overlay-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      max-width: none;
+    }
+    .slider-range-input {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: ew-resize;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar with Currency Selector -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div style="display: flex; align-items: center; gap: var(--space-4);">
+        <span>Est. 1950 · Handcrafted Bespoke Fine Jewellery Atelier</span>
+        <label style="display: inline-flex; align-items: center; gap: 4px; font-size: 0.68rem; text-transform: uppercase;">
+          <span style="color: var(--color-text-muted);">Currency:</span>
+          <select class="currency-selector" aria-label="Select Currency">
+            <option value="INR">INR (₹)</option>
+            <option value="USD">USD ($)</option>
+            <option value="AED">AED (د.إ)</option>
+            <option value="GBP">GBP (£)</option>
+            <option value="EUR">EUR (€)</option>
+          </select>
+        </label>
+      </div>
+      <div class="top-bar-links">
+        <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">WhatsApp Atelier</a>
+        <a href="collections.html">Explore Pieces</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header with Search & Tray -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-name">Gulshan Jewellers</span>
+        <span class="brand-subline">Est. 1950 · Years of Crafting Legacies</span>
+      </a>
+
+      <nav class="main-nav">
+        <a href="collections.html" class="nav-link">Collections</a>
+        <a href="gemstone-guide.html" class="nav-link">Gemstone Guide</a>
+        <a href="bespoke.html" class="nav-link active">Bespoke Creation</a>
+        <a href="about.html" class="nav-link">Our Ethos</a>
+        <a href="contact.html" class="nav-link">Consultation</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Search Trigger -->
+        <button type="button" class="header-icon-btn" data-trigger-search aria-label="Search">
+          <span>&#128269;</span>
+          <span class="header-search-kbd">⌘K</span>
+        </button>
+
+        <!-- Tray Trigger -->
+        <button type="button" class="header-icon-btn" data-trigger-tray aria-label="Consultation Tray">
+          <span>Tray</span>
+          <span class="tray-counter-pill" style="display: none;">0</span>
+        </button>
+
+        <button type="button" class="btn btn-gold btn-sm" data-trigger-consultation>Start Custom Design</button>
+        <button class="mobile-nav-toggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header -->
+  <section style="padding: var(--space-16) 0 var(--space-12); text-align: center; background: radial-gradient(circle at 50% 0%, #171B24 0%, var(--color-bg-deep) 75%);">
+    <div class="container container-narrow">
+      <span class="section-eyebrow">The Bespoke Commission</span>
+      <h1 style="font-size: clamp(2.5rem, 4.5vw, 3.8rem); margin-bottom: var(--space-4); color: var(--color-ivory);">
+        A piece that begins with you.
+      </h1>
+      <p style="font-size: var(--text-lg); color: var(--color-text-secondary); line-height: 1.7;">
+        Whether you arrive with a specific heirloom gemstone, an astrological recommendation, or an idea for a timeless everyday signature—we bring your vision to life through honest consultation and master craftsmanship.
+      </p>
+    </div>
+  </section>
+
+  <!-- Four Step Process -->
+  <section style="padding: var(--space-16) 0; border-top: 1px solid var(--color-border-hairline); border-bottom: 1px solid var(--color-border-hairline); background-color: #0A0C10;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">The Artisan Process</span>
+        <h2 class="section-title">Four Steps to an Heirloom</h2>
+        <p class="section-subtitle">
+          From first conversation to finished jewel, transparent at every stage.
+        </p>
+      </div>
+
+      <div class="education-four-grid">
+        <div class="edu-box">
+          <span style="font-family: var(--font-serif); font-size: 2rem; color: var(--color-gold-champagne);">01</span>
+          <h3 class="edu-box-title" style="margin-top: var(--space-2);">Share Your Vision</h3>
+          <p class="edu-box-text">
+            Share your idea, occasion, preferred metal, gemstone interest, or budget parameters. No commission is too grand or too subtle.
+          </p>
+        </div>
+
+        <div class="edu-box">
+          <span style="font-family: var(--font-serif); font-size: 2rem; color: var(--color-gold-champagne);">02</span>
+          <h3 class="edu-box-title" style="margin-top: var(--space-2);">Stone & Setting Direction</h3>
+          <p class="edu-box-text">
+            Examine certified loose earth-mined gems. Discuss pavilion depth, light entry, claw vs bezel mountings, and comfortable ergonomics.
+          </p>
+        </div>
+
+        <div class="edu-box">
+          <span style="font-family: var(--font-serif); font-size: 2rem; color: var(--color-gold-champagne);">03</span>
+          <h3 class="edu-box-title" style="margin-top: var(--space-2);">Approve Bespoke Design</h3>
+          <p class="edu-box-text">
+            Review detailed wax renderings, setting proportions, and complete metal weight and hallmarking specifications prior to casting.
+          </p>
+        </div>
+
+        <div class="edu-box">
+          <span style="font-family: var(--font-serif); font-size: 2rem; color: var(--color-gold-champagne);">04</span>
+          <h3 class="edu-box-title" style="margin-top: var(--space-2);">Receive Your Heirloom</h3>
+          <p class="edu-box-text">
+            Hand-forged by our senior karigars, hand-burnished, stamped with government hallmarks, and presented with certificate documentation.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Loose-to-Setting Transformation -->
+  <section style="padding: var(--space-16) 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center;">
+        <div>
+          <span class="section-eyebrow">Transformation Showcase</span>
+          <h2 class="section-title">From Loose Gemstone to Finished Jewel</h2>
+          <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: var(--space-4);">
+            Witness the transformation of an untreated 4.15-carat Ceylon Yellow Sapphire. On the left: the raw unmounted gemstone inspected in jeweller's tweezers. On the right: the finished heirloom signet ring forged in 22K yellow gold.
+          </p>
+          <p style="font-size: var(--text-sm); color: var(--color-gold-champagne); font-style: italic; margin-bottom: var(--space-6);">
+            Drag the interactive slider across the image to explore the craft.
+          </p>
+          <div style="border-left: 2px solid var(--color-gold-champagne); padding-left: var(--space-4);">
+            <p style="font-size: var(--text-xs); color: var(--color-text-muted); line-height: 1.6;">
+              “We never treat fine gemstones as mere commodities. Each stone has its own axis, light reflection, and spirit. The gold setting must honor the stone, never overwhelm it.”
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <div class="slider-comparison-box">
+            <img src="/images/pukhraj-hero.jpg" alt="Finished 22K Ceylon Yellow Sapphire Ring">
+            
+            <div id="transformation-overlay" class="slider-overlay-wrap">
+              <img src="/images/loose-sapphire.jpg" alt="Loose unmounted Ceylon Yellow Sapphire in tweezers">
+            </div>
+
+            <input type="range" min="0" max="100" value="50" id="transformation-slider" class="slider-range-input" aria-label="Compare loose stone to finished ring">
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-2);">
+            <span>&larr; Loose Earth-Mined Stone</span>
+            <span>Finished 22K Heirloom &rarr;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bespoke Consultation Form Section -->
+  <section style="padding: var(--space-16) 0; background-color: #0B0D12; border-top: 1px solid var(--color-border-hairline);">
+    <div class="container container-narrow">
+      <div class="section-header">
+        <span class="section-eyebrow">Start Your Commission</span>
+        <h2 class="section-title">Bespoke Design Inquiry</h2>
+        <p class="section-subtitle">
+          Share your preferences below. Our master jeweller will review your requirements and coordinate a private consultation.
+        </p>
+      </div>
+
+      <form id="bespoke-consultation-form" style="background-color: #12151C; border: 1px solid var(--color-border-subtle); padding: var(--space-8); border-radius: var(--radius-xs);">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+          <div class="form-group">
+            <label class="form-label" for="bespoke-name">Your Full Name</label>
+            <input type="text" id="bespoke-name" name="name" class="form-control" required placeholder="e.g. Vikramaditya Singh">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="bespoke-phone">Phone / WhatsApp Number</label>
+            <input type="tel" id="bespoke-phone" name="phone" class="form-control" required placeholder="e.g. +91 98765 43210">
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-top: var(--space-4);">
+          <div class="form-group">
+            <label class="form-label" for="bespoke-type">Jewellery Type</label>
+            <select id="bespoke-type" name="itemType" class="form-control">
+              <option value="solitaire-ring">Solitaire or Gemstone Ring</option>
+              <option value="pendant">Bespoke Pendant / Necklace</option>
+              <option value="earrings">Earrings / Huggies</option>
+              <option value="bangle-bracelet">Cuff, Bangle, or Bracelet</option>
+              <option value="mens-jewellery">Men's Signet or Kada</option>
+              <option value="heirloom-reset">Resetting an Existing Family Gem</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="bespoke-metal">Preferred Metal & Karat</label>
+            <select id="bespoke-metal" name="metal" class="form-control">
+              <option value="22k-gold">22K Yellow Gold (916 BIS Hallmarked)</option>
+              <option value="18k-yellow-gold">18K Yellow Gold</option>
+              <option value="18k-white-gold">18K White Gold / Platinum</option>
+              <option value="14k-gold">14K Gold (Everyday Wear)</option>
+              <option value="925-silver">925 Solid Sterling Silver</option>
+              <option value="guidance-needed">Open to Jeweller's Recommendation</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-top: var(--space-4);">
+          <div class="form-group">
+            <label class="form-label" for="bespoke-gemstone">Gemstone Preference</label>
+            <select id="bespoke-gemstone" name="gemstone" class="form-control">
+              <option value="yellow-sapphire">Yellow Sapphire / Pukhraj</option>
+              <option value="blue-sapphire">Blue Sapphire / Neelam</option>
+              <option value="emerald">Natural Emerald / Panna</option>
+              <option value="ruby">Natural Ruby / Manik</option>
+              <option value="kyanite">Blue Kyanite (Accessible Alternative)</option>
+              <option value="natural-diamond">Natural Earth-Mined Diamond</option>
+              <option value="client-supplied">Supplying My Own Gemstone</option>
+              <option value="metal-only">Pure Metal / No Stone</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="bespoke-budget">Considered Budget Range</label>
+            <select id="bespoke-budget" name="budget" class="form-control">
+              <option value="under-50k">Accessible (Under ₹50,000)</option>
+              <option value="50k-150k">₹50,000 – ₹1,50,000</option>
+              <option value="150k-350k">₹1,50,000 – ₹3,50,000</option>
+              <option value="350k-plus">₹3,50,000+ (Rare Gemstone Curations)</option>
+              <option value="flexible">Flexible / Value-Led Guidance</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: var(--space-4);">
+          <label class="form-label" for="bespoke-message">Describe Your Occasion or Design Details</label>
+          <textarea id="bespoke-message" name="message" class="form-control" placeholder="Mention preferred setting style (e.g. signet, bezel, knife-edge), finger size, special dates, or questions..."></textarea>
+        </div>
+
+        <p class="form-disclaimer" style="margin: var(--space-4) 0;">
+          <strong>Consultation Note:</strong> We craft each custom piece with honest material pricing and verifiable certifications. Our consultations are designed to help you understand your options transparently.
+        </p>
+
+        <div style="display: flex; gap: var(--space-4); margin-top: var(--space-6);">
+          <button type="submit" class="btn btn-gold btn-lg" style="flex: 1;">
+            Submit Bespoke Commission Inquiry
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer with Staff Portal Link -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <span class="footer-brand-title">Gulshan Jewellers</span>
+          <span class="footer-brand-sub">Est. 1950 · Years of Crafting Legacies</span>
+          <p class="footer-brand-bio">
+            From fine gold and diamonds to certified gemstones and sterling silver, every piece begins with careful selection, considered craftsmanship, and an honest conversation.
+          </p>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="collections.html">Collections</a></li>
+            <li><a href="gemstone-guide.html">Gemstone Guide</a></li>
+            <li><a href="bespoke.html">Bespoke Creation</a></li>
+            <li><a href="about.html">Our Ethos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Direct Connect</h4>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">WhatsApp Consultation</a></li>
+            <li><a href="mailto:consult@gulshanjewellers.com">consult@gulshanjewellers.com</a></li>
+            <li><a href="contact.html">Book Private Appointment</a></li>
+            <li><a href="admin.html" style="color: var(--color-gold-champagne); font-size: 0.75rem;">&#9881; Staff Catalogue CMS</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">Atelier Hours</h4>
+          <p style="font-size: var(--text-sm); color: var(--color-text-secondary); line-height: 1.6;">
+            Monday to Saturday<br>11:00 AM &ndash; 7:30 PM IST
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 1950&ndash;2026 Gulshan Jewellers. All rights reserved.</span>
+        <span>Years of Crafting Legacies</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/js/bespoke.js"></script>
+</body>
+</html>

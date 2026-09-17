@@ -1,0 +1,35 @@
+{
+  "brand": {
+    "name": "Gulshan Jewellers",
+    "established": "1950",
+    "tagline": "Years of Crafting Legacies",
+    "heroTitle": "Jewellery with a story worth wearing.",
+    "heroSubtitle": "Fine gold, natural diamonds, rare gemstones and sterling silver—crafted with care, guided by authenticity.",
+    "aboutShort": "Since 1950, Gulshan Jewellers has believed that jewellery should hold more than value—it should hold meaning. From fine gold and diamonds to naturally beautiful gemstones and sterling silver, every piece begins with careful selection, considered craftsmanship, and an honest conversation.",
+    "disclaimer": "Gemstone traditions and astrological preferences are personal. Our consultation is designed to help you understand the stone, its quality, and your setting options; it does not guarantee outcomes."
+  },
+  "contact": {
+    "whatsappNumber": "+919876543210",
+    "whatsappDisplay": "+91 98765 43210 (Boutique Consultation)",
+    "instagramHandle": "gulshanjewellers1950",
+    "instagramUrl": "https://instagram.com/gulshanjewellers1950",
+    "email": "consult@gulshanjewellers.com",
+    "consultationHours": "Monday to Saturday · 11:00 AM – 7:30 PM IST"
+  },
+  "placeholders": {
+    "boutiqueAddress": "Boutique Location available on private appointment [CMS Placeholder: Update with official address]",
+    "shippingPolicy": "Insured delivery & personalized handover across India [CMS Placeholder: Client to supply official policy]",
+    "returnPolicy": "Custom and certified fine gemstone orders crafted upon consultation [CMS Placeholder: Client to supply official policy]",
+    "certificationPartners": "Independent gemological laboratory certificates (e.g. IIGJ or equivalent reputed testing labs available per stone upon request)"
+  },
+  "navigation": [
+    { "label": "Natural Gemstones", "href": "collections.html?category=gemstones" },
+    { "label": "Diamonds", "href": "collections.html?category=diamonds" },
+    { "label": "Fine Gold", "href": "collections.html?category=gold" },
+    { "label": "Sterling Silver", "href": "collections.html?category=silver" },
+    { "label": "Gemstone Guide", "href": "gemstone-guide.html" },
+    { "label": "Bespoke Creation", "href": "bespoke.html" },
+    { "label": "Our Ethos", "href": "about.html" },
+    { "label": "Consultation", "href": "contact.html" }
+  ]
+}

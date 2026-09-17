@@ -1,0 +1,171 @@
+/* ==========================================================================
+   STAFF CMS & CATALOGUE MANAGEMENT PORTAL STYLING
+   Gulshan Jewellers | Est. 1950
+   ========================================================================== */
+
+.admin-header {
+  background-color: #060709;
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding: var(--space-4) 0;
+}
+
+.admin-header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-badge {
+  background-color: rgba(200, 169, 126, 0.15);
+  color: var(--color-gold-champagne);
+  border: 1px solid rgba(200, 169, 126, 0.4);
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius-xs);
+  margin-left: var(--space-3);
+}
+
+.admin-main {
+  padding: var(--space-8) 0 var(--space-16);
+}
+
+.admin-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.admin-stat-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-hairline);
+  padding: var(--space-5);
+  border-radius: var(--radius-xs);
+}
+
+.admin-stat-num {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--color-gold-champagne);
+  line-height: 1;
+}
+
+.admin-stat-label {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+.admin-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-hairline);
+  padding: var(--space-4);
+  border-radius: var(--radius-xs);
+  margin-bottom: var(--space-6);
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.admin-table-wrap {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-hairline);
+  border-radius: var(--radius-xs);
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-xs);
+}
+
+.admin-table th,
+.admin-table td {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border-hairline);
+}
+
+.admin-table th {
+  background-color: #090B0E;
+  color: var(--color-gold-champagne);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.admin-table td {
+  color: var(--color-ivory-soft);
+}
+
+.admin-table tr:hover td {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.admin-table-thumb {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: var(--radius-xs);
+}
+
+.admin-edit-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-bg-overlay);
+  backdrop-filter: blur(12px);
+  z-index: 1500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+}
+
+.admin-edit-modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.admin-edit-modal {
+  width: 100%;
+  max-width: 760px;
+  background-color: #0E1016;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-hover);
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+.admin-edit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--color-border-hairline);
+}
+
+.admin-edit-body {
+  padding: var(--space-6);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+@media (max-width: 768px) {
+  .admin-stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

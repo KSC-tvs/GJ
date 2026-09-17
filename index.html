@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gulshan Jewellers | Est. 1950 · Years of Crafting Legacies</title>
+  <meta name="description" content="Intimate, gem-focused Indian fine-jewellery house offering fine gold, natural diamonds, certified untreated gemstones, and handcrafted sterling silver. Bespoke consultations since 1950.">
+  
+  <link rel="stylesheet" href="/src/css/tokens.css">
+  <link rel="stylesheet" href="/src/css/base.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+  <link rel="stylesheet" href="/src/css/pages.css">
+  <link rel="stylesheet" href="/src/css/animations.css">
+
+  <meta name="theme-color" content="#0B0C0E">
+
+  <!-- JSON-LD LocalBusiness & JewelryStore Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "JewelryStore",
+    "name": "Gulshan Jewellers",
+    "description": "Indian fine-jewellery house offering fine gold, natural diamonds, rare untreated gemstones, and sterling silver. Established 1950.",
+    "foundingDate": "1950",
+    "slogan": "Years of Crafting Legacies",
+    "currenciesAccepted": "INR, USD, AED, GBP, EUR",
+    "paymentAccepted": "Consultation & Direct Invoice",
+    "priceRange": "$$$$",
+    "knowsAbout": ["Natural Yellow Sapphire", "Blue Sapphire", "Colombian Emerald", "Mozambique Ruby", "Blue Kyanite", "Hallmarked Gold", "Bespoke Jewellery"]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Top Announcement Bar with Currency Switcher -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div style="display: flex; align-items: center; gap: var(--space-4);">
+        <span>Est. 1950 · Certified Natural Gemstones & Hallmarked Gold</span>
+        <label style="display: inline-flex; align-items: center; gap: 4px; font-size: 0.68rem; text-transform: uppercase;">
+          <span style="color: var(--color-text-muted);">Currency:</span>
+          <select class="currency-selector" aria-label="Select Currency">
+            <option value="INR">INR (₹)</option>
+            <option value="USD">USD ($)</option>
+            <option value="AED">AED (د.إ)</option>
+            <option value="GBP">GBP (£)</option>
+            <option value="EUR">EUR (€)</option>
+          </select>
+        </label>
+      </div>
+      <div class="top-bar-links">
+        <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">
+          WhatsApp: +91 98765 43210
+        </a>
+        <a href="contact.html">Book Consultation</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Site Header with Megamenu, Search Trigger & Tray -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Gulshan Jewellers Home">
+        <span class="brand-name">Gulshan Jewellers</span>
+        <span class="brand-subline">Est. 1950 · Years of Crafting Legacies</span>
+      </a>
+
+      <!-- Desktop Navigation with Megamenu -->
+      <nav class="main-nav" aria-label="Main Navigation">
+        <!-- Megamenu Item 1: Gemstones -->
+        <div class="nav-has-megamenu">
+          <a href="collections.html?category=gemstones" class="nav-link" aria-haspopup="true" aria-expanded="false">
+            Natural Gemstones <span style="font-size: 0.65rem;">&#9662;</span>
+          </a>
+          <div class="megamenu-dropdown">
+            <div>
+              <h4 class="megamenu-col-title">Precious Pillars</h4>
+              <div class="megamenu-links">
+                <a href="collections.html?gemstone=pukhraj">Yellow Sapphire (Pukhraj)</a>
+                <a href="collections.html?gemstone=neelam">Blue Sapphire (Neelam)</a>
+                <a href="collections.html?gemstone=emerald">Colombian Emerald (Panna)</a>
+                <a href="collections.html?gemstone=ruby">Mozambique Ruby (Manik)</a>
+              </div>
+            </div>
+            <div>
+              <h4 class="megamenu-col-title">Accessible Guidance</h4>
+              <div class="megamenu-links">
+                <a href="collections.html?gemstone=kyanite">Blue Kyanite (Saturn Alternative)</a>
+                <a href="gemstone-guide.html#guide-evaluation">6-Point Evaluation Guide</a>
+                <a href="gemstone-guide.html#guide-checklist">Buyer's Verification Checklist</a>
+                <a href="gemstone-guide.html">Carat vs Ratti Calculator</a>
+              </div>
+            </div>
+            <div>
+              <h4 class="megamenu-col-title">The Atelier Ethos</h4>
+              <p style="font-size: 0.75rem; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: var(--space-3);">
+                We strictly curate earth-mined gems with complete thermal treatment disclosure and independent lab certification.
+              </p>
+              <a href="gemstone-guide.html" class="btn btn-outline btn-sm" style="font-size: 0.65rem;">Read Gemstone Guide</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Megamenu Item 2: Fine Jewellery -->
+        <div class="nav-has-megamenu">
+          <a href="collections.html" class="nav-link" aria-haspopup="true" aria-expanded="false">
+            Fine Jewellery <span style="font-size: 0.65rem;">&#9662;</span>
+          </a>
+          <div class="megamenu-dropdown">
+            <div>
+              <h4 class="megamenu-col-title">By Discipline</h4>
+              <div class="megamenu-links">
+                <a href="collections.html?category=diamonds">Natural Diamonds</a>
+                <a href="collections.html?category=gold">22K & 18K Hallmarked Gold</a>
+                <a href="collections.html?category=silver">Handcrafted 925 Silver</a>
+                <a href="collections.html?occasion=daily">Everyday Signatures</a>
+              </div>
+            </div>
+            <div>
+              <h4 class="megamenu-col-title">Curated For</h4>
+              <div class="megamenu-links">
+                <a href="collections.html?occasion=daily">Everyday 14K Diamond Huggies</a>
+                <a href="collections.html?occasion=occasion">Handcrafted Solitaires</a>
+                <a href="collections.html?occasion=gifting">Men's Silver & Rakhi Keepsakes</a>
+                <a href="collections.html?occasion=gifting">Gifts For Her & For Him</a>
+              </div>
+            </div>
+            <div>
+              <h4 class="megamenu-col-title">Personal Service</h4>
+              <p style="font-size: 0.75rem; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: var(--space-3);">
+                All gold pieces carry verified BIS Hallmark stamps. Custom sizing and setting adjustments complimentary.
+              </p>
+              <a href="collections.html" class="btn btn-gold btn-sm" style="font-size: 0.65rem;">View Full Archive</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="gemstone-guide.html" class="nav-link">Gemstone Guide</a>
+        <a href="bespoke.html" class="nav-link">Bespoke Creation</a>
+        <a href="about.html" class="nav-link">Our Ethos</a>
+        <a href="contact.html" class="nav-link">Consultation</a>
+      </nav>
+
+      <!-- Header Action Utilities -->
+      <div class="header-actions">
+        <!-- Command Search Button -->
+        <button type="button" class="header-icon-btn" data-trigger-search aria-label="Search atelier catalogue">
+          <span>&#128269;</span>
+          <span style="display: none; @media(min-width: 768px){display: inline;}">Search</span>
+          <span class="header-search-kbd">⌘K</span>
+        </button>
+
+        <!-- Consultation Tray Button -->
+        <button type="button" class="header-icon-btn" data-trigger-tray aria-label="View curated consultation tray">
+          <span>Tray</span>
+          <span class="tray-counter-pill" style="display: none;">0</span>
+        </button>
+
+        <!-- Primary CTA -->
+        <button type="button" class="btn btn-gold btn-sm" data-trigger-consultation>
+          Private Consultation
+        </button>
+
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Flagship Hero -->
+  <section class="hero-section">
+    <div class="hero-bg-media">
+      <img src="/images/pukhraj-hero.jpg" alt="Untreated Ceylon Yellow Sapphire set in handcrafted 22K gold ring" loading="eager">
+    </div>
+    <div class="hero-gradient-overlay"></div>
+    <div class="container" style="position: relative; z-index: 3;">
+      <div class="hero-content">
+        <div class="hero-eyebrow">Gulshan Jewellers · Est. 1950</div>
+        <h1 class="hero-title">
+          Jewellery with a story <em>worth wearing.</em>
+        </h1>
+        <p class="hero-desc">
+          Fine gold, natural diamonds, rare gemstones and sterling silver—crafted with care, guided by authenticity.
+        </p>
+        <div class="hero-actions">
+          <a href="collections.html" class="btn btn-gold btn-lg">Explore the Collection</a>
+          <a href="gemstone-guide.html" class="btn btn-outline btn-lg">Find Your Gemstone</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Heritage Strip -->
+  <section class="heritage-strip" aria-label="Heritage attributes">
+    <div class="container heritage-strip-inner">
+      <div class="heritage-item">
+        <span>Est. 1950</span>
+      </div>
+      <div class="heritage-divider"></div>
+      <div class="heritage-item">
+        <span>Years of Crafting Legacies</span>
+      </div>
+      <div class="heritage-divider"></div>
+      <div class="heritage-item">
+        <span>100% Earth-Mined Natural Gemstones</span>
+      </div>
+      <div class="heritage-divider"></div>
+      <div class="heritage-item">
+        <span>BIS Hallmarked Gold</span>
+      </div>
+      <div class="heritage-divider"></div>
+      <div class="heritage-item">
+        <span>Treatment Transparency</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Four Category Entry Points -->
+  <section style="padding: var(--space-16) 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Pillars of the House</span>
+        <h2 class="section-title">Four Disciplines of Fine Jewellery</h2>
+        <p class="section-subtitle">
+          From certified earth-mined gemstones to daily diamond signatures and hand-sculpted silver.
+        </p>
+      </div>
+
+      <div class="category-grid-four">
+        <a href="collections.html?category=gemstones" class="category-card">
+          <img src="/images/neelam-sapphire.jpg" alt="Natural Gemstones Collection" class="category-card-bg" loading="lazy">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-content">
+            <span class="category-card-tag">Certified Natural</span>
+            <h3 class="category-card-title">Rare Gemstones</h3>
+          </div>
+        </a>
+
+        <a href="collections.html?category=diamonds" class="category-card">
+          <img src="/images/everyday-diamonds.jpg" alt="Fine Diamonds Collection" class="category-card-bg" loading="lazy">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-content">
+            <span class="category-card-tag">Earth-Mined Diamonds</span>
+            <h3 class="category-card-title">Diamonds</h3>
+          </div>
+        </a>
+
+        <a href="collections.html?category=gold" class="category-card">
+          <img src="/images/gold-solitaire.jpg" alt="Fine Gold Collection" class="category-card-bg" loading="lazy">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-content">
+            <span class="category-card-tag">22K & 18K Hallmarked</span>
+            <h3 class="category-card-title">Fine Gold</h3>
+          </div>
+        </a>
+
+        <a href="collections.html?category=silver" class="category-card">
+          <img src="/images/silver-bangle.jpg" alt="Sterling Silver Collection" class="category-card-bg" loading="lazy">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-content">
+            <span class="category-card-tag">Solid 925 Silver</span>
+            <h3 class="category-card-title">Sterling Silver</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Gemstone Edit -->
+  <section style="padding: var(--space-16) 0; background-color: #0E1015; border-top: 1px solid var(--color-border-hairline); border-bottom: 1px solid var(--color-border-hairline);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Signature Curations</span>
+        <h2 class="section-title">The Gemstone Edit</h2>
+        <p class="section-subtitle">
+          Natural untreated stones selected for crystalline clarity, astrological harmony, and lifetime craftsmanship.
+        </p>
+      </div>
+
+      <div class="gemstone-edit-grid">
+        <a href="gemstone-guide.html#guide-pukhraj" class="gem-card" style="--gem-accent: #D4AF37;">
+          <div class="gem-card-header">
+            <span class="gem-card-trad">Pukhraj</span>
+            <div class="gem-card-dot"></div>
+          </div>
+          <h3 class="gem-card-title">Yellow Sapphire</h3>
+          <span class="gem-card-planetary">Jupiter · Brihaspati</span>
+          <p class="gem-card-desc">Untreated Ceylon sapphires of canary brilliance, forged in solid 22K gold settings.</p>
+          <span class="gem-card-link">Explore Pukhraj Guide &rarr;</span>
+        </a>
+
+        <a href="gemstone-guide.html#guide-neelam" class="gem-card" style="--gem-accent: #24497D;">
+          <div class="gem-card-header">
+            <span class="gem-card-trad">Neelam</span>
+            <div class="gem-card-dot"></div>
+          </div>
+          <h3 class="gem-card-title">Blue Sapphire</h3>
+          <span class="gem-card-planetary">Saturn · Shani</span>
+          <p class="gem-card-desc">Deep velvety royal blue natural corundum with mesmerizing facet depth.</p>
+          <span class="gem-card-link">Explore Neelam Guide &rarr;</span>
+        </a>
+
+        <a href="gemstone-guide.html#guide-emerald" class="gem-card" style="--gem-accent: #1E5E3A;">
+          <div class="gem-card-header">
+            <span class="gem-card-trad">Panna</span>
+            <div class="gem-card-dot"></div>
+          </div>
+          <h3 class="gem-card-title">Emerald</h3>
+          <span class="gem-card-planetary">Mercury · Budha</span>
+          <p class="gem-card-desc">Luminous Colombian green beryl with natural jardin inclusions in tailored bezels.</p>
+          <span class="gem-card-link">Explore Emerald Guide &rarr;</span>
+        </a>
+
+        <a href="gemstone-guide.html#guide-ruby" class="gem-card" style="--gem-accent: #8C1D2F;">
+          <div class="gem-card-header">
+            <span class="gem-card-trad">Manik</span>
+            <div class="gem-card-dot"></div>
+          </div>
+          <h3 class="gem-card-title">Natural Ruby</h3>
+          <span class="gem-card-planetary">Sun · Surya</span>
+          <p class="gem-card-desc">Fiery crimson red natural corundum embodying vitality and regal legacy.</p>
+          <span class="gem-card-link">Explore Ruby Guide &rarr;</span>
+        </a>
+
+        <a href="gemstone-guide.html#guide-kyanite" class="gem-card" style="--gem-accent: #2C4D75;">
+          <div class="gem-card-header">
+            <span class="gem-card-trad">Accessible Alternative</span>
+            <div class="gem-card-dot"></div>
+          </div>
+          <h3 class="gem-card-title">Blue Kyanite</h3>
+          <span class="gem-card-planetary">Thoughtful Alternative for Saturn</span>
+          <p class="gem-card-desc">Natural pleochroic blue stone set in 925 sterling silver—making genuine resonance attainable.</p>
+          <span class="gem-card-link">Explore Alternative &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Pieces Showcase -->
+  <section style="padding: var(--space-16) 0;">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Heirloom Creations</span>
+        <h2 class="section-title">Considered Masterpieces</h2>
+        <p class="section-subtitle">
+          Handcrafted in limited batches with verifiable earth origin, hallmarked gold, and individual certificates.
+        </p>
+      </div>
+
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-card-media">
+            <a href="product.html?id=pukhraj-cushion-signet-22k">
+              <img src="/images/pukhraj-hero.jpg" alt="Ceylon Yellow Sapphire (Pukhraj) Signet Ring" loading="lazy">
+            </a>
+            <div class="product-badges">
+              <span class="badge badge-natural">Natural</span>
+              <span class="badge badge-cert">Untreated</span>
+              <span class="badge badge-hallmark">22K Hallmarked</span>
+            </div>
+          </div>
+          <div class="product-card-content">
+            <h3 class="product-card-title">
+              <a href="product.html?id=pukhraj-cushion-signet-22k">Ceylon Yellow Sapphire (Pukhraj) Signet Ring</a>
+            </h3>
+            <p class="product-card-desc">Untreated golden fire in solid hand-forged 22K gold—a timeless legacy of Jupiter.</p>
+            <div class="product-card-footer">
+              <span class="product-price">Price on Request</span>
+              <div style="display: flex; gap: var(--space-2);">
+                <button type="button" class="btn btn-outline btn-sm" onclick="GJ.store.addToTray({id:'pukhraj-cushion-signet-22k', title:'Ceylon Yellow Sapphire (Pukhraj) Signet Ring', priceDisplay:'Price on Request', image:'/images/pukhraj-hero.jpg', specs:{gemstoneType:'Yellow Sapphire', naturalStatus:'Natural Untreated', metalPurity:'22K Gold'}}); GJ.showToast('Added to Curated Tray');">
+                  + Tray
+                </button>
+                <a href="product.html?id=pukhraj-cushion-signet-22k" class="btn btn-gold btn-sm">View</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card-media">
+            <a href="product.html?id=neelam-royal-blue-baguette-18k">
+              <img src="/images/neelam-sapphire.jpg" alt="Royal Ceylon Blue Sapphire (Neelam) Solitaire Ring" loading="lazy">
+            </a>
+            <div class="product-badges">
+              <span class="badge badge-natural">Natural</span>
+              <span class="badge badge-cert">IIGJ-Certified Available</span>
+              <span class="badge badge-hallmark">18K White Gold</span>
+            </div>
+          </div>
+          <div class="product-card-content">
+            <h3 class="product-card-title">
+              <a href="product.html?id=neelam-royal-blue-baguette-18k">Royal Ceylon Blue Sapphire (Neelam) Ring</a>
+            </h3>
+            <p class="product-card-desc">A little blue, a lot of brilliance. Velvety royal corundum flanked by clean tapered diamonds.</p>
+            <div class="product-card-footer">
+              <span class="product-price">Price on Request</span>
+              <div style="display: flex; gap: var(--space-2);">
+                <button type="button" class="btn btn-outline btn-sm" onclick="GJ.store.addToTray({id:'neelam-royal-blue-baguette-18k', title:'Royal Ceylon Blue Sapphire (Neelam) Ring', priceDisplay:'Price on Request', image:'/images/neelam-sapphire.jpg', specs:{gemstoneType:'Blue Sapphire', naturalStatus:'Natural Unheated', metalPurity:'18K White Gold'}}); GJ.showToast('Added to Curated Tray');">
+                  + Tray
+                </button>
+                <a href="product.html?id=neelam-royal-blue-baguette-18k" class="btn btn-gold btn-sm">View</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card-media">
+            <a href="product.html?id=emerald-colombian-bezel-pendant">
+              <img src="/images/emerald-pendant.jpg" alt="Natural Colombian Emerald (Panna) Bezel Pendant" loading="lazy">
+            </a>
+            <div class="product-badges">
+              <span class="badge badge-natural">Natural</span>
+              <span class="badge badge-cert">Cedarwood Oil Disclosed</span>
+              <span class="badge badge-hallmark">18K Hallmarked</span>
+            </div>
+          </div>
+          <div class="product-card-content">
+            <h3 class="product-card-title">
+              <a href="product.html?id=emerald-colombian-bezel-pendant">Natural Colombian Emerald Bezel Pendant</a>
+            </h3>
+            <p class="product-card-desc">Understated but unmistakable. Vivid green emerald glow embraced in a tailored 18K gold collar.</p>
+            <div class="product-card-footer">
+              <span class="product-price">Available on Enquiry</span>
+              <div style="display: flex; gap: var(--space-2);">
+                <button type="button" class="btn btn-outline btn-sm" onclick="GJ.store.addToTray({id:'emerald-colombian-bezel-pendant', title:'Natural Colombian Emerald Bezel Pendant', priceDisplay:'Available on Enquiry', image:'/images/emerald-pendant.jpg', specs:{gemstoneType:'Colombian Emerald', naturalStatus:'Natural', metalPurity:'18K Gold'}}); GJ.showToast('Added to Curated Tray');">
+                  + Tray
+                </button>
+                <a href="product.html?id=emerald-colombian-bezel-pendant" class="btn btn-gold btn-sm">View</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-card-media">
+            <a href="product.html?id=kyanite-artisan-silver-ring">
+              <img src="/images/kyanite-silver.jpg" alt="Natural Blue Kyanite Artisan Silver Ring" loading="lazy">
+            </a>
+            <div class="product-badges">
+              <span class="badge badge-natural">Natural</span>
+              <span class="badge badge-cert">Untreated Alternative</span>
+              <span class="badge badge-hallmark">925 Sterling</span>
+            </div>
+          </div>
+          <div class="product-card-content">
+            <h3 class="product-card-title">
+              <a href="product.html?id=kyanite-artisan-silver-ring">Natural Blue Kyanite Artisan Silver Ring</a>
+            </h3>
+            <p class="product-card-desc">Considered, authentic resonance. Natural pleochroic blue gemstone in hand-bezelled 925 silver.</p>
+            <div class="product-card-footer">
+              <span class="product-price">Available on Enquiry</span>
+              <div style="display: flex; gap: var(--space-2);">
+                <button type="button" class="btn btn-outline btn-sm" onclick="GJ.store.addToTray({id:'kyanite-artisan-silver-ring', title:'Natural Blue Kyanite Artisan Silver Ring', priceDisplay:'Available on Enquiry', image:'/images/kyanite-silver.jpg', specs:{gemstoneType:'Blue Kyanite', naturalStatus:'Natural Untreated', metalPurity:'925 Silver'}}); GJ.showToast('Added to Curated Tray');">
+                  + Tray
+                </button>
+                <a href="product.html?id=kyanite-artisan-silver-ring" class="btn btn-gold btn-sm">View</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div style="text-align: center; margin-top: var(--space-12);">
+        <a href="collections.html" class="btn btn-outline btn-lg">View Complete Catalogue</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Crafted Around You: Bespoke Journey Banner -->
+  <section class="container">
+    <div class="bespoke-split-banner">
+      <div class="bespoke-banner-media">
+        <img src="/images/bespoke-workshop.jpg" alt="Artisan goldsmith bench with loose yellow sapphire and hand-carved gold ring mount" loading="lazy">
+      </div>
+      <div class="bespoke-banner-content">
+        <span class="section-eyebrow">Bespoke Creations</span>
+        <h2 class="section-title">A Piece That Begins With You</h2>
+        <p style="font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.7;">
+          At Gulshan Jewellers, bespoke creation is not an exclusive privilege—it is an intimate dialogue. Whether you are transforming a loose astrologically selected sapphire into an heirloom ring or designing a minimalist diamond pendant around a specific budget, every step is guided by master craftsmen.
+        </p>
+
+        <div class="bespoke-steps-mini">
+          <div class="bespoke-step-mini-item">
+            <span class="bespoke-step-num">01</span>
+            <span class="bespoke-step-name">Share Your Idea</span>
+            <span class="bespoke-step-text">Occasion, gemstone or budget.</span>
+          </div>
+          <div class="bespoke-step-mini-item">
+            <span class="bespoke-step-num">02</span>
+            <span class="bespoke-step-name">Stone Selection</span>
+            <span class="bespoke-step-text">Certified loose stone guidance.</span>
+          </div>
+          <div class="bespoke-step-mini-item">
+            <span class="bespoke-step-num">03</span>
+            <span class="bespoke-step-name">Approve Design</span>
+            <span class="bespoke-step-text">Metal setting & wax model.</span>
+          </div>
+          <div class="bespoke-step-mini-item">
+            <span class="bespoke-step-num">04</span>
+            <span class="bespoke-step-name">Heirloom Finish</span>
+            <span class="bespoke-step-text">Crafted for a lifetime of wear.</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+          <a href="bespoke.html" class="btn btn-gold">Explore Bespoke Journey</a>
+          <button type="button" class="btn btn-outline" data-trigger-consultation>Start Private Consultation</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Know What You Wear: Education Grid -->
+  <section style="padding: var(--space-16) 0; background-color: #07080B; border-top: 1px solid var(--color-border-hairline);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Ethos of Transparency</span>
+        <h2 class="section-title">Know What You Wear</h2>
+        <p class="section-subtitle">
+          Don't only ask how many carats. Ask whether it is natural, whether it has been treated, and whether independent certification is available.
+        </p>
+      </div>
+
+      <div class="education-four-grid">
+        <div class="edu-box">
+          <div class="edu-box-icon">&#9672;</div>
+          <h3 class="edu-box-title">Natural vs Lab-Grown</h3>
+          <p class="edu-box-text">
+            We clearly distinguish earth-mined gems from synthetic lab stones. Every natural stone was formed over millions of years inside the earth.
+          </p>
+        </div>
+
+        <div class="edu-box">
+          <div class="edu-box-icon">&#9670;</div>
+          <h3 class="edu-box-title">Treatment Disclosure</h3>
+          <p class="edu-box-text">
+            Thermal heating, oiling, and glass-fillings dramatically alter value. We disclose all treatment statuses transparently before you decide.
+          </p>
+        </div>
+
+        <div class="edu-box">
+          <div class="edu-box-icon">&#9737;</div>
+          <h3 class="edu-box-title">Independent Certification</h3>
+          <p class="edu-box-text">
+            Every significant gemstone is paired with documentation from accredited testing laboratories (e.g. IIGJ or equivalent reputable labs).
+          </p>
+        </div>
+
+        <div class="edu-box">
+          <div class="edu-box-icon">&#10022;</div>
+          <h3 class="edu-box-title">Hallmarked Purity</h3>
+          <p class="edu-box-text">
+            22K, 18K, 14K gold pieces are BIS hallmarked with verified karat stamps. Sterling silver is guaranteed solid 925 alloy.
+          </p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: var(--space-10);">
+        <a href="gemstone-guide.html" class="btn btn-outline">Read the Complete Gemstone Guide</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Made to be Lived In: Daily Wear & Minimalist -->
+  <section style="padding: var(--space-16) 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center;">
+        <div>
+          <span class="section-eyebrow">Everyday Signatures</span>
+          <h2 class="section-title">Made to be Lived In</h2>
+          <p style="font-size: 1.1rem; font-family: var(--font-serif); font-style: italic; color: var(--color-gold-champagne); margin-bottom: var(--space-4);">
+            “Some jewellery waits for an occasion; these don't.”
+          </p>
+          <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: var(--space-6);">
+            Fine jewellery should not live in bank lockers. Our everyday collection brings earth-mined natural diamonds and solid hallmarked gold into daily life: 14K natural diamond huggie earrings engineered with smooth click-latches, and minimalist bezel-set pendants in 9K, 14K, and 18K gold crafted to sleep, shower, and live in.
+          </p>
+          <div style="display: flex; gap: var(--space-4);">
+            <a href="collections.html?category=diamonds" class="btn btn-gold">Explore Everyday Diamonds</a>
+            <a href="collections.html?category=silver" class="btn btn-outline">Explore Silver Signatures</a>
+          </div>
+        </div>
+        <div style="border: 1px solid var(--color-border-hairline); border-radius: var(--radius-xs); overflow: hidden;">
+          <img src="/images/everyday-diamonds.jpg" alt="14K Natural diamond huggies and bezel solitaire pendant on limestone" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- For Moments That Matter: Gifting -->
+  <section style="padding: var(--space-16) 0; background-color: #0B0D11; border-top: 1px solid var(--color-border-hairline);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">Thoughtful Offerings</span>
+        <h2 class="section-title">For Moments That Matter</h2>
+        <p class="section-subtitle">
+          Enduring gifts that outlive seasons: curated for her, for him, anniversaries, Raksha Bandhan, and personal milestones.
+        </p>
+      </div>
+
+      <div class="category-grid-four">
+        <a href="collections.html?category=diamonds" class="category-card" style="height: 320px;">
+          <img src="/images/everyday-diamonds.jpg" alt="Gifts For Her" class="category-card-bg" loading="lazy">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-content">
+            <span class="category-card-tag">Heirloom Elegance</span>
+            <h3 class="category-card-title">Gifts For Her</h3>
+          </div>
+        </a>
+
+        <a href="collections.html?category=silver" class="category-card" style="height: 320px;">
+          <img src="/images/silver-bangle.jpg" alt="Men's Silver & Keepsakes" class="category-card-bg" loading="lazy">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-content">
+            <span class="category-card-tag">Solid 925 Silver</span>
+            <h3 class="category-card-title">Men's & Keepsakes</h3>
+          </div>
+        </a>
+
+        <a href="collections.html?category=gemstones" class="category-card" style="height: 320px;">
+          <img src="/images/emerald-pendant.jpg" alt="Anniversary & Milestones" class="category-card-bg" loading="lazy">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-content">
+            <span class="category-card-tag">Fine Gemstones</span>
+            <h3 class="category-card-title">Anniversary Stones</h3>
+          </div>
+        </a>
+
+        <a href="collections.html?category=silver" class="category-card" style="height: 320px;">
+          <img src="/images/silver-bangle.jpg" alt="Raksha Bandhan Keepsakes" class="category-card-bg" loading="lazy">
+          <div class="category-card-overlay"></div>
+          <div class="category-card-content">
+            <span class="category-card-tag">Lifelong Bonds</span>
+            <h3 class="category-card-title">Raksha Bandhan</h3>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Instagram-Style Editorial Reel Strip -->
+  <section style="padding: var(--space-16) 0; border-top: 1px solid var(--color-border-hairline);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-eyebrow">From Our Atelier</span>
+        <h2 class="section-title">The Instagram Journal</h2>
+        <p class="section-subtitle">
+          Intimate snapshots of raw gemstones, goldsmith benches, and finished heirlooms. Tap to enquire directly.
+        </p>
+      </div>
+
+      <div class="insta-reel-grid">
+        <div class="insta-reel-card">
+          <img src="/images/pukhraj-hero.jpg" alt="Ceylon Yellow Sapphire Signet" class="insta-reel-bg" loading="lazy">
+          <div class="insta-reel-overlay"></div>
+          <div class="insta-reel-top">
+            <span class="insta-reel-handle">@gulshanjewellers1950</span>
+            <span style="color: var(--color-gold-champagne); font-size: 0.8rem;">&#9658;</span>
+          </div>
+          <div class="insta-reel-bottom">
+            <p class="insta-reel-caption">
+              “Untreated 4.15 ct Ceylon yellow sapphire transformed into a 22K signet. A story you wear.”
+            </p>
+            <button type="button" class="insta-reel-cta" onclick="GJ.openEnquiryModal({title: 'Ceylon Yellow Sapphire (Pukhraj) Signet Ring', primaryCategory: 'gemstones', image: '/images/pukhraj-hero.jpg'})">
+              <span>DM &lsquo;PUKHRAJ&rsquo; &rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="insta-reel-card">
+          <img src="/images/neelam-sapphire.jpg" alt="Royal Ceylon Blue Sapphire Ring" class="insta-reel-bg" loading="lazy">
+          <div class="insta-reel-overlay"></div>
+          <div class="insta-reel-top">
+            <span class="insta-reel-handle">@gulshanjewellers1950</span>
+            <span style="color: var(--color-gold-champagne); font-size: 0.8rem;">&#9658;</span>
+          </div>
+          <div class="insta-reel-bottom">
+            <p class="insta-reel-caption">
+              “A little blue, a lot of brilliance. Natural royal corundum flanked by diamond baguettes.”
+            </p>
+            <button type="button" class="insta-reel-cta" onclick="GJ.openEnquiryModal({title: 'Royal Ceylon Blue Sapphire (Neelam) Solitaire Ring', primaryCategory: 'gemstones', image: '/images/neelam-sapphire.jpg'})">
+              <span>DM &lsquo;RING&rsquo; &rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="insta-reel-card">
+          <img src="/images/bespoke-workshop.jpg" alt="Loose Yellow Sapphire on Goldsmith Bench" class="insta-reel-bg" loading="lazy">
+          <div class="insta-reel-overlay"></div>
+          <div class="insta-reel-top">
+            <span class="insta-reel-handle">@gulshanjewellers1950</span>
+            <span style="color: var(--color-gold-champagne); font-size: 0.8rem;">&#9658;</span>
+          </div>
+          <div class="insta-reel-bottom">
+            <p class="insta-reel-caption">
+              “From workshop to your heart. Loose Ceylon cushion ready for hand-bezel setting.”
+            </p>
+            <button type="button" class="insta-reel-cta" onclick="GJ.openEnquiryModal({title: 'Loose Ceylon Sapphire Bespoke Project', primaryCategory: 'bespoke', image: '/images/bespoke-workshop.jpg'})">
+              <span>DM &lsquo;STONE&rsquo; &rarr;</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="insta-reel-card">
+          <img src="/images/kyanite-silver.jpg" alt="Blue Kyanite in 925 Silver" class="insta-reel-bg" loading="lazy">
+          <div class="insta-reel-overlay"></div>
+          <div class="insta-reel-top">
+            <span class="insta-reel-handle">@gulshanjewellers1950</span>
+            <span style="color: var(--color-gold-champagne); font-size: 0.8rem;">&#9658;</span>
+          </div>
+          <div class="insta-reel-bottom">
+            <p class="insta-reel-caption">
+              “Understated but unmistakable. Natural Blue Kyanite in 925 silver—authentic guidance for every budget.”
+            </p>
+            <button type="button" class="insta-reel-cta" onclick="GJ.openEnquiryModal({title: 'Natural Blue Kyanite Artisan Silver Ring', primaryCategory: 'silver', image: '/images/kyanite-silver.jpg'})">
+              <span>DM &lsquo;KYANITE&rsquo; &rarr;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Module -->
+  <section style="padding: var(--space-16) 0; background-color: #0A0B0E; border-top: 1px solid var(--color-border-hairline);">
+    <div class="container">
+      <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+        <span class="section-eyebrow">Our Credo</span>
+        <h2 class="section-title">Authenticity, Disclosed.</h2>
+        <p style="font-size: 1.05rem; color: var(--color-text-secondary); line-height: 1.8; margin-bottom: var(--space-8);">
+          We believe fine jewellery should never depend on blind trust. Every gemstone we present is accompanied by clear disclosure of natural earth origin, any thermal or clarity enhancement, and independent gemological laboratory certification. Gold is hallmarked to verified BIS standards, and bespoke creations are priced with complete material transparency.
+        </p>
+        <div style="display: flex; justify-content: center; gap: var(--space-4); flex-wrap: wrap;">
+          <a href="about.html" class="btn btn-outline">Read Our Heritage Story</a>
+          <a href="gemstone-guide.html" class="btn btn-gold">Gemstone Evaluation Guide</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final Consultation Callout -->
+  <section style="padding: var(--space-16) 0; background: radial-gradient(circle at 50% 50%, #171B24 0%, #0B0C0E 80%); text-align: center; border-top: 1px solid var(--color-border-hairline);">
+    <div class="container">
+      <h2 style="font-size: clamp(2rem, 3.5vw, 3rem); color: var(--color-ivory); margin-bottom: var(--space-3);">
+        Looking for something personal?
+      </h2>
+      <p style="font-size: 1.1rem; color: var(--color-text-secondary); max-width: 600px; margin: 0 auto var(--space-8);">
+        Whether you are seeking astrological gemstone guidance, a bespoke engagement creation, or everyday gold signatures—our specialists are here to guide you.
+      </p>
+      <button type="button" class="btn btn-gold btn-lg" data-trigger-consultation>
+        Start a Private Consultation
+      </button>
+    </div>
+  </section>
+
+  <!-- Persistent Mobile Action Bar -->
+  <aside class="mobile-action-bar" aria-label="Quick Mobile Actions">
+    <div class="mobile-action-bar-inner">
+      <button type="button" class="btn btn-outline btn-sm" data-trigger-consultation>
+        Enquire Now
+      </button>
+      <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">
+        WhatsApp
+      </a>
+    </div>
+  </aside>
+
+  <!-- Site Footer with Staff Portal Link -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <span class="footer-brand-title">Gulshan Jewellers</span>
+          <span class="footer-brand-sub">Est. 1950 · Years of Crafting Legacies</span>
+          <p class="footer-brand-bio">
+            Since 1950, Gulshan Jewellers has believed that jewellery should hold more than value—it should hold meaning. From fine gold and diamonds to naturally beautiful gemstones and sterling silver, every piece begins with careful selection, considered craftsmanship, and an honest conversation.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Collections</h4>
+          <ul class="footer-links">
+            <li><a href="collections.html?category=gemstones">Natural Gemstones</a></li>
+            <li><a href="collections.html?category=diamonds">Fine Diamonds</a></li>
+            <li><a href="collections.html?category=gold">Hallmarked Gold</a></li>
+            <li><a href="collections.html?category=silver">Sterling Silver</a></li>
+            <li><a href="collections.html?occasion=daily">Everyday Fine Jewellery</a></li>
+            <li><a href="collections.html?occasion=gifting">Meaningful Gifting</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Consultation & Guide</h4>
+          <ul class="footer-links">
+            <li><a href="gemstone-guide.html">Gemstone Guide</a></li>
+            <li><a href="gemstone-guide.html#guide-pukhraj">Yellow Sapphire (Pukhraj)</a></li>
+            <li><a href="gemstone-guide.html#guide-neelam">Blue Sapphire (Neelam)</a></li>
+            <li><a href="gemstone-guide.html#guide-kyanite">Kyanite Alternative</a></li>
+            <li><a href="bespoke.html">Bespoke Creation</a></li>
+            <li><a href="contact.html">Book Appointment</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Direct Consultation</h4>
+          <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-3);">
+            Monday to Saturday · 11:00 AM – 7:30 PM IST
+          </p>
+          <ul class="footer-links">
+            <li><a href="tel:+919876543210">+91 98765 43210</a></li>
+            <li><a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">WhatsApp Direct</a></li>
+            <li><a href="https://instagram.com/gulshanjewellers1950" target="_blank" rel="noopener noreferrer">@gulshanjewellers1950</a></li>
+            <li><a href="mailto:consult@gulshanjewellers.com">consult@gulshanjewellers.com</a></li>
+            <li><a href="admin.html" style="color: var(--color-gold-champagne); font-size: 0.75rem;">&#9881; Staff Catalogue CMS</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer-box">
+        <p style="margin-bottom: var(--space-2);">
+          <strong>Gemstone & Astrological Advisory Note:</strong> Gemstone traditions and astrological preferences are personal. Our consultation is designed to help you understand the stone, its quality, and your setting options; it does not guarantee outcomes.
+        </p>
+        <p>
+          <strong>Boutique & Compliance Placeholders:</strong> Boutique visits available on private appointment. Independent gemological laboratory certificates (e.g. IIGJ or equivalent reputed testing labs) available per stone upon request. Insured delivery and personalized handover across India.
+        </p>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 1950&ndash;2026 Gulshan Jewellers. All rights reserved.</span>
+        <span>Years of Crafting Legacies</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

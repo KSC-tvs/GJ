@@ -1,0 +1,901 @@
+/* ==========================================================================
+   PAGE SPECIFIC LAYOUTS
+   Gulshan Jewellers | Est. 1950
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. HOMEPAGE: Hero Section
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #08090C;
+  border-bottom: 1px solid var(--color-border-hairline);
+}
+
+.hero-bg-media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-bg-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center right;
+  opacity: 0.35;
+  filter: saturate(1.1) brightness(0.9);
+  transform: scale(1.03);
+  transition: transform 12s ease-out;
+}
+
+.hero-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(
+    90deg,
+    rgba(11, 12, 14, 0.98) 0%,
+    rgba(11, 12, 14, 0.85) 45%,
+    rgba(11, 12, 14, 0.4) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 680px;
+  padding: var(--space-16) 0;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold-champagne);
+  margin-bottom: var(--space-4);
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background-color: var(--color-gold-champagne);
+}
+
+.hero-title {
+  margin-bottom: var(--space-6);
+  color: var(--color-ivory);
+}
+
+.hero-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--color-ivory-soft);
+}
+
+.hero-desc {
+  font-size: var(--text-lg);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-8);
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   Heritage Strip
+   -------------------------------------------------------------------------- */
+.heritage-strip {
+  background-color: #07080A;
+  border-bottom: 1px solid var(--color-border-hairline);
+  padding: var(--space-6) 0;
+  text-align: center;
+}
+
+.heritage-strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.heritage-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-ivory-soft);
+}
+
+.heritage-divider {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-gold-champagne);
+  opacity: 0.6;
+}
+
+/* --------------------------------------------------------------------------
+   Four Category Entry Points
+   -------------------------------------------------------------------------- */
+.category-grid-four {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.category-card {
+  position: relative;
+  height: 380px;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  border: 1px solid var(--color-border-hairline);
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-6);
+  text-decoration: none;
+}
+
+.category-card-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+  filter: brightness(0.85);
+}
+
+.category-card:hover .category-card-bg {
+  transform: scale(1.08);
+}
+
+.category-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 12, 14, 0.1) 0%,
+    rgba(11, 12, 14, 0.6) 60%,
+    rgba(11, 12, 14, 0.95) 100%
+  );
+  transition: opacity var(--transition-smooth);
+}
+
+.category-card-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.category-card-tag {
+  font-size: var(--text-xs);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-gold-champagne);
+  margin-bottom: var(--space-1);
+  display: block;
+}
+
+.category-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--color-ivory);
+  line-height: 1.2;
+}
+
+/* --------------------------------------------------------------------------
+   The Gemstone Edit
+   -------------------------------------------------------------------------- */
+.gemstone-edit-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.gem-card {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-hairline);
+  border-radius: var(--radius-xs);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-smooth), border-color var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.gem-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--gem-accent, var(--color-gold-champagne));
+  opacity: 0.8;
+}
+
+.gem-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-subtle);
+}
+
+.gem-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.gem-card-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--gem-accent, var(--color-gold-champagne));
+  box-shadow: 0 0 12px var(--gem-accent, var(--color-gold-champagne));
+}
+
+.gem-card-trad {
+  font-size: var(--text-xs);
+  color: var(--color-gold-champagne);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.gem-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--color-ivory);
+  margin-bottom: var(--space-2);
+}
+
+.gem-card-planetary {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-3);
+}
+
+.gem-card-desc {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  flex-grow: 1;
+  margin-bottom: var(--space-4);
+}
+
+.gem-card-link {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold-champagne);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   Crafted Around You: Bespoke Feature Banner
+   -------------------------------------------------------------------------- */
+.bespoke-split-banner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+  background-color: #0E1015;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  margin: var(--space-16) 0;
+}
+
+.bespoke-banner-media {
+  position: relative;
+  height: 100%;
+  min-height: 480px;
+}
+
+.bespoke-banner-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bespoke-banner-content {
+  padding: var(--space-12);
+}
+
+.bespoke-steps-mini {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin: var(--space-8) 0;
+}
+
+.bespoke-step-mini-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.bespoke-step-num {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--color-gold-champagne);
+}
+
+.bespoke-step-name {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-ivory);
+}
+
+.bespoke-step-text {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   Know What You Wear: Education Grid
+   -------------------------------------------------------------------------- */
+.education-four-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+.edu-box {
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border-hairline);
+  padding: var(--space-6);
+  border-radius: var(--radius-xs);
+}
+
+.edu-box-icon {
+  font-size: 1.75rem;
+  color: var(--color-gold-champagne);
+  margin-bottom: var(--space-4);
+}
+
+.edu-box-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-ivory);
+  margin-bottom: var(--space-2);
+}
+
+.edu-box-text {
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   Instagram Editorial Reel Strip
+   -------------------------------------------------------------------------- */
+.insta-reel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+.insta-reel-card {
+  position: relative;
+  height: 420px;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  border: 1px solid var(--color-border-hairline);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-5);
+  background-color: #0A0B0E;
+}
+
+.insta-reel-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.insta-reel-card:hover .insta-reel-bg {
+  transform: scale(1.05);
+}
+
+.insta-reel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(11, 12, 14, 0.4) 0%,
+    rgba(11, 12, 14, 0.1) 40%,
+    rgba(11, 12, 14, 0.95) 100%
+  );
+}
+
+.insta-reel-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.insta-reel-handle {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ivory-soft);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2px 8px;
+  border-radius: var(--radius-xs);
+  backdrop-filter: blur(4px);
+}
+
+.insta-reel-bottom {
+  position: relative;
+  z-index: 2;
+}
+
+.insta-reel-caption {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--color-ivory);
+  line-height: 1.3;
+  margin-bottom: var(--space-3);
+}
+
+.insta-reel-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold-champagne);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.insta-reel-cta:hover {
+  color: var(--color-gold-hover);
+}
+
+/* --------------------------------------------------------------------------
+   2. COLLECTIONS PAGE LAYOUT
+   -------------------------------------------------------------------------- */
+.collection-header-banner {
+  padding: var(--space-16) 0 var(--space-8);
+  border-bottom: 1px solid var(--color-border-hairline);
+  background: radial-gradient(circle at 50% 0%, #151922 0%, var(--color-bg-deep) 70%);
+  text-align: center;
+}
+
+.collection-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: var(--space-8);
+  padding: var(--space-8) 0 var(--space-16);
+}
+
+.filter-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.filter-group {
+  border-bottom: 1px solid var(--color-border-hairline);
+  padding-bottom: var(--space-5);
+}
+
+.filter-group-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--color-ivory);
+  margin-bottom: var(--space-3);
+}
+
+.filter-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.filter-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+}
+
+.filter-checkbox-label input {
+  accent-color: var(--color-gold-champagne);
+}
+
+.collection-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border-hairline);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.collection-sort-select {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-hairline);
+  color: var(--color-ivory);
+  padding: 0.4rem 0.8rem;
+  font-size: var(--text-xs);
+  border-radius: var(--radius-xs);
+}
+
+/* --------------------------------------------------------------------------
+   3. PRODUCT DETAIL PAGE LAYOUT
+   -------------------------------------------------------------------------- */
+.pdp-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-12);
+  padding: var(--space-12) 0 var(--space-24);
+}
+
+.pdp-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  position: sticky;
+  top: 100px;
+}
+
+.pdp-main-image-wrap {
+  position: relative;
+  width: 100%;
+  padding-top: 85%;
+  background-color: #070809;
+  border: 1px solid var(--color-border-hairline);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  cursor: crosshair;
+}
+
+.pdp-main-image-wrap img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease-out;
+}
+
+.pdp-thumbs-row {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.pdp-thumb {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border-hairline);
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: all var(--transition-fast);
+}
+
+.pdp-thumb.active,
+.pdp-thumb:hover {
+  opacity: 1;
+  border-color: var(--color-gold-champagne);
+}
+
+.pdp-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pdp-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.pdp-header {
+  border-bottom: 1px solid var(--color-border-hairline);
+  padding-bottom: var(--space-6);
+}
+
+.pdp-title {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+  margin-bottom: var(--space-2);
+}
+
+.pdp-poetic {
+  font-size: var(--text-md);
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--color-gold-champagne);
+  margin-bottom: var(--space-4);
+}
+
+.pdp-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+}
+
+.pdp-price {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  color: var(--color-ivory);
+}
+
+.pdp-cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.transparency-callout-box {
+  background-color: rgba(200, 169, 126, 0.05);
+  border: 1px solid var(--color-border-subtle);
+  padding: var(--space-5);
+  border-radius: var(--radius-xs);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.transparency-callout-title {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gold-champagne);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.transparency-callout-text {
+  font-size: var(--text-xs);
+  color: var(--color-ivory-soft);
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   4. GEMSTONE GUIDE LAYOUT
+   -------------------------------------------------------------------------- */
+.guide-nav-bar {
+  position: sticky;
+  top: var(--header-height);
+  z-index: 40;
+  background-color: rgba(11, 12, 14, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border-hairline);
+  padding: var(--space-3) 0;
+}
+
+.guide-nav-links {
+  display: flex;
+  gap: var(--space-6);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.guide-nav-item {
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  padding: var(--space-2) 0;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.guide-nav-item:hover,
+.guide-nav-item.active {
+  color: var(--color-gold-champagne);
+  border-bottom-color: var(--color-gold-champagne);
+}
+
+.guide-gem-profile {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-12);
+  align-items: center;
+  padding: var(--space-16) 0;
+  border-bottom: 1px solid var(--color-border-hairline);
+}
+
+.guide-gem-media {
+  position: relative;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+}
+
+.guide-quote-banner {
+  background: #111318;
+  border-left: 3px solid var(--color-gold-champagne);
+  padding: var(--space-6);
+  margin: var(--space-6) 0;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-style: italic;
+  color: var(--color-ivory);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Rules for Page Layouts
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .category-grid-four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gemstone-edit-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .education-four-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .insta-reel-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bespoke-split-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .pdp-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-gem-profile {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+
+  .collection-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-sidebar:not(.mobile-open) {
+    display: none;
+  }
+
+  .filter-sidebar.mobile-open {
+    display: flex !important;
+  }
+
+  .category-grid-four {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .gemstone-edit-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .education-four-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .insta-reel-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .bespoke-steps-mini {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  /* Product Detail Page Mobile Adjustments */
+  .pdp-grid {
+    padding: var(--space-4) 0 var(--space-12);
+    gap: var(--space-6);
+  }
+
+  .pdp-gallery {
+    position: static;
+    top: auto;
+  }
+
+  .pdp-thumb {
+    width: 62px;
+    height: 62px;
+  }
+
+  .pdp-title {
+    font-size: 1.75rem;
+  }
+
+  .pdp-price {
+    font-size: 1.45rem;
+  }
+
+  .pdp-cta-group > div {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-2);
+  }
+
+  /* Bespoke Mobile Optimization */
+  .bespoke-hero {
+    padding: var(--space-12) 0 var(--space-8);
+  }
+
+  .bespoke-split-banner {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .bespoke-slider-wrap {
+    width: 100%;
+  }
+
+  /* Gemstone Guide Mobile */
+  .guide-gem-profile {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .framework-card {
+    padding: var(--space-5);
+  }
+
+  .checklist-item {
+    padding: var(--space-3) 0;
+  }
+}
