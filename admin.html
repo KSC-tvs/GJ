@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Staff Portal & Catalogue CMS | Gulshan Jewellers · Est. 1950</title>
+  <title>Admin & Management Portal | Gulshan Jewellers · Est. 1950</title>
   <meta name="robots" content="noindex, nofollow">
 
   <link rel="stylesheet" href="/src/css/tokens.css">
@@ -12,147 +12,300 @@
   <link rel="stylesheet" href="/src/css/admin.css">
   <link rel="stylesheet" href="/src/css/animations.css">
 </head>
-<body>
+<body class="admin-body">
 
   <!-- Staff Portal Header -->
   <header class="admin-header">
     <div class="container admin-header-inner">
-      <div style="display: flex; align-items: center;">
+      <div style="display: flex; align-items: center; gap: var(--space-3);">
         <a href="index.html" class="brand-name" style="font-size: 1.3rem;">Gulshan Jewellers</a>
-        <span class="admin-badge">Staff Catalogue CMS</span>
+        <span class="admin-badge">Admin & Management Portal</span>
       </div>
-      <div style="display: flex; gap: var(--space-3); align-items: center;">
-        <a href="collections.html" target="_blank" class="btn btn-outline btn-sm">Preview Storefront &rarr;</a>
-        <button type="button" id="admin-export-json-btn" class="btn btn-gold btn-sm">Export Catalogue JSON</button>
+      <div style="display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap;">
+        <a href="index.html" class="btn btn-outline btn-sm">&larr; Return to Storefront</a>
+        <button type="button" id="admin-export-json-btn" class="btn btn-outline btn-sm">Export Catalogue JSON</button>
         <button type="button" id="admin-reset-btn" class="btn btn-outline btn-sm" style="color: #E74C3C; border-color: rgba(231, 76, 60, 0.4);">Reset Defaults</button>
       </div>
     </div>
   </header>
 
-  <!-- Main Management Interface -->
+  <!-- Admin Navigation Tabs -->
+  <div class="admin-tabs-bar">
+    <div class="container">
+      <div class="admin-tabs-list">
+        <button type="button" class="admin-tab-btn active" data-tab="catalogue">
+          <span class="tab-icon">&#128142;</span> Catalogue & Inventory
+        </button>
+        <button type="button" class="admin-tab-btn" data-tab="enquiries">
+          <span class="tab-icon">&#128233;</span> Customer Consultations & CRM
+          <span class="admin-tab-count" id="admin-enquiry-badge">0</span>
+        </button>
+        <button type="button" class="admin-tab-btn" data-tab="settings">
+          <span class="tab-icon">&#9881;</span> Store Settings & Bullion Rates
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Management Area -->
   <main class="container admin-main">
-    <!-- Stat Cards -->
-    <div class="admin-stats-grid">
-      <div class="admin-stat-card">
-        <div class="admin-stat-num" id="admin-stat-total">--</div>
-        <div class="admin-stat-label">Total Curated Pieces</div>
-      </div>
-      <div class="admin-stat-card">
-        <div class="admin-stat-num" id="admin-stat-natural">--</div>
-        <div class="admin-stat-label">100% Earth-Mined Natural</div>
-      </div>
-      <div class="admin-stat-card">
-        <div class="admin-stat-num" id="admin-stat-untreated">--</div>
-        <div class="admin-stat-label">Completely Untreated / Unheated</div>
-      </div>
-      <div class="admin-stat-card">
-        <div class="admin-stat-num" id="admin-stat-certified">--</div>
-        <div class="admin-stat-label">Independent Lab Certified</div>
-      </div>
-    </div>
 
-    <!-- Toolbar -->
-    <div class="admin-toolbar">
-      <div style="display: flex; gap: var(--space-3); flex: 1; max-width: 420px;">
-        <input type="search" id="admin-search-input" class="form-control" placeholder="Search piece, gemstone species, metal, karat...">
+    <!-- TAB 1: CATALOGUE & INVENTORY -->
+    <section id="tab-catalogue" class="admin-tab-content active">
+      <!-- Stat Cards -->
+      <div class="admin-stats-grid">
+        <div class="admin-stat-card">
+          <div class="admin-stat-num" id="admin-stat-total">--</div>
+          <div class="admin-stat-label">Total Curated Pieces</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="admin-stat-num" id="admin-stat-natural">--</div>
+          <div class="admin-stat-label">100% Earth-Mined Natural</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="admin-stat-num" id="admin-stat-untreated">--</div>
+          <div class="admin-stat-label">Completely Untreated / Unheated</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="admin-stat-num" id="admin-stat-certified">--</div>
+          <div class="admin-stat-label">Independent Lab Certified</div>
+        </div>
       </div>
-      <div style="font-size: var(--text-xs); color: var(--color-text-muted);">
-        All edits save automatically to your local browser storage and reflect immediately across all customer pages.
-      </div>
-    </div>
 
-    <!-- Product Table -->
-    <div class="admin-table-wrap">
-      <table class="admin-table">
-        <thead>
-          <tr>
-            <th>Image</th>
-            <th>Title & ID</th>
-            <th>Category</th>
-            <th>Price Display</th>
-            <th>Natural & Treatment Status</th>
-            <th>Certification</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="admin-products-tbody">
-          <!-- Populated by admin.js -->
-        </tbody>
-      </table>
-    </div>
+      <!-- Action Toolbar -->
+      <div class="admin-toolbar">
+        <div style="display: flex; gap: var(--space-3); flex: 1; min-width: 280px;">
+          <input type="search" id="admin-search-input" class="form-control" placeholder="Search title, gemstone species, purity, origin...">
+        </div>
+        <div style="display: flex; gap: var(--space-2); align-items: center; flex-wrap: wrap;">
+          <button type="button" id="admin-add-product-btn" class="btn btn-gold btn-sm">
+            &plus; Add New Piece
+          </button>
+        </div>
+      </div>
+
+      <!-- Product Table -->
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Piece & ID</th>
+              <th>Category</th>
+              <th>Price (INR)</th>
+              <th>Natural & Treatment</th>
+              <th>Origin & Cert</th>
+              <th style="text-align: right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-products-tbody">
+            <!-- Populated dynamically by admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 2: CONSULTATIONS & ENQUIRIES CRM -->
+    <section id="tab-enquiries" class="admin-tab-content">
+      <div class="admin-section-header">
+        <div>
+          <h2 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-ivory);">Client Consultations & Leads</h2>
+          <p style="font-size: 0.85rem; color: var(--color-text-secondary);">Direct customer inquiries submitted through product detail pages, bespoke requests, and private viewing bookings.</p>
+        </div>
+        <button type="button" id="admin-seed-enquiry-btn" class="btn btn-outline btn-sm">Generate Test Inquiry</button>
+      </div>
+
+      <div class="admin-table-wrap" style="margin-top: var(--space-4);">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Client Name</th>
+              <th>Contact Details</th>
+              <th>Piece / Service</th>
+              <th>Message / Requirements</th>
+              <th>Status</th>
+              <th style="text-align: right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-enquiries-tbody">
+            <!-- Populated by admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB 3: STORE SETTINGS & BULLION RATES -->
+    <section id="tab-settings" class="admin-tab-content">
+      <div class="admin-section-header">
+        <div>
+          <h2 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-ivory);">Boutique Settings & Live Rates</h2>
+          <p style="font-size: 0.85rem; color: var(--color-text-secondary);">Manage boutique contact details, visiting hours, and daily metal market rates displayed to buyers.</p>
+        </div>
+      </div>
+
+      <form id="admin-settings-form" class="admin-settings-grid">
+        <div class="admin-settings-card">
+          <h3 class="admin-card-title">&#128222; Concierge & Contact Information</h3>
+          
+          <div class="form-group">
+            <label class="form-label" for="setting-phone">Boutique Direct Phone</label>
+            <input type="text" id="setting-phone" class="form-control" value="+91 98765 43210">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="setting-whatsapp">WhatsApp Concierge Number</label>
+            <input type="text" id="setting-whatsapp" class="form-control" value="+91 98765 43210">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="setting-email">Concierge Email</label>
+            <input type="email" id="setting-email" class="form-control" value="concierge@gulshanjewellers.in">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="setting-hours">Private Viewing Timings</label>
+            <input type="text" id="setting-hours" class="form-control" value="Monday – Saturday: 11:00 AM – 7:30 PM">
+          </div>
+        </div>
+
+        <div class="admin-settings-card">
+          <h3 class="admin-card-title">&#128176; Daily Bullion & Metal Rates</h3>
+          <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: var(--space-3);">
+            Displayed on quotation notes and bespoke custom calculations.
+          </p>
+
+          <div class="form-group">
+            <label class="form-label" for="rate-gold-24k">24K Fine Gold (₹ per 10g)</label>
+            <input type="text" id="rate-gold-24k" class="form-control" value="₹74,850">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="rate-gold-22k">22K 916 Hallmarked Gold (₹ per 10g)</label>
+            <input type="text" id="rate-gold-22k" class="form-control" value="₹68,600">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="rate-gold-18k">18K 750 Fine Gold (₹ per 10g)</label>
+            <input type="text" id="rate-gold-18k" class="form-control" value="₹56,150">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="rate-silver-925">925 Sterling Silver (₹ per 100g)</label>
+            <input type="text" id="rate-silver-925" class="form-control" value="₹8,950">
+          </div>
+
+          <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: var(--space-3);">
+            Save Boutique Settings & Rates
+          </button>
+        </div>
+      </form>
+    </section>
+
   </main>
 
-  <!-- Edit Product Modal -->
+  <!-- Add / Edit Piece Modal -->
   <div id="admin-edit-modal-backdrop" class="admin-edit-modal-backdrop">
     <div class="admin-edit-modal">
       <div class="admin-edit-header">
-        <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--color-ivory);">Edit Piece Specifications</h3>
-        <button id="admin-close-edit-modal" style="background: none; border: none; color: var(--color-text-muted); font-size: 1.5rem; cursor: pointer;">&times;</button>
+        <h3 id="admin-modal-title" style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--color-ivory);">Edit Piece Specifications</h3>
+        <button type="button" id="admin-close-edit-modal" class="admin-modal-close" aria-label="Close">&times;</button>
       </div>
+
       <form id="admin-edit-form" class="admin-edit-body">
         <input type="hidden" id="edit-product-id">
 
         <div class="form-group">
           <label class="form-label" for="edit-title">Product Title</label>
-          <input type="text" id="edit-title" class="form-control" required>
+          <input type="text" id="edit-title" class="form-control" placeholder="e.g. Ceylon Yellow Sapphire Signet Ring" required>
         </div>
 
-        <div class="form-group">
-          <label class="form-label" for="edit-poetic">Poetic Editorial Descriptor</label>
-          <input type="text" id="edit-poetic" class="form-control" required>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3);">
+          <div class="form-group">
+            <label class="form-label" for="edit-category">Primary Category</label>
+            <select id="edit-category" class="form-control">
+              <option value="gemstones">Natural Gemstones</option>
+              <option value="diamonds">Fine Diamonds</option>
+              <option value="gold">Fine Gold</option>
+              <option value="silver">Sterling Silver</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="edit-gemstone">Gemstone Species</label>
+            <select id="edit-gemstone" class="form-control">
+              <option value="pukhraj">Yellow Sapphire (Pukhraj)</option>
+              <option value="neelam">Blue Sapphire (Neelam)</option>
+              <option value="emerald">Colombian Emerald (Panna)</option>
+              <option value="ruby">Natural Ruby (Manik)</option>
+              <option value="kyanite">Blue Kyanite</option>
+              <option value="diamond">Natural Diamond</option>
+              <option value="none">None / Gold Only</option>
+            </select>
+          </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3);">
           <div class="form-group">
-            <label class="form-label" for="edit-price-display">Price Display Text</label>
-            <input type="text" id="edit-price-display" class="form-control" placeholder="e.g. Price on Request">
+            <label class="form-label" for="edit-price-amount">Price Amount (INR ₹)</label>
+            <input type="number" id="edit-price-amount" class="form-control" placeholder="e.g. 285000">
           </div>
           <div class="form-group">
-            <label class="form-label" for="edit-price-amount">Price in INR (Optional for Currency Switcher)</label>
-            <input type="number" id="edit-price-amount" class="form-control" placeholder="e.g. 185000">
+            <label class="form-label" for="edit-price-display">Display Text</label>
+            <input type="text" id="edit-price-display" class="form-control" placeholder="e.g. ₹2,85,000 or Price on Request">
           </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3);">
           <div class="form-group">
-            <label class="form-label" for="edit-treatment">Treatment Disclosure Text</label>
-            <input type="text" id="edit-treatment" class="form-control" placeholder="e.g. Completely Unheated">
+            <label class="form-label" for="edit-carat">Carat Weight</label>
+            <input type="text" id="edit-carat" class="form-control" placeholder="e.g. 4.15 ct">
           </div>
+          <div class="form-group">
+            <label class="form-label" for="edit-metal">Metal & Purity</label>
+            <input type="text" id="edit-metal" class="form-control" placeholder="e.g. 22K (916) Hallmarked Gold">
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3);">
           <div class="form-group">
             <label class="form-label" for="edit-origin">Verified Origin</label>
             <input type="text" id="edit-origin" class="form-control" placeholder="e.g. Ceylon (Sri Lanka)">
           </div>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
           <div class="form-group">
-            <label class="form-label" for="edit-certificate">Certificate / Lab Details</label>
-            <input type="text" id="edit-certificate" class="form-control" placeholder="e.g. IIGJ / Reputed Testing Lab">
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="edit-metal">Metal & Purity</label>
-            <input type="text" id="edit-metal" class="form-control" placeholder="e.g. 22K Solid Gold (916 Hallmarked)">
+            <label class="form-label" for="edit-certificate">Lab Certificate</label>
+            <input type="text" id="edit-certificate" class="form-control" placeholder="e.g. IIGJ / Accredited Lab">
           </div>
         </div>
 
-        <div style="display: flex; gap: var(--space-6); align-items: center; padding: var(--space-3) 0;">
-          <label style="display: flex; align-items: center; gap: var(--space-2); cursor: pointer; font-size: var(--text-xs); color: var(--color-ivory);">
-            <input type="checkbox" id="edit-badge-natural" style="accent-color: var(--color-gold-champagne);">
-            Badge: 100% Earth-Mined Natural
-          </label>
-          <div style="flex: 1;">
-            <label class="form-label" for="edit-badge-cert">Badge Label</label>
-            <input type="text" id="edit-badge-cert" class="form-control" style="padding: 0.4rem 0.8rem;" placeholder="e.g. Certificate Available">
-          </div>
+        <div class="form-group">
+          <label class="form-label" for="edit-treatment">Treatment Disclosure</label>
+          <input type="text" id="edit-treatment" class="form-control" placeholder="e.g. Completely Unheated / Untreated">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="edit-image">Image URL</label>
+          <input type="text" id="edit-image" class="form-control" placeholder="/images/pukhraj-hero.jpg">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="edit-poetic">Poetic Descriptor</label>
+          <input type="text" id="edit-poetic" class="form-control" placeholder="e.g. Certified Untreated Ceylon Yellow Sapphire in 22K Hallmarked Gold">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="edit-narrative">Craftsmanship Narrative</label>
+          <textarea id="edit-narrative" class="form-control" rows="3" placeholder="Description of the gemstone, cut, and legacy craft..."></textarea>
         </div>
 
         <div style="display: flex; justify-content: flex-end; gap: var(--space-3); margin-top: var(--space-4);">
-          <button type="button" class="btn btn-outline" onclick="document.getElementById('admin-edit-modal-backdrop').classList.remove('active');">Cancel</button>
-          <button type="submit" class="btn btn-gold">Save Changes</button>
+          <button type="button" id="admin-cancel-edit-btn" class="btn btn-outline">Cancel</button>
+          <button type="submit" class="btn btn-gold">Save Piece</button>
         </div>
       </form>
     </div>
   </div>
+
+  <div id="toast-container" class="toast-container"></div>
 
   <script type="module" src="/src/js/admin.js"></script>
 </body>

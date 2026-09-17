@@ -241,6 +241,23 @@ function handleEnquirySubmission(form) {
 
   Tracking.trackConsultationSubmit(data);
 
+  // Record into Admin CRM
+  try {
+    const existing = JSON.parse(localStorage.getItem('gj_enquiries') || '[]');
+    existing.unshift({
+      id: 'ENQ-' + Math.floor(1000 + Math.random() * 9000),
+      date: new Date().toISOString().slice(0, 16).replace('T', ' '),
+      name: data.name || 'Client',
+      contact: data.contact || data.phone || data.email || '+91 98765 00000',
+      piece: document.getElementById('enquiry-product-name')?.value || 'Fine Jewellery & Gemstones',
+      message: data.message || 'Consultation request submitted from digital boutique.',
+      status: 'New'
+    });
+    localStorage.setItem('gj_enquiries', JSON.stringify(existing));
+  } catch (err) {
+    console.error('Failed to log CRM inquiry', err);
+  }
+
   showToast('Thank you. A member of the Gulshan Jewellers team will be in touch shortly.');
   form.reset();
   setTimeout(() => {

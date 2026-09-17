@@ -132,6 +132,11 @@ function createMobileDrawerDOM() {
         <a href="contact.html" class="mobile-main-link" onclick="GJ.closeMobileDrawer()">
           <span>Boutique & Concierge</span>
         </a>
+
+        <a href="admin.html" class="mobile-main-link" style="color: var(--color-gold-champagne);" onclick="GJ.closeMobileDrawer()">
+          <span>⚙ Staff Admin Portal</span>
+          <span class="badge-mini">CMS & CRM</span>
+        </a>
       </nav>
 
       <!-- Footer CTA -->
