@@ -5,22 +5,12 @@
 
 import { Tracking } from './tracking.js';
 import { showToast } from './components/toast.js';
+import { initComparisonSlider } from './components/interactive.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  initTransformationSlider();
+  initComparisonSlider();
   initBespokeForm();
 });
-
-function initTransformationSlider() {
-  const slider = document.getElementById('transformation-slider');
-  const overlay = document.getElementById('transformation-overlay');
-  if (!slider || !overlay) return;
-
-  slider.addEventListener('input', (e) => {
-    const val = e.target.value;
-    overlay.style.width = `${val}%`;
-  });
-}
 
 function initBespokeForm() {
   const form = document.getElementById('bespoke-consultation-form');

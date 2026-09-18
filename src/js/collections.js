@@ -247,19 +247,46 @@ function renderProducts() {
   grid.innerHTML = filtered.map(item => {
     const priceFormatted = item.priceAmount ? formatPrice(item.priceAmount, currentCurrency) : item.priceDisplay;
 
+    const leftBadges = [
+      item.badges?.natural ? `<span class="badge badge-natural">Natural</span>` : '',
+      item.badges?.treatment ? `<span class="badge badge-cert">${item.badges.treatment}</span>` : '',
+      item.badges?.certification ? `<span class="badge badge-cert">${item.badges.certification}</span>` : ''
+    ].filter(Boolean).join('');
+
+    const rightBadges = [
+      item.badges?.hallmark ? `<span class="badge badge-hallmark">${item.badges.hallmark}</span>` : ''
+    ].filter(Boolean).join('');
+
     return `
       <article class="product-card">
         <div class="product-card-media">
           <a href="product.html?id=${item.id}" aria-label="View ${item.title}">
             <img src="${item.image}" alt="${item.title}" loading="lazy">
           </a>
-          <div class="product-badges">
-            ${item.badges?.natural ? `<span class="badge badge-natural">Natural</span>` : ''}
-            ${item.badges?.treatment ? `<span class="badge badge-cert">${item.badges.treatment}</span>` : ''}
-            ${item.badges?.certification ? `<span class="badge badge-cert">${item.badges.certification}</span>` : ''}
-            ${item.badges?.hallmark ? `<span class="badge badge-hallmark">${item.badges.hallmark}</span>` : ''}
+
+          <!-- Floating Frosted Glass Status Badges -->
+          ${leftBadges ? `<div class="product-badges-top-left">${leftBadges}</div>` : ''}
+          ${rightBadges ? `<div class="product-badges-top-right">${rightBadges}</div>` : ''}
+
+          <!-- Modern Hover Action Overlay Bar -->
+          <div class="product-card-actions-overlay">
+            <a href="product.html?id=${item.id}" class="card-action-icon-btn" aria-label="View piece details" title="Quick View">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </a>
+            <button type="button" class="card-action-icon-btn quick-tray-btn" data-id="${item.id}" aria-label="Add to Curated Tray" title="Add to Tray">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+              </svg>
+            </button>
+            <button type="button" class="card-action-enquire-btn quick-enquire-btn" data-product-id="${item.id}">
+              Enquire
+            </button>
           </div>
         </div>
+
         <div class="product-card-content">
           <h3 class="product-card-title">
             <a href="product.html?id=${item.id}">${item.title}</a>
@@ -267,14 +294,10 @@ function renderProducts() {
           <p class="product-card-desc">${item.poeticDescriptor}</p>
           <div class="product-card-footer">
             <span class="product-price">${priceFormatted}</span>
-            <div style="display: flex; gap: var(--space-2);">
-              <button type="button" class="btn btn-outline btn-sm quick-tray-btn" data-id="${item.id}" title="Add to Consultation Tray">
-                + Tray
-              </button>
-              <button type="button" class="btn btn-gold btn-sm quick-enquire-btn" data-product-id="${item.id}">
-                Enquire
-              </button>
-            </div>
+            <a href="product.html?id=${item.id}" class="product-card-view-btn">
+              <span>View Piece</span>
+              <span>&rarr;</span>
+            </a>
           </div>
         </div>
       </article>

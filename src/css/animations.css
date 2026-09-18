@@ -1,12 +1,23 @@
 /* ==========================================================================
    ANIMATIONS & MICRO-INTERACTIONS
-   Gulshan Jewellers | Est. 1950
+   Gulshan Jewellers | Est. 1950 - High-End Luxury Micro-interactions
    ========================================================================== */
 
 @keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -25,25 +36,59 @@
 
 @keyframes subtlePulse {
   0%, 100% {
-    opacity: 0.6;
+    opacity: 0.7;
     transform: scale(1);
   }
   50% {
     opacity: 1;
-    transform: scale(1.08);
+    transform: scale(1.06);
   }
 }
 
-.fade-in {
-  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+@keyframes goldGlowPulse {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(197, 168, 128, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.45);
+  }
 }
+
+@keyframes handleAutoSweep {
+  0% {
+    width: 50%;
+  }
+  30% {
+    width: 25%;
+  }
+  70% {
+    width: 75%;
+  }
+  100% {
+    width: 50%;
+  }
+}
+
+/* Micro-interaction Helper Classes */
+.fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
 
 .shimmer-text {
   background: linear-gradient(
     90deg,
-    #C8A97E 0%,
-    #FFF4DE 50%,
-    #C8A97E 100%
+    #C5A880 0%,
+    #FFF6E5 50%,
+    #C5A880 100%
   );
   background-size: 200% auto;
   color: transparent;
@@ -54,4 +99,17 @@
 
 .gem-pulse {
   animation: subtlePulse 4s ease-in-out infinite;
+}
+
+.gold-glow {
+  animation: goldGlowPulse 3s ease-in-out infinite;
+}
+
+/* Smooth Image Scale on Hover */
+.zoom-on-hover {
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.zoom-on-hover:hover {
+  transform: scale(1.05);
 }

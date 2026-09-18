@@ -8,7 +8,7 @@
    -------------------------------------------------------------------------- */
 .hero-section {
   position: relative;
-  min-height: 85vh;
+  min-height: 88vh;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -27,29 +27,32 @@
   height: 100%;
   object-fit: cover;
   object-position: center right;
-  opacity: 0.35;
-  filter: saturate(1.1) brightness(0.9);
-  transform: scale(1.03);
-  transition: transform 12s ease-out;
+  opacity: 0.42;
+  filter: saturate(1.15) brightness(0.85);
+  transform: scale(1.04);
+  transition: transform 14s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.hero-section:hover .hero-bg-media img {
+  transform: scale(1.08);
+}
+
+/* Layered Radial Vignette & Gradient Scrim Overlay for Crystal-Clear Text Contrast */
 .hero-gradient-overlay {
   position: absolute;
   inset: 0;
   z-index: 2;
-  background: linear-gradient(
-    90deg,
-    rgba(11, 12, 14, 0.98) 0%,
-    rgba(11, 12, 14, 0.85) 45%,
-    rgba(11, 12, 14, 0.4) 100%
-  );
+  background: 
+    radial-gradient(circle at 25% 50%, rgba(13, 13, 14, 0.3) 0%, rgba(13, 13, 14, 0.88) 60%, #0D0D0E 100%),
+    linear-gradient(90deg, rgba(13, 13, 14, 0.98) 0%, rgba(13, 13, 14, 0.82) 48%, rgba(13, 13, 14, 0.25) 100%),
+    linear-gradient(180deg, rgba(13, 13, 14, 0.4) 0%, transparent 40%, rgba(13, 13, 14, 0.8) 100%);
 }
 
 .hero-content {
   position: relative;
   z-index: 3;
-  max-width: 680px;
-  padding: var(--space-16) 0;
+  max-width: 700px;
+  padding: var(--space-20) 0;
 }
 
 .hero-eyebrow {
@@ -61,32 +64,40 @@
   text-transform: uppercase;
   color: var(--color-gold-champagne);
   margin-bottom: var(--space-4);
+  font-weight: 600;
 }
 
 .hero-eyebrow::before {
   content: '';
-  width: 28px;
+  width: 32px;
   height: 1px;
   background-color: var(--color-gold-champagne);
 }
 
 .hero-title {
-  margin-bottom: var(--space-6);
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5.2vw, 4.4rem);
+  line-height: 1.12;
+  margin-bottom: var(--space-5);
   color: var(--color-ivory);
+  letter-spacing: -0.015em;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
 }
 
 .hero-title em {
   font-style: italic;
-  font-weight: 300;
-  color: var(--color-ivory-soft);
+  font-weight: 400;
+  color: #EDE8DF;
 }
 
 .hero-desc {
-  font-size: var(--text-lg);
-  line-height: 1.6;
-  color: var(--color-text-secondary);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  line-height: 1.7;
+  color: #C2C7D0;
   margin-bottom: var(--space-8);
   font-weight: 300;
+  max-width: 580px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
 
 .hero-actions {
@@ -94,6 +105,10 @@
   flex-wrap: wrap;
   gap: var(--space-4);
   align-items: center;
+}
+
+.hero-actions .btn {
+  border-radius: var(--radius-full);
 }
 
 /* --------------------------------------------------------------------------
@@ -203,7 +218,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   The Gemstone Edit
+   The Gemstone Edit (Planetary Hue Glows & Astrological Chips)
    -------------------------------------------------------------------------- */
 .gemstone-edit-grid {
   display: grid;
@@ -213,13 +228,13 @@
 }
 
 .gem-card {
-  background-color: var(--color-bg-surface);
+  background-color: var(--color-bg-card);
   border: 1px solid var(--color-border-hairline);
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-sm);
   padding: var(--space-6);
   display: flex;
   flex-direction: column;
-  transition: transform var(--transition-smooth), border-color var(--transition-smooth);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
   position: relative;
   overflow: hidden;
   text-decoration: none;
@@ -233,19 +248,25 @@
   right: 0;
   height: 3px;
   background-color: var(--gem-accent, var(--color-gold-champagne));
-  opacity: 0.8;
+  opacity: 0.9;
+  transition: height var(--transition-fast);
 }
 
 .gem-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--color-border-subtle);
+  transform: translateY(-6px);
+  border-color: var(--gem-accent, var(--color-gold-champagne));
+  box-shadow: 0 0 35px var(--gem-glow, rgba(197, 168, 128, 0.4)), 0 16px 36px rgba(0, 0, 0, 0.7);
+}
+
+.gem-card:hover::before {
+  height: 4px;
 }
 
 .gem-card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-3);
 }
 
 .gem-card-dot {
@@ -253,33 +274,71 @@
   height: 14px;
   border-radius: 50%;
   background-color: var(--gem-accent, var(--color-gold-champagne));
-  box-shadow: 0 0 12px var(--gem-accent, var(--color-gold-champagne));
+  box-shadow: 0 0 14px var(--gem-accent, var(--color-gold-champagne));
+  transition: transform var(--transition-fast);
+}
+
+.gem-card:hover .gem-card-dot {
+  transform: scale(1.25);
 }
 
 .gem-card-trad {
-  font-size: var(--text-xs);
+  font-size: 0.68rem;
   color: var(--color-gold-champagne);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 .gem-card-title {
   font-family: var(--font-serif);
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   color: var(--color-ivory);
-  margin-bottom: var(--space-2);
+  margin-bottom: 4px;
+  font-weight: 500;
 }
 
 .gem-card-planetary {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Astrological Micro-Metadata Chips */
+.gem-card-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: var(--space-3);
+}
+
+.gem-chip {
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-ivory-soft);
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.gem-chip.planet-chip {
+  border-color: rgba(197, 168, 128, 0.3);
+  color: var(--color-gold-champagne);
 }
 
 .gem-card-desc {
-  font-size: var(--text-xs);
+  font-size: 0.78rem;
   color: var(--color-text-secondary);
   line-height: 1.6;
   flex-grow: 1;
@@ -287,75 +346,191 @@
 }
 
 .gem-card-link {
-  font-size: var(--text-xs);
-  font-weight: 500;
+  font-size: 0.72rem;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-gold-champagne);
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
+  transition: transform var(--transition-fast);
+}
+
+.gem-card:hover .gem-card-link {
+  transform: translateX(4px);
 }
 
 /* --------------------------------------------------------------------------
-   Crafted Around You: Bespoke Feature Banner
+   Crafted Around You: Bespoke Feature Banner & Interactive Stepper
    -------------------------------------------------------------------------- */
 .bespoke-split-banner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 1fr;
   gap: var(--space-12);
   align-items: center;
-  background-color: #0E1015;
+  background-color: #121318;
   border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-sm);
   overflow: hidden;
   margin: var(--space-16) 0;
+  box-shadow: var(--shadow-card);
 }
 
 .bespoke-banner-media {
   position: relative;
   height: 100%;
-  min-height: 480px;
+  min-height: 520px;
+  overflow: hidden;
+  background: #08090C;
 }
 
 .bespoke-banner-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+.bespoke-banner-media:hover img {
+  transform: scale(1.04);
+}
+
+.bespoke-stage-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 4px 12px;
+  background: rgba(13, 14, 17, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-full);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold-champagne);
+  z-index: 5;
 }
 
 .bespoke-banner-content {
-  padding: var(--space-12);
+  padding: var(--space-10) var(--space-12);
 }
 
-.bespoke-steps-mini {
+/* Interactive Sequential Stepper */
+.bespoke-stepper-wrap {
+  margin: var(--space-6) 0 var(--space-8);
+}
+
+.bespoke-timeline-bar-container {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  margin-bottom: var(--space-6);
+  position: relative;
+  overflow: hidden;
+}
+
+.bespoke-timeline-progress {
+  height: 100%;
+  width: 25%;
+  background: linear-gradient(90deg, #C5A880, #D4AF37);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+  transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bespoke-steps-list {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-6);
-  margin: var(--space-8) 0;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
 }
 
-.bespoke-step-mini-item {
+.bespoke-step-item {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 4px;
+  padding: var(--space-3);
+  border-radius: var(--radius-xs);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.bespoke-step-item:hover {
+  background: rgba(197, 168, 128, 0.05);
+  border-color: rgba(197, 168, 128, 0.25);
+}
+
+.bespoke-step-item.active {
+  background: rgba(197, 168, 128, 0.1);
+  border-color: var(--color-gold-champagne);
+  box-shadow: 0 4px 16px rgba(197, 168, 128, 0.15);
+}
+
+.bespoke-step-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .bespoke-step-num {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 1.15rem;
   color: var(--color-gold-champagne);
+  font-weight: 500;
+}
+
+.bespoke-step-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all var(--transition-fast);
+}
+
+.bespoke-step-item.active .bespoke-step-dot {
+  background: var(--color-gold-champagne);
+  box-shadow: 0 0 8px var(--color-gold-champagne);
 }
 
 .bespoke-step-name {
-  font-size: var(--text-sm);
-  font-weight: 500;
+  font-size: 0.78rem;
+  font-weight: 600;
   color: var(--color-ivory);
+  letter-spacing: 0.02em;
 }
 
 .bespoke-step-text {
-  font-size: var(--text-xs);
+  font-size: 0.68rem;
   color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+/* Active Stage Detail Highlight */
+.bespoke-active-preview {
+  margin-top: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  background: rgba(13, 14, 18, 0.6);
+  border-left: 2px solid var(--color-gold-champagne);
+  border-radius: var(--radius-2xs);
+}
+
+.bespoke-active-preview-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-gold-champagne);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 3px;
+}
+
+.bespoke-active-preview-desc {
+  font-size: 0.8rem;
+  color: var(--color-ivory-soft);
+  line-height: 1.6;
 }
 
 /* --------------------------------------------------------------------------
@@ -703,40 +878,101 @@
 }
 
 /* --------------------------------------------------------------------------
-   4. GEMSTONE GUIDE LAYOUT
+   4. GEMSTONE GUIDE LAYOUT & SUB-NAV BAR (Pill Tabs, Drag, Fade Masks)
    -------------------------------------------------------------------------- */
 .guide-nav-bar {
   position: sticky;
   top: var(--header-height);
   z-index: 40;
-  background-color: rgba(11, 12, 14, 0.95);
-  backdrop-filter: blur(12px);
+  background-color: rgba(13, 13, 14, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--color-border-hairline);
-  padding: var(--space-3) 0;
+  padding: 0.6rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.guide-nav-bar-container {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Left & Right Gradient Fade Masks for Scroll Cue */
+.guide-nav-bar-container::before,
+.guide-nav-bar-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 48px;
+  pointer-events: none;
+  z-index: 5;
+  transition: opacity var(--transition-fast);
+}
+
+.guide-nav-bar-container::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(13, 13, 14, 0.95), transparent);
+}
+
+.guide-nav-bar-container::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(13, 13, 14, 0.95), transparent);
 }
 
 .guide-nav-links {
   display: flex;
-  gap: var(--space-6);
+  gap: 0.5rem;
   overflow-x: auto;
   white-space: nowrap;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+  padding: 2px var(--space-4);
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  user-select: none;
+}
+
+.guide-nav-links::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.guide-nav-links.dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
 }
 
 .guide-nav-item {
-  font-size: var(--text-xs);
-  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--color-text-secondary);
-  padding: var(--space-2) 0;
+  padding: 0.45rem 1.15rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   cursor: pointer;
-  border-bottom: 2px solid transparent;
   transition: all var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.guide-nav-item:hover,
+.guide-nav-item:hover {
+  border-color: var(--color-gold-champagne);
+  color: var(--color-ivory);
+  background: rgba(197, 168, 128, 0.08);
+}
+
 .guide-nav-item.active {
-  color: var(--color-gold-champagne);
-  border-bottom-color: var(--color-gold-champagne);
+  background: var(--color-gold-champagne);
+  border-color: var(--color-gold-champagne);
+  color: #0D0D0E;
+  font-weight: 600;
+  box-shadow: 0 0 16px rgba(197, 168, 128, 0.35);
 }
 
 .guide-gem-profile {
@@ -750,9 +986,10 @@
 
 .guide-gem-media {
   position: relative;
-  border-radius: var(--radius-xs);
+  border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1px solid var(--color-border-subtle);
+  box-shadow: var(--shadow-card);
 }
 
 .guide-quote-banner {
@@ -764,6 +1001,128 @@
   font-size: 1.25rem;
   font-style: italic;
   color: var(--color-ivory);
+}
+
+/* --------------------------------------------------------------------------
+   5. BEFORE / AFTER SPLIT COMPARISON SLIDER COMPONENT
+   -------------------------------------------------------------------------- */
+.slider-comparison-box {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  background-color: #07080A;
+  box-shadow: var(--shadow-card);
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.slider-comparison-box img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+}
+
+.slider-overlay-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+  border-right: 2px solid var(--color-gold-champagne);
+  box-shadow: 2px 0 15px rgba(212, 175, 55, 0.5);
+  transition: width 0.05s ease-out;
+}
+
+.slider-overlay-wrap.animating {
+  transition: width 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slider-overlay-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-width: none;
+}
+
+/* Stylized Circular Gold Handle */
+.slider-handle-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #0D0D0E;
+  border: 2px solid var(--color-gold-champagne);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6), inset 0 0 8px rgba(212, 175, 55, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold-champagne);
+  z-index: 15;
+  pointer-events: none;
+  cursor: ew-resize;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.slider-comparison-box:hover .slider-handle-button {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 28px rgba(212, 175, 55, 0.85);
+}
+
+.slider-handle-icon {
+  font-size: 1rem;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+/* Floating Frosted Badges Inside Comparison Slider */
+.slider-badge {
+  position: absolute;
+  bottom: 16px;
+  padding: 4px 12px;
+  background: rgba(13, 14, 18, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-full);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ivory-soft);
+  z-index: 6;
+  pointer-events: none;
+}
+
+.slider-badge-left {
+  left: 16px;
+  color: var(--color-gold-champagne);
+  border-color: rgba(197, 168, 128, 0.35);
+}
+
+.slider-badge-right {
+  right: 16px;
+}
+
+.slider-range-input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: ew-resize;
+  width: 100%;
+  height: 100%;
+  z-index: 12;
+  margin: 0;
 }
 
 /* --------------------------------------------------------------------------

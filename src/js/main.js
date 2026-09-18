@@ -12,6 +12,7 @@ import { initConsultationTray, openTrayDrawer, closeTrayDrawer, openComparisonMo
 import { initRingSizeModal, openRingSizeModal, closeRingSizeModal } from './components/ringSizeModal.js';
 import { initMegamenu } from './components/megamenu.js';
 import { initMobileNav, openMobileDrawer, closeMobileDrawer } from './components/mobileNav.js';
+import { initInteractiveFeatures } from './components/interactive.js';
 
 export { showToast, openMobileDrawer, closeMobileDrawer };
 
@@ -27,6 +28,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initSearchModal();
   initConsultationTray();
   initRingSizeModal();
+  initInteractiveFeatures();
   setupGlobalTriggers();
 });
 
