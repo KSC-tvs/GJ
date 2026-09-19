@@ -23,17 +23,22 @@
   <!-- Staff Portal Header -->
   <header class="admin-header">
     <div class="container admin-header-inner">
-      <div style="display: flex; align-items: center; gap: var(--space-3);">
+      <div style="display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap;">
         <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
           <img src="/images/logo.png" alt="Gulshan Jewellers Emblem" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(212,175,55,0.4);">
           <span class="brand-name" style="font-size: 1.3rem;">Gulshan Jewellers</span>
         </a>
         <span class="admin-badge">Admin & Management Portal</span>
+        <div class="db-status-pill" id="db-status-badge">
+          <span class="status-dot"></span>
+          <span class="status-text">Cloud Syncing...</span>
+        </div>
       </div>
       <div style="display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap;">
         <a href="index.html" class="btn btn-outline btn-sm">&larr; Return to Storefront</a>
         <button type="button" id="admin-export-json-btn" class="btn btn-outline btn-sm">Export Catalogue JSON</button>
         <button type="button" id="admin-reset-btn" class="btn btn-outline btn-sm" style="color: #E74C3C; border-color: rgba(231, 76, 60, 0.4);">Reset Defaults</button>
+        <button type="button" id="admin-logout-btn" class="btn btn-outline btn-sm" style="border-color: rgba(200, 169, 126, 0.5); color: var(--color-gold-champagne);">&#128274; Sign Out</button>
       </div>
     </div>
   </header>
@@ -51,6 +56,9 @@
         </button>
         <button type="button" class="admin-tab-btn" data-tab="settings">
           <span class="tab-icon">&#9881;</span> Store Settings & Bullion Rates
+        </button>
+        <button type="button" class="admin-tab-btn" data-tab="database">
+          <span class="tab-icon">&#9729;</span> Database & Cloud Sync
         </button>
       </div>
     </div>
@@ -211,6 +219,77 @@
       </form>
     </section>
 
+    <!-- TAB 4: DATABASE & CLOUD SYNC -->
+    <section id="tab-database" class="admin-tab-content">
+      <div class="admin-section-header">
+        <div>
+          <h2 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-ivory);">Supabase Cloud Database & Synchronisation</h2>
+          <p style="font-size: 0.85rem; color: var(--color-text-secondary);">Enterprise PostgreSQL cloud backend for live inventory, multi-device CRM, and instant boutique sync.</p>
+        </div>
+        <div style="display: flex; gap: var(--space-2); align-items: center; flex-wrap: wrap;">
+          <button type="button" id="btn-test-db-connection" class="btn btn-outline btn-sm">&#9889; Test Connection</button>
+          <button type="button" id="btn-pull-from-db" class="btn btn-outline btn-sm">&#128259; Pull Latest Cloud Data</button>
+        </div>
+      </div>
+
+      <div class="admin-db-grid">
+        <!-- Configuration Card -->
+        <div class="admin-settings-card">
+          <h3 class="admin-card-title">&#9881; Supabase API Credentials</h3>
+          <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: var(--space-4);">
+            Found in your Supabase project dashboard under <strong>Settings &rarr; API</strong>.
+          </p>
+
+          <form id="admin-supabase-config-form">
+            <div class="form-group">
+              <label class="form-label" for="supabase-project-url">Supabase Project URL</label>
+              <input type="url" id="supabase-project-url" class="form-control" placeholder="https://xyzcompany.supabase.co" autocomplete="off" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="supabase-anon-key">Supabase Anon / Public Key</label>
+              <input type="password" id="supabase-anon-key" class="form-control" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." autocomplete="off" required>
+            </div>
+
+            <div id="db-connection-result" class="db-result-box" style="display: none;"></div>
+
+            <div style="display: flex; gap: var(--space-3); margin-top: var(--space-4);">
+              <button type="submit" id="btn-save-db-config" class="btn btn-gold" style="flex: 1;">
+                Save Cloud Configuration
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Sync & Migration Card -->
+        <div class="admin-settings-card">
+          <h3 class="admin-card-title">&#128640; Initial Cloud Sync & Database Setup</h3>
+          <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: var(--space-3);">
+            Push your current local catalogue items, customer CRM inquiries, and boutique settings directly into your Supabase database.
+          </p>
+
+          <div class="db-sync-card-actions">
+            <button type="button" id="btn-push-to-db" class="btn btn-gold btn-sm" style="width: 100%; margin-bottom: var(--space-3);">
+              &#8679; Push Local Catalogue & Settings to Supabase
+            </button>
+            <p style="font-size: 0.72rem; color: var(--color-text-secondary); margin-bottom: var(--space-4);">
+              Upserts all active jewellery pieces into the <code>products</code> table and registers store settings.
+            </p>
+
+            <div style="border-top: 1px solid var(--color-border-hairline); padding-top: var(--space-4);">
+              <h4 style="font-size: 0.9rem; color: var(--color-ivory); margin-bottom: var(--space-2);">&#128220; Database Schema (SQL)</h4>
+              <p style="font-size: 0.75rem; color: var(--color-text-muted); margin-bottom: var(--space-3);">
+                Create the required tables, Row Level Security (RLS) rules, and indexes by executing <code>supabase/schema.sql</code> in your Supabase SQL Editor.
+              </p>
+              <button type="button" id="btn-copy-schema-sql" class="btn btn-outline btn-sm" style="width: 100%;">
+                Copy SQL Setup Script to Clipboard
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- Add / Edit Piece Modal -->
@@ -309,6 +388,42 @@
         <div style="display: flex; justify-content: flex-end; gap: var(--space-3); margin-top: var(--space-4);">
           <button type="button" id="admin-cancel-edit-btn" class="btn btn-outline">Cancel</button>
           <button type="submit" class="btn btn-gold">Save Piece</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Protected Admin Security Barrier -->
+  <div id="admin-auth-overlay" class="admin-auth-overlay active">
+    <div class="admin-auth-card">
+      <div class="auth-header">
+        <div class="auth-logo-wrap">
+          <img src="/images/logo.png" alt="Gulshan Jewellers" class="auth-logo">
+        </div>
+        <h2 class="auth-title">Gulshan Jewellers</h2>
+        <div class="auth-est">ESTABLISHED 1950 &middot; ATELIER MANAGEMENT</div>
+        <p class="auth-subtitle">Restricted Access &middot; Executive Staff &amp; Gemmologist Authentication</p>
+      </div>
+
+      <form id="admin-login-form" class="auth-form">
+        <div id="auth-error-alert" class="auth-alert" style="display: none;"></div>
+
+        <div class="form-group">
+          <label class="form-label" for="auth-email">Administrator Email or Username</label>
+          <input type="text" id="auth-email" class="form-control" placeholder="admin@gulshanjewellers.com" autocomplete="username" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="auth-password">Security Password / Master Key</label>
+          <input type="password" id="auth-password" class="form-control" placeholder="Enter administrative password" autocomplete="current-password" required>
+        </div>
+
+        <button type="submit" id="auth-submit-btn" class="btn btn-gold btn-lg" style="width: 100%; margin-top: var(--space-3);">
+          Authenticate &amp; Unlock Atelier
+        </button>
+
+        <div class="auth-note">
+          <small>&#128274; Secured via Supabase Auth &amp; Multi-Layer Row Level Security (RLS)</small>
         </div>
       </form>
     </div>

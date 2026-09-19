@@ -6,6 +6,7 @@
 import { fetchSiteConfig } from './data.js';
 import { store } from './state/store.js';
 import { Tracking } from './tracking.js';
+import { db } from './supabase.js';
 import { showToast } from './components/toast.js';
 import { initSearchModal, openSearchModal, closeSearchModal } from './components/searchModal.js';
 import { initConsultationTray, openTrayDrawer, closeTrayDrawer, openComparisonModal, closeComparisonModal } from './components/consultationTray.js';
@@ -237,23 +238,34 @@ export function closeEnquiryModal() {
   document.body.style.overflow = '';
 }
 
-function handleEnquirySubmission(form) {
+async function handleEnquirySubmission(form) {
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
 
   Tracking.trackConsultationSubmit(data);
 
-  // Record into Admin CRM
+  const enquiryPayload = {
+    name: data.name || 'Client',
+    contact: data.contact || data.phone || data.email || '+91 95828 41454',
+    piece: document.getElementById('enquiry-product-name')?.value || 'Fine Jewellery & Gemstones',
+    message: data.message || 'Consultation request submitted from digital boutique.',
+    status: 'New'
+  };
+
+  // 1. Dispatch to live Supabase CRM database
+  try {
+    await db.createEnquiry(enquiryPayload);
+  } catch (err) {
+    console.warn('Supabase CRM write warning (offline fallback preserved):', err);
+  }
+
+  // 2. Record into local storage for offline resilience
   try {
     const existing = JSON.parse(localStorage.getItem('gj_enquiries') || '[]');
     existing.unshift({
       id: 'ENQ-' + Math.floor(1000 + Math.random() * 9000),
       date: new Date().toISOString().slice(0, 16).replace('T', ' '),
-      name: data.name || 'Client',
-      contact: data.contact || data.phone || data.email || '+91 95828 41454',
-      piece: document.getElementById('enquiry-product-name')?.value || 'Fine Jewellery & Gemstones',
-      message: data.message || 'Consultation request submitted from digital boutique.',
-      status: 'New'
+      ...enquiryPayload
     });
     localStorage.setItem('gj_enquiries', JSON.stringify(existing));
   } catch (err) {

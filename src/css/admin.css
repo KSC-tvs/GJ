@@ -308,7 +308,8 @@
 }
 
 @media (max-width: 992px) {
-  .admin-settings-grid {
+  .admin-settings-grid,
+  .admin-db-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -318,3 +319,206 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* ==========================================================================
+   ADMIN AUTHENTICATION BARRIER OVERLAY
+   ========================================================================== */
+.admin-auth-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(16, 18, 24, 0.96) 0%, rgba(6, 7, 10, 0.99) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-6);
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
+}
+
+.admin-auth-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.admin-auth-card {
+  width: 100%;
+  max-width: 480px;
+  background: linear-gradient(165deg, rgba(20, 22, 28, 0.98) 0%, rgba(11, 13, 18, 0.99) 100%);
+  border: 1px solid rgba(200, 169, 126, 0.28);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.8), 0 0 32px rgba(200, 169, 126, 0.08);
+  padding: var(--space-8);
+  position: relative;
+  overflow: hidden;
+}
+
+.admin-auth-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-gold-champagne), transparent);
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.auth-logo-wrap {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-3);
+  border-radius: 50%;
+  padding: 3px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.6), rgba(200, 169, 126, 0.15));
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+
+.auth-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.auth-title {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  color: var(--color-ivory);
+  letter-spacing: 0.03em;
+  margin-bottom: 2px;
+}
+
+.auth-est {
+  font-size: 0.65rem;
+  font-family: var(--font-sans);
+  letter-spacing: 0.18em;
+  color: var(--color-gold-champagne);
+  margin-bottom: var(--space-3);
+}
+
+.auth-subtitle {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.auth-alert {
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-xs);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  background-color: rgba(231, 76, 60, 0.12);
+  border: 1px solid rgba(231, 76, 60, 0.35);
+  color: #F1948A;
+}
+
+.auth-note {
+  text-align: center;
+  margin-top: var(--space-3);
+  color: var(--color-text-muted);
+  font-size: 0.72rem;
+}
+
+/* ==========================================================================
+   DATABASE STATUS PILL & MANAGEMENT
+   ========================================================================== */
+.db-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.db-status-pill .status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #F1C40F;
+  box-shadow: 0 0 6px rgba(241, 196, 15, 0.6);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+.db-status-pill.online {
+  background-color: rgba(46, 204, 113, 0.08);
+  border-color: rgba(46, 204, 113, 0.3);
+  color: #2ECC71;
+}
+
+.db-status-pill.online .status-dot {
+  background-color: #2ECC71;
+  box-shadow: 0 0 8px rgba(46, 204, 113, 0.8);
+}
+
+.db-status-pill.local {
+  background-color: rgba(200, 169, 126, 0.08);
+  border-color: rgba(200, 169, 126, 0.3);
+  color: var(--color-gold-champagne);
+}
+
+.db-status-pill.local .status-dot {
+  background-color: var(--color-gold-champagne);
+  box-shadow: 0 0 6px rgba(200, 169, 126, 0.6);
+}
+
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+.admin-db-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-5);
+}
+
+.db-result-box {
+  margin-top: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-xs);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.db-result-box.success {
+  background-color: rgba(46, 204, 113, 0.1);
+  border: 1px solid rgba(46, 204, 113, 0.35);
+  color: #58D68D;
+}
+
+.db-result-box.error {
+  background-color: rgba(231, 76, 60, 0.1);
+  border: 1px solid rgba(231, 76, 60, 0.35);
+  color: #EC7063;
+}
+
+.db-sync-card-actions {
+  display: flex;
+  flex-direction: column;
+}
+
