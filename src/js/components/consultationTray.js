@@ -200,7 +200,7 @@ function handleTrayWhatsAppSend() {
     'Please advise on current certified loose stones, custom setting options, and appointment availability.'
   ];
 
-  const phone = '919876543210';
+  const phone = '919582841454';
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(lines.join('\n'))}`;
   window.open(url, '_blank');
 }

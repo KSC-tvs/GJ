@@ -380,7 +380,7 @@ function renderEnquiries() {
 
     const cleanPhone = (enq.contact || '').replace(/[^0-9]/g, '');
     const waText = encodeURIComponent(`Hello ${enq.name}, thank you for reaching out to Gulshan Jewellers regarding "${enq.piece}". How may our senior gemmologist assist you today?`);
-    const waUrl = cleanPhone ? `https://wa.me/${cleanPhone}?text=${waText}` : `https://wa.me/919876543210?text=${waText}`;
+    const waUrl = cleanPhone ? `https://wa.me/${cleanPhone}?text=${waText}` : `https://wa.me/919582841454?text=${waText}`;
 
     return `
       <tr>

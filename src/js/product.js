@@ -123,7 +123,7 @@ function renderProductDetails(product) {
   if (whatsappCta) {
     whatsappCta.addEventListener('click', () => {
       const msg = encodeURIComponent(`Hello Gulshan Jewellers, I am interested in inquiring about "${product.title}" (${product.priceDisplay}). Could you share certification details and bespoke options?`);
-      window.open(`https://wa.me/919876543210?text=${msg}`, '_blank');
+      window.open(`https://wa.me/919582841454?text=${msg}`, '_blank');
     });
   }
 

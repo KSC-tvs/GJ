@@ -136,11 +136,51 @@
 }
 
 .brand-logo {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
   text-decoration: none;
   flex-shrink: 0;
   margin-right: var(--space-4);
+}
+
+.brand-logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+  flex-shrink: 0;
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium), border-color var(--transition-medium);
+}
+
+.brand-logo:hover .brand-logo-img {
+  transform: scale(1.06);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.4);
+  border-color: var(--color-gold-champagne);
+}
+
+.brand-logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.footer-brand-logo-img {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+  flex-shrink: 0;
 }
 
 .brand-name {

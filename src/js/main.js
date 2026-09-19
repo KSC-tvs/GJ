@@ -161,7 +161,7 @@ function createDrawerDOM() {
 
           <div class="form-group">
             <label class="form-label" for="enquiry-contact">Phone / WhatsApp Number</label>
-            <input type="tel" id="enquiry-contact" name="phone" class="form-control" required placeholder="e.g. +91 98765 43210">
+            <input type="tel" id="enquiry-contact" name="phone" class="form-control" required placeholder="e.g. +91 95828 41454">
           </div>
 
           <div class="form-group">
@@ -250,7 +250,7 @@ function handleEnquirySubmission(form) {
       id: 'ENQ-' + Math.floor(1000 + Math.random() * 9000),
       date: new Date().toISOString().slice(0, 16).replace('T', ' '),
       name: data.name || 'Client',
-      contact: data.contact || data.phone || data.email || '+91 98765 00000',
+      contact: data.contact || data.phone || data.email || '+91 95828 41454',
       piece: document.getElementById('enquiry-product-name')?.value || 'Fine Jewellery & Gemstones',
       message: data.message || 'Consultation request submitted from digital boutique.',
       status: 'New'
@@ -271,7 +271,7 @@ function handleWhatsAppDispatch() {
   const productName = document.getElementById('enquiry-product-name').value || 'Fine Jewellery & Gemstones';
   const customMessage = document.getElementById('enquiry-message').value || `Hello Gulshan Jewellers, I would like to consult with you regarding ${productName}.`;
 
-  const phone = siteConfig?.contact?.whatsappNumber || '919876543210';
+  const phone = siteConfig?.contact?.whatsappNumber || '919582841454';
   const encoded = encodeURIComponent(customMessage);
   const url = `https://wa.me/${phone.replace(/[^0-9]/g, '')}?text=${encoded}`;
 

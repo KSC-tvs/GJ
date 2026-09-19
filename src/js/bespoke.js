@@ -29,7 +29,7 @@ function initBespokeForm() {
     const promptWa = confirm('Would you also like to open WhatsApp to share reference sketches or voice notes with our design team?');
     if (promptWa) {
       const summary = `Hello Gulshan Jewellers, I submitted a bespoke request for: ${data.itemType || 'Custom Piece'} in ${data.metal || 'Gold'} with ${data.gemstone || 'Selected Gemstone'}, budget approx ${data.budget || 'Flexible'}.`;
-      window.open(`https://wa.me/919876543210?text=${encodeURIComponent(summary)}`, '_blank');
+      window.open(`https://wa.me/919582841454?text=${encodeURIComponent(summary)}`, '_blank');
     }
   });
 }
