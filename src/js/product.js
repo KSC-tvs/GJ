@@ -3,7 +3,7 @@
  * Gulshan Jewellers | Est. 1950
  */
 
-import { fetchProductById, fetchProducts } from './data.js';
+import { fetchProductById, fetchProducts, normalizeAssetPath } from './data.js';
 import { store } from './state/store.js';
 import { formatPrice } from './state/currency.js';
 import { openEnquiryModal } from './main.js';
@@ -18,7 +18,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   const productId = params.get('id') || 'pukhraj-cushion-signet-22k';
 
   currentProduct = await fetchProductById(productId);
-  if (!currentProduct) return;
+
+  if (!currentProduct) {
+    renderNotFoundState(productId);
+    return;
+  }
 
   Tracking.trackProductView(currentProduct.id, currentProduct.title);
   renderProductDetails(currentProduct);
@@ -37,6 +41,30 @@ function renderPrice(product) {
   if (!priceEl) return;
   const currentCurrency = store.getCurrency();
   priceEl.textContent = product.priceAmount ? formatPrice(product.priceAmount, currentCurrency) : product.priceDisplay;
+}
+
+function renderNotFoundState(requestedId) {
+  const main = document.querySelector('main.container');
+  if (!main) return;
+
+  document.title = `Piece Not Found | Gulshan Jewellers · Est. 1950`;
+
+  main.innerHTML = `
+    <div style="text-align: center; padding: var(--space-20) var(--space-4); max-width: 640px; margin: 0 auto;">
+      <span class="section-eyebrow">Atelier Archival Notice</span>
+      <h1 style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--color-text-primary); margin: var(--space-4) 0 var(--space-3);">
+        Piece Not Found in Current Curation
+      </h1>
+      <p style="font-size: 1rem; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: var(--space-8);">
+        The reference piece requested ("${requestedId || 'unknown'}") may have been acquired by a private collector, archived, or is available exclusively upon custom atelier commission.
+      </p>
+      <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+        <a href="collections.html" class="btn btn-gold btn-lg">Explore Available Collections</a>
+        <a href="bespoke.html" class="btn btn-outline btn-lg">Commission Bespoke Creation</a>
+        <button type="button" class="btn btn-outline btn-lg" onclick="window.history.back()">Go Back</button>
+      </div>
+    </div>
+  `;
 }
 
 function renderProductDetails(product) {
@@ -73,14 +101,16 @@ function renderProductDetails(product) {
 
   // Imagery
   const mainImg = document.getElementById('pdp-main-img');
+  const normalizedMain = normalizeAssetPath(product.image);
   if (mainImg) {
-    mainImg.src = product.image;
+    mainImg.src = normalizedMain;
     mainImg.alt = product.title;
   }
 
   const thumbsRow = document.getElementById('pdp-thumbs-row');
   if (thumbsRow) {
-    const images = [product.image, product.secondaryImage || '/images/bespoke-workshop.jpg'];
+    const secImage = normalizeAssetPath(product.secondaryImage) || 'images/bespoke-workshop.jpg';
+    const images = [normalizedMain, secImage];
     thumbsRow.innerHTML = images.map((src, i) => `
       <div class="pdp-thumb ${i === 0 ? 'active' : ''}" data-src="${src}">
         <img src="${src}" alt="Thumbnail ${i + 1}">
@@ -99,32 +129,28 @@ function renderProductDetails(product) {
   // CTAs
   const primaryCta = document.getElementById('pdp-primary-enquire-btn');
   if (primaryCta) {
-    primaryCta.addEventListener('click', () => {
-      openEnquiryModal(product);
-    });
+    primaryCta.onclick = () => openEnquiryModal(product);
   }
 
   const trayCta = document.getElementById('pdp-add-tray-btn');
   if (trayCta) {
-    trayCta.addEventListener('click', () => {
+    trayCta.onclick = () => {
       const res = store.addToTray(product);
       showToast(res.message, res.success ? 'success' : 'info');
-    });
+    };
   }
 
   const consultationCta = document.getElementById('pdp-consultation-btn');
   if (consultationCta) {
-    consultationCta.addEventListener('click', () => {
-      openEnquiryModal(product);
-    });
+    consultationCta.onclick = () => openEnquiryModal(product);
   }
 
   const whatsappCta = document.getElementById('pdp-whatsapp-btn');
   if (whatsappCta) {
-    whatsappCta.addEventListener('click', () => {
-      const msg = encodeURIComponent(`Hello Gulshan Jewellers, I am interested in inquiring about "${product.title}" (${product.priceDisplay}). Could you share certification details and bespoke options?`);
+    whatsappCta.onclick = () => {
+      const msg = encodeURIComponent(`Hello Gulshan Jewellers, I am enquiring about "${product.title}" (${product.priceDisplay}). Could you share certificate details and availability?`);
       window.open(`https://wa.me/919582841454?text=${msg}`, '_blank');
-    });
+    };
   }
 
   // Ring Size Guide trigger
@@ -132,7 +158,7 @@ function renderProductDetails(product) {
   if (sizeGuideBtn) {
     if (product.type === 'ring') {
       sizeGuideBtn.style.display = 'inline-flex';
-      sizeGuideBtn.addEventListener('click', openRingSizeModal);
+      sizeGuideBtn.onclick = openRingSizeModal;
     } else {
       sizeGuideBtn.style.display = 'none';
     }
@@ -211,33 +237,11 @@ function initAccordions() {
   items.forEach(item => {
     const trigger = item.querySelector('.accordion-trigger');
     if (trigger) {
-      trigger.addEventListener('click', () => {
+      trigger.onclick = () => {
         const isOpen = item.classList.contains('open');
         item.classList.toggle('open', !isOpen);
-      });
+      };
     }
-  });
-}
-
-function initCertificateSimulator() {
-  const certBtn = document.getElementById('pdp-view-cert-sample-btn');
-  if (!certBtn) return;
-
-  certBtn.addEventListener('click', () => {
-    alert(`
-GULSHAN JEWELLERS · GEMOLOGICAL CERTIFICATION STANDARDS
------------------------------------------------------------
-Testing Laboratory: Independent Accredited Gemological Authority (IIGJ / Equivalent)
-Species: Natural Earth-Mined Corundum / Beryl
-Identification: Verified Natural Mineral
-Refractive Index: Natural Corundum 1.762 - 1.770
-Specific Gravity: 4.00
-Microscopic Examination: Rutile Silk / Fingerprint Inclusions present
-Thermal Treatment: None Detected / Completely Unheated
-Origin: Ceylon (Sri Lanka) when verified
-
-Every natural gemstone is accompanied by an independent laboratory report.
-    `.trim());
   });
 }
 
@@ -245,64 +249,90 @@ async function renderRelatedProducts(product) {
   const grid = document.getElementById('pdp-related-grid');
   if (!grid) return;
 
-  const allProducts = await fetchProducts();
-  const currentCurrency = store.getCurrency();
-  const related = allProducts
+  const all = await fetchProducts();
+  const related = all
     .filter(p => p.id !== product.id && (p.primaryCategory === product.primaryCategory || p.gemstone === product.gemstone))
-    .slice(0, 4);
+    .slice(0, 3);
 
-  grid.innerHTML = related.map(item => `
+  const fallback = related.length >= 2 ? related : all.filter(p => p.id !== product.id).slice(0, 3);
+  const currentCurrency = store.getCurrency();
+
+  grid.innerHTML = fallback.map(item => `
     <article class="product-card">
       <div class="product-card-media">
         <a href="product.html?id=${item.id}">
-          <img src="${item.image}" alt="${item.title}" loading="lazy">
+          <img src="${normalizeAssetPath(item.image)}" alt="${item.title}" loading="lazy">
         </a>
       </div>
       <div class="product-card-content">
-        <h4 class="product-card-title">
+        <h3 class="product-card-title">
           <a href="product.html?id=${item.id}">${item.title}</a>
-        </h4>
+        </h3>
+        <p class="product-card-desc">${item.poeticDescriptor}</p>
         <div class="product-card-footer">
           <span class="product-price">
             ${item.priceAmount ? formatPrice(item.priceAmount, currentCurrency) : item.priceDisplay}
           </span>
-          <a href="product.html?id=${item.id}" class="btn btn-outline btn-sm">View Piece</a>
+          <a href="product.html?id=${item.id}" class="product-card-view-btn">
+            <span>View Piece</span> &rarr;
+          </a>
         </div>
       </div>
     </article>
   `).join('');
 }
 
+function initCertificateSimulator() {
+  const viewCertBtn = document.getElementById('pdp-view-cert-sample-btn');
+  if (viewCertBtn) {
+    viewCertBtn.onclick = () => {
+      showToast('Authenticity Guarantee: Complete physical testing lab report & BIS hallmark receipt accompany delivery.');
+    };
+  }
+}
+
 function formatCategoryName(cat) {
   const map = {
     gemstones: 'Natural Gemstones',
     diamonds: 'Fine Diamonds',
-    gold: 'Fine Gold',
+    gold: 'Hallmarked Gold',
     silver: 'Sterling Silver'
   };
   return map[cat] || 'Fine Jewellery';
 }
 
 function injectProductSchema(product) {
-  const script = document.createElement('script');
-  script.type = 'application/ld+json';
-  script.text = JSON.stringify({
-    '@context': 'https://schema.org/',
+  let script = document.getElementById('pdp-json-ld');
+  if (!script) {
+    script = document.createElement('script');
+    script.id = 'pdp-json-ld';
+    script.type = 'application/ld+json';
+    document.head.appendChild(script);
+  }
+
+  const schema = {
+    '@context': 'https://schema.org',
     '@type': 'Product',
     'name': product.title,
-    'image': [window.location.origin + product.image],
-    'description': product.poeticDescriptor,
+    'description': product.poeticDescriptor || product.narrative,
+    'image': product.image ? window.location.origin + '/' + normalizeAssetPath(product.image) : undefined,
     'brand': {
       '@type': 'Brand',
-      'name': 'Gulshan Jewellers | Est. 1950'
+      'name': 'Gulshan Jewellers'
     },
     'offers': {
       '@type': 'Offer',
       'priceCurrency': 'INR',
+      'price': product.priceAmount || undefined,
+      'priceSpecification': {
+        '@type': 'PriceSpecification',
+        'priceCurrency': 'INR',
+        'description': product.priceDisplay
+      },
       'availability': 'https://schema.org/InStock',
-      'price': product.priceAmount || '0',
-      'priceValidUntil': '2027-12-31'
+      'itemCondition': 'https://schema.org/NewCondition'
     }
-  });
-  document.head.appendChild(script);
+  };
+
+  script.textContent = JSON.stringify(schema, null, 2);
 }

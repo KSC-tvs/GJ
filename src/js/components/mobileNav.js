@@ -38,7 +38,7 @@ function createMobileDrawerDOM() {
       <!-- Header -->
       <div class="mobile-drawer-header">
         <a href="index.html" class="brand-logo" onclick="GJ.closeMobileDrawer()">
-          <img src="/images/logo.png" alt="Gulshan Jewellers Emblem" class="brand-logo-img">
+          <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="brand-logo-img">
           <div class="brand-logo-text">
             <span class="brand-name" style="font-size: 1.3rem;">Gulshan Jewellers</span>
             <span class="brand-subline" style="font-size: 0.6rem;">Est. 1950 &middot; Heritage House</span>
@@ -134,11 +134,6 @@ function createMobileDrawerDOM() {
 
         <a href="contact.html" class="mobile-main-link" onclick="GJ.closeMobileDrawer()">
           <span>Boutique & Concierge</span>
-        </a>
-
-        <a href="admin.html" class="mobile-main-link" style="color: var(--color-gold-champagne);" onclick="GJ.closeMobileDrawer()">
-          <span>⚙ Staff Admin Portal</span>
-          <span class="badge-mini">CMS & CRM</span>
         </a>
       </nav>
 

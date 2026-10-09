@@ -101,7 +101,7 @@ function createTrayDrawerDOM() {
     window.GJ.openEnquiryModal({
       title: `Curated Tray Consultation (${items.length} pieces)`,
       primaryCategory: 'Curated Tray',
-      image: items[0]?.image || '/images/pukhraj-hero.jpg'
+      image: items[0]?.image || 'images/pukhraj-hero.jpg'
     });
   });
 

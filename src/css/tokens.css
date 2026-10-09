@@ -1,5 +1,6 @@
 /* ==========================================================================
    GULSHAN JEWELLERS | EST. 1950 - DESIGN SYSTEM TOKENS
+   Theme: Modern Ivory & Champagne Luxury
    High-End Luxury, Heritage Fine Jewellery & Untreated Gemstones
    ========================================================================== */
 
@@ -7,55 +8,59 @@
 
 :root {
   /* ------------------------------------------------------------------------
-     1. Color System: Obsidian Deep, Architectural Slate, Warm Champagne Gold
+     1. Color System: Modern Ivory & Champagne Luxury
      ------------------------------------------------------------------------ */
-  --color-bg-deep: #0D0D0E;
-  --color-bg-surface: #141416;
-  --color-bg-card: #1A1A1D;
-  --color-bg-card-hover: #222226;
-  --color-bg-elevated: #1F2025;
-  --color-bg-overlay: rgba(13, 13, 14, 0.88);
-  --color-bg-glass: rgba(20, 20, 22, 0.72);
-  --color-header-glass: rgba(13, 13, 14, 0.82);
+  /* Primary & Secondary Backgrounds */
+  --color-bg-base: #FAF8F5;            /* Primary Warm Ivory */
+  --color-bg-deep: #FAF8F5;            /* Warm Ivory base */
+  --color-bg-surface: #F4F0E8;         /* Soft Cream secondary */
+  --color-bg-card: #FFFFFF;            /* Pure Crisp Ivory / White Surface */
+  --color-bg-card-hover: #FDFCFA;      /* Subtle Warm White Hover */
+  --color-bg-elevated: #FFFFFF;        /* Elevated Pure Surface */
+  --color-bg-overlay: rgba(26, 25, 24, 0.55); /* Soft Charcoal Scrim */
+  --color-bg-glass: rgba(255, 255, 255, 0.88); /* Warm White Frosted Glass */
+  --color-header-glass: rgba(250, 248, 245, 0.94); /* Warm Translucent Ivory */
 
-  /* Light / Contrast Typography */
-  --color-ivory: #F9F9FB;
-  --color-ivory-soft: #EDE8DF;
-  --color-ivory-muted: #D5CEBF;
+  /* Text & Editorial Typography */
+  --color-text-primary: #1A1918;       /* Deep Charcoal / Soft Black */
+  --color-text-secondary: #5E5B54;     /* Warm Charcoal Grey */
+  --color-text-muted: #8C877E;         /* Warm Taupe */
+  --color-text-inverse: #FFFFFF;       /* Pure White for buttons / dark badges */
+  
+  /* Legacy alias mapping to maintain flawless compatibility */
+  --color-ivory: #1A1918;              /* Maps legacy light text to Deep Charcoal */
+  --color-ivory-soft: #2D2B28;         /* High-contrast soft black */
+  --color-ivory-muted: #646058;        /* Mid warm charcoal */
 
-  /* Gold & Metallic Accents */
-  --color-gold-champagne: #C5A880;
-  --color-gold-metallic: #D4AF37;
-  --color-gold-hover: #E0C094;
-  --color-gold-deep: #9B7D52;
-  --color-gold-tint: rgba(197, 168, 128, 0.12);
+  /* Champagne Gold & Muted Metallic Accents (No Brassy Yellow) */
+  --color-gold-champagne: #C5A880;     /* Refined Champagne Gold */
+  --color-gold-metallic: #BCA078;      /* Brushed Champagne Metallic */
+  --color-gold-light: #DFCEB8;         /* Soft Pale Champagne */
+  --color-gold-hover: #D4BD9B;         /* Champagne Hover */
+  --color-gold-deep: #8E6F45;          /* Deep Champagne Bronze */
+  --color-gold-tint: rgba(197, 168, 128, 0.12); /* Subtle Gold Wash */
   --color-gold-tint-strong: rgba(197, 168, 128, 0.22);
-  --color-platinum-warm: #E5E7EB;
-  --color-silver-lustre: #CFD4DC;
+  --color-platinum-warm: #686660;      /* Warm Platinum Charcoal */
+  --color-silver-lustre: #4E525A;      /* Silver Accent Charcoal */
 
-  /* Gemstone Planetary Accents & Ambient Glows */
-  --color-gem-pukhraj: #D4AF37;
-  --color-gem-pukhraj-glow: rgba(212, 175, 55, 0.45);
-  --color-gem-neelam: #24497D;
-  --color-gem-neelam-glow: rgba(36, 73, 125, 0.55);
-  --color-gem-emerald: #1B5838;
-  --color-gem-emerald-glow: rgba(27, 88, 56, 0.55);
-  --color-gem-ruby: #8C1D2F;
-  --color-gem-ruby-glow: rgba(140, 29, 47, 0.55);
-  --color-gem-kyanite: #2C4D75;
-  --color-gem-kyanite-glow: rgba(44, 77, 117, 0.5);
+  /* Gemstone Planetary Accents & Micro-Badges */
+  --color-gem-pukhraj: #9C7916;        /* Deep Golden Amber */
+  --color-gem-pukhraj-glow: rgba(197, 168, 128, 0.2);
+  --color-gem-neelam: #1D3D6A;         /* Royal Navy */
+  --color-gem-neelam-glow: rgba(29, 61, 106, 0.15);
+  --color-gem-emerald: #175635;        /* Forest Emerald */
+  --color-gem-emerald-glow: rgba(23, 86, 53, 0.15);
+  --color-gem-ruby: #861B2E;           /* Deep Ruby Crimson */
+  --color-gem-ruby-glow: rgba(134, 27, 46, 0.15);
+  --color-gem-kyanite: #224770;        /* Deep Kyanite Blue */
+  --color-gem-kyanite-glow: rgba(34, 71, 112, 0.15);
 
-  /* Neutrals & Accessible Text */
-  --color-text-primary: #F9F9FB;
-  --color-text-secondary: #9CA3AF;
-  --color-text-muted: #6B7280;
-
-  /* Borders */
-  --color-border-subtle: rgba(197, 168, 128, 0.2);
-  --color-border-hairline: rgba(255, 255, 255, 0.06);
-  --color-border-glass: rgba(255, 255, 255, 0.12);
-  --color-border-strong: rgba(197, 168, 128, 0.45);
-  --color-border-gold-glow: rgba(212, 175, 55, 0.5);
+  /* Borders & Dividers */
+  --color-border-subtle: #E8E2D8;      /* Very subtle warm beige */
+  --color-border-hairline: rgba(26, 25, 24, 0.08); /* Delicate hairline */
+  --color-border-glass: rgba(197, 168, 128, 0.25);
+  --color-border-strong: #D5CCC0;
+  --color-border-gold-glow: rgba(197, 168, 128, 0.45);
 
   /* ------------------------------------------------------------------------
      2. Typography Stack
@@ -75,7 +80,7 @@
   --text-2xl: 2rem;       /* 32px */
   --text-3xl: 2.75rem;    /* 44px */
   --text-4xl: 3.5rem;     /* 56px */
-  --text-hero: 4.75rem;   /* 76px */
+  --text-hero: 4.5rem;    /* 72px */
 
   /* ------------------------------------------------------------------------
      3. Spacing, Layout & Elevation
@@ -98,14 +103,15 @@
   --max-width: 1360px;
   --max-width-narrow: 980px;
   --header-height: 76px;
-  --top-bar-height: 32px;
+  --top-bar-height: 34px;
 
-  /* Shadows & Ambient Glows */
-  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.45);
-  --shadow-hover: 0 16px 40px rgba(0, 0, 0, 0.7);
-  --shadow-card: 0 8px 30px rgba(0, 0, 0, 0.55);
-  --shadow-gold-glow: 0 0 25px rgba(197, 168, 128, 0.2);
-  --shadow-gold-glow-lg: 0 0 45px rgba(212, 175, 55, 0.35);
+  /* Diffused Luxury Shadows (Soft ambient, not harsh/black) */
+  --shadow-subtle: 0 4px 20px rgba(26, 25, 24, 0.04);
+  --shadow-hover: 0 16px 40px rgba(26, 25, 24, 0.08);
+  --shadow-card: 0 4px 24px rgba(26, 25, 24, 0.05);
+  --shadow-elevated: 0 20px 50px rgba(26, 25, 24, 0.1);
+  --shadow-gold-glow: 0 0 25px rgba(197, 168, 128, 0.22);
+  --shadow-gold-glow-lg: 0 0 45px rgba(197, 168, 128, 0.35);
 
   /* Transitions */
   --transition-instant: 0.15s ease;

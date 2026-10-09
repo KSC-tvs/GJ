@@ -99,20 +99,32 @@ function initAuthBarrier() {
 }
 
 function lockPortal() {
+  const workspace = document.getElementById('admin-authenticated-workspace');
+  if (workspace) workspace.style.display = 'none';
+
   const overlay = document.getElementById('admin-auth-overlay');
   if (overlay) {
     overlay.classList.add('active');
+    overlay.style.display = 'flex';
     setTimeout(() => {
       document.getElementById('auth-password')?.focus();
     }, 150);
   }
+
+  // Clear sensitive administrative data from memory
+  products = [];
+  enquiries = [];
 }
 
 async function unlockPortal(session) {
   const overlay = document.getElementById('admin-auth-overlay');
   if (overlay) {
     overlay.classList.remove('active');
+    overlay.style.display = 'none';
   }
+
+  const workspace = document.getElementById('admin-authenticated-workspace');
+  if (workspace) workspace.style.display = 'block';
 
   // Check cloud connection and refresh indicator
   await updateCloudStatus();
@@ -402,7 +414,7 @@ async function saveProductForm() {
   const origin = document.getElementById('edit-origin').value.trim();
   const cert = document.getElementById('edit-certificate').value.trim();
   const treatment = document.getElementById('edit-treatment').value.trim();
-  const image = document.getElementById('edit-image').value.trim() || '/images/pukhraj-hero.jpg';
+  const image = document.getElementById('edit-image').value.trim() || 'images/pukhraj-hero.jpg';
   const poetic = document.getElementById('edit-poetic').value.trim();
   const narrative = document.getElementById('edit-narrative').value.trim();
 
@@ -449,7 +461,7 @@ async function saveProductForm() {
       priceAmount,
       priceDisplay,
       image,
-      secondaryImage: '/images/bespoke-workshop.jpg',
+      secondaryImage: 'images/bespoke-workshop.jpg',
       poeticDescriptor: poetic || 'Artisan handcrafted fine piece',
       narrative: narrative || 'Handcrafted in 22K gold by master artisans.',
       specs: {

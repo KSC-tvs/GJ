@@ -192,28 +192,28 @@ export function initBespokeStepper() {
       stage: 'Phase I · Creative Dialogue',
       title: '01 · Share Your Vision',
       desc: 'Discuss personal milestones, astrological recommendations, or family heirloom designs. Transparent consultation around your aesthetic taste and budget.',
-      image: '/images/bespoke-workshop.jpg'
+      image: 'images/bespoke-workshop.jpg'
     },
     {
       num: '02',
       stage: 'Phase II · Gemstone Inspection',
       title: '02 · Stone Selection',
       desc: 'Examine certified natural earth-mined gems with complete thermal and clarity treatment disclosure. We evaluate light reflection, cut, and color saturation.',
-      image: '/images/loose-sapphire.jpg'
+      image: 'images/loose-sapphire.jpg'
     },
     {
       num: '03',
       stage: 'Phase III · Artisan Rendering',
       title: '03 · Approve Bespoke Design',
       desc: 'Review 3D wax renderings, claw vs bezel mountings, and comfortable ergonomic proportions prior to solid 22K/18K gold or sterling silver casting.',
-      image: '/images/gold-solitaire.jpg'
+      image: 'images/gold-solitaire.jpg'
     },
     {
       num: '04',
       stage: 'Phase IV · Heirloom Handover',
       title: '04 · Heirloom Finish',
       desc: 'Hand-forged by master karigars, hand-burnished, stamped with verified government BIS hallmarks, and presented with accredited laboratory certificates.',
-      image: '/images/pukhraj-hero.jpg'
+      image: 'images/pukhraj-hero.jpg'
     }
   ];
 

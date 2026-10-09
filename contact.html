@@ -6,17 +6,19 @@
   <title>Consultation & Contact | Gulshan Jewellers · Est. 1950</title>
   <meta name="description" content="Book a private consultation with Gulshan Jewellers. Enquire about natural gemstones, bespoke fine jewellery, hallmarked gold, or gift curations.">
 
-  <link rel="stylesheet" href="/src/css/tokens.css">
-  <link rel="stylesheet" href="/src/css/base.css">
-  <link rel="stylesheet" href="/src/css/components.css">
-  <link rel="stylesheet" href="/src/css/pages.css">
-  <link rel="stylesheet" href="/src/css/animations.css">
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="src/css/tokens.css">
+  <link rel="stylesheet" href="src/css/base.css">
+  <link rel="stylesheet" href="src/css/components.css">
+  <link rel="stylesheet" href="src/css/pages.css">
+  <link rel="stylesheet" href="src/css/animations.css">
+  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="GJ " />
-  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <meta name="theme-color" content="#FAF8F5">
 </head>
 <body>
   <!-- Top Announcement Bar (Slim Luxury Utility Strip) -->
@@ -40,16 +42,15 @@
           <span>WhatsApp Specialist: +91 95828 41454</span>
         </a>
         <a href="collections.html" class="top-bar-link">Collections</a>
-        <a href="admin.html" class="top-bar-link staff-link" title="Staff Catalogue CMS">&#9881; Staff Portal</a>
       </div>
     </div>
   </div>
 
-  <!-- Main Sticky Glassmorphism Header -->
+  <!-- Main Sticky Header -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" aria-label="Gulshan Jewellers Home">
-        <img src="/images/logo.png" alt="Gulshan Jewellers Emblem" class="brand-logo-img">
+        <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="brand-logo-img">
         <div class="brand-logo-text">
           <span class="brand-name">Gulshan Jewellers</span>
           <span class="brand-subline">Est. 1950 · Years of Crafting Legacies</span>
@@ -250,13 +251,13 @@
           </p>
         </div>
 
-        <!-- CMS Placeholder for Boutique Address -->
-        <div style="background-color: rgba(255, 255, 255, 0.02); border: 1px dashed var(--color-border-subtle); padding: var(--space-5); border-radius: var(--radius-xs);">
-          <span style="font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-gold-champagne);">
-            [CMS Field: Boutique Location]
+        <!-- Private Atelier Appointments -->
+        <div style="background-color: var(--color-bg-surface); border: 1px solid var(--color-border-hairline); padding: var(--space-6); border-radius: var(--radius-xs);">
+          <span style="font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-gold-champagne); display: block; margin-bottom: var(--space-2);">
+            Private Atelier Appointments
           </span>
-          <p style="font-size: 0.8rem; color: var(--color-text-muted); margin-top: 4px;">
-            Boutique location available on private appointment. Official address to be supplied by client.
+          <p style="font-size: var(--text-sm); color: var(--color-text-secondary); line-height: 1.7;">
+            Dedicated viewings arranged at our New Delhi atelier by prior reservation, or via private high-definition video consultation worldwide. Connect with our concierge to reserve your appointment.
           </p>
         </div>
       </div>
@@ -269,7 +270,7 @@
       <div class="footer-top">
         <div class="footer-brand-col">
           <div class="footer-brand-header">
-            <img src="/images/logo.png" alt="Gulshan Jewellers Emblem" class="footer-brand-logo-img">
+            <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="footer-brand-logo-img">
             <div>
               <span class="footer-brand-title">Gulshan Jewellers</span>
               <span class="footer-brand-sub">Est. 1950 · Years of Crafting Legacies</span>
@@ -294,7 +295,6 @@
             <li><a href="https://wa.me/919582841454" target="_blank" rel="noopener noreferrer">WhatsApp Consultation</a></li>
             <li><a href="mailto:consult@gulshanjewellers.com">consult@gulshanjewellers.com</a></li>
             <li><a href="https://instagram.com/gulshanjewellers1950" target="_blank" rel="noopener noreferrer">Instagram Journal</a></li>
-            <li><a href="admin.html" style="color: var(--color-gold-champagne); font-size: 0.75rem;">&#9881; Staff Catalogue CMS</a></li>
           </ul>
         </div>
         <div>
@@ -317,15 +317,49 @@
     </div>
   </footer>
 
-  <script type="module" src="/src/js/main.js"></script>
-  <script>
+  <script type="module" src="src/js/main.js"></script>
+  <script type="module">
+    import { db } from './src/js/supabase.js';
+    import { showToast } from './src/js/components/toast.js';
+    import { Tracking } from './src/js/tracking.js';
+
     document.addEventListener('DOMContentLoaded', () => {
       const form = document.getElementById('contact-page-form');
       if (form) {
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
           e.preventDefault();
-          window.GJ.showToast('Thank you. A member of the Gulshan Jewellers team will be in touch shortly.');
+          const submitBtn = form.querySelector('button[type="submit"]');
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting Request...';
+          }
+
+          const formData = new FormData(form);
+          const data = Object.fromEntries(formData.entries());
+
+          Tracking.trackConsultationSubmit(data);
+
+          const payload = {
+            name: data.name || 'Client',
+            contact: data.phone || data.email || '+91 95828 41454',
+            piece: `Consultation: ${data.pathway || 'General Inquiry'}`,
+            message: data.message || `Preferred contact: ${data.preferredContact || 'WhatsApp'}`,
+            status: 'New'
+          };
+
+          try {
+            await db.createEnquiry(payload);
+          } catch (err) {
+            console.warn('CRM dispatch error:', err);
+          }
+
+          showToast('Thank you. A specialist from Gulshan Jewellers will connect with you shortly.');
           form.reset();
+
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Consultation Request';
+          }
         });
       }
     });

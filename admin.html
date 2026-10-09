@@ -6,42 +6,42 @@
   <title>Admin & Management Portal | Gulshan Jewellers · Est. 1950</title>
   <meta name="robots" content="noindex, nofollow">
 
-  <link rel="stylesheet" href="/src/css/tokens.css">
-  <link rel="stylesheet" href="/src/css/base.css">
-  <link rel="stylesheet" href="/src/css/components.css">
-  <link rel="stylesheet" href="/src/css/admin.css">
-  <link rel="stylesheet" href="/src/css/animations.css">
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="stylesheet" href="src/css/tokens.css">
+  <link rel="stylesheet" href="src/css/base.css">
+  <link rel="stylesheet" href="src/css/components.css">
+  <link rel="stylesheet" href="src/css/admin.css">
+  <link rel="stylesheet" href="src/css/animations.css">
+  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="shortcut icon" href="favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
   <meta name="apple-mobile-web-app-title" content="GJ " />
-  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="manifest" href="site.webmanifest" />
 </head>
 <body class="admin-body">
 
-  <!-- Staff Portal Header -->
-  <header class="admin-header">
-    <div class="container admin-header-inner">
-      <div style="display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap;">
-        <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-          <img src="/images/logo.png" alt="Gulshan Jewellers Emblem" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(212,175,55,0.4);">
-          <span class="brand-name" style="font-size: 1.3rem;">Gulshan Jewellers</span>
-        </a>
-        <span class="admin-badge">Admin & Management Portal</span>
-        <div class="db-status-pill" id="db-status-badge">
-          <span class="status-dot"></span>
-          <span class="status-text">Cloud Syncing...</span>
+  <div id="admin-authenticated-workspace" style="display: none;">
+    <!-- Staff Portal Header -->
+    <header class="admin-header">
+      <div class="container admin-header-inner">
+        <div style="display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap;">
+          <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+            <img src="images/logo.png" alt="Gulshan Jewellers Emblem" style="width: 36px; height: 36px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(212,175,55,0.4);">
+            <span class="brand-name" style="font-size: 1.3rem;">Gulshan Jewellers</span>
+          </a>
+          <span class="admin-badge">Admin & Management Portal</span>
+          <div class="db-status-pill" id="db-status-badge">
+            <span class="status-dot"></span>
+            <span class="status-text">Cloud Syncing...</span>
+          </div>
+        </div>
+        <div style="display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap;">
+          <a href="index.html" class="btn btn-outline btn-sm">&larr; Return to Storefront</a>
+          <button type="button" id="admin-export-json-btn" class="btn btn-outline btn-sm">Export Catalogue JSON</button>
+          <button type="button" id="admin-logout-btn" class="btn btn-outline btn-sm" style="border-color: rgba(200, 169, 126, 0.5); color: var(--color-gold-champagne);">&#128274; Sign Out</button>
         </div>
       </div>
-      <div style="display: flex; gap: var(--space-3); align-items: center; flex-wrap: wrap;">
-        <a href="index.html" class="btn btn-outline btn-sm">&larr; Return to Storefront</a>
-        <button type="button" id="admin-export-json-btn" class="btn btn-outline btn-sm">Export Catalogue JSON</button>
-        <button type="button" id="admin-reset-btn" class="btn btn-outline btn-sm" style="color: #E74C3C; border-color: rgba(231, 76, 60, 0.4);">Reset Defaults</button>
-        <button type="button" id="admin-logout-btn" class="btn btn-outline btn-sm" style="border-color: rgba(200, 169, 126, 0.5); color: var(--color-gold-champagne);">&#128274; Sign Out</button>
-      </div>
-    </div>
-  </header>
+    </header>
 
   <!-- Admin Navigation Tabs -->
   <div class="admin-tabs-bar">
@@ -129,7 +129,6 @@
           <h2 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-ivory);">Client Consultations & Leads</h2>
           <p style="font-size: 0.85rem; color: var(--color-text-secondary);">Direct customer inquiries submitted through product detail pages, bespoke requests, and private viewing bookings.</p>
         </div>
-        <button type="button" id="admin-seed-enquiry-btn" class="btn btn-outline btn-sm">Generate Test Inquiry</button>
       </div>
 
       <div class="admin-table-wrap" style="margin-top: var(--space-4);">
@@ -372,7 +371,7 @@
 
         <div class="form-group">
           <label class="form-label" for="edit-image">Image URL</label>
-          <input type="text" id="edit-image" class="form-control" placeholder="/images/pukhraj-hero.jpg">
+          <input type="text" id="edit-image" class="form-control" placeholder="images/pukhraj-hero.jpg">
         </div>
 
         <div class="form-group">
@@ -392,13 +391,14 @@
       </form>
     </div>
   </div>
+  </div><!-- /admin-authenticated-workspace -->
 
   <!-- Protected Admin Security Barrier -->
   <div id="admin-auth-overlay" class="admin-auth-overlay active">
     <div class="admin-auth-card">
       <div class="auth-header">
         <div class="auth-logo-wrap">
-          <img src="/images/logo.png" alt="Gulshan Jewellers" class="auth-logo">
+          <img src="images/logo.png" alt="Gulshan Jewellers" class="auth-logo">
         </div>
         <h2 class="auth-title">Gulshan Jewellers</h2>
         <div class="auth-est">ESTABLISHED 1950 &middot; ATELIER MANAGEMENT</div>
@@ -431,6 +431,6 @@
 
   <div id="toast-container" class="toast-container"></div>
 
-  <script type="module" src="/src/js/admin.js"></script>
+  <script type="module" src="src/js/admin.js"></script>
 </body>
 </html>

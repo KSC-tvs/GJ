@@ -1,15 +1,13 @@
 /**
  * Supabase Database & Auth Service
  * Gulshan Jewellers | Est. 1950
+ * Production-Grade Secure Client Architecture
  */
 
 import { createClient } from '@supabase/supabase-js';
 
 const STORAGE_KEY = 'gj_supabase_config';
 const AUTH_SESSION_KEY = 'gj_admin_session';
-
-// Bootstrap master passphrase for immediate out-of-the-box admin protection
-const BOOTSTRAP_ADMIN_HASH = 'gj-atelier-1950';
 
 let supabaseClient = null;
 
@@ -26,7 +24,7 @@ export function getStoredConfig() {
 
   const envUrl = import.meta.env?.VITE_SUPABASE_URL;
   const envKey = import.meta.env?.VITE_SUPABASE_ANON_KEY;
-  if (envUrl && envKey && !envUrl.includes('placeholder')) {
+  if (envUrl && envKey && !envUrl.includes('your-project-id')) {
     return { url: envUrl, key: envKey };
   }
 
@@ -97,18 +95,17 @@ export async function testConnection(customUrl, customKey) {
   }
 
   try {
-    const { data, error } = await testClient
+    const { error } = await testClient
       .from('store_settings')
       .select('id')
       .limit(1);
 
     if (error) {
-      // If table doesn't exist yet, it's connected to Supabase but needs schema
       if (error.code === '42P01') {
         return { 
           success: true, 
           needsSchema: true, 
-          message: 'Connected to Supabase! The database schema has not been applied yet. Please run supabase/schema.sql in your Supabase SQL Editor.' 
+          message: 'Connected to Supabase. Database schema needs to be applied by running supabase/schema.sql in the SQL Editor.' 
         };
       }
       return { success: false, error: error.message };
@@ -121,6 +118,7 @@ export async function testConnection(customUrl, customKey) {
 
 /* --------------------------------------------------------------------------
    ADMIN AUTHENTICATION GATE
+   Strictly enforced via Supabase Auth & JWT Session Verification
    -------------------------------------------------------------------------- */
 export const auth = {
   async getSession() {
@@ -128,13 +126,15 @@ export const auth = {
     if (client) {
       try {
         const { data: { session } } = await client.auth.getSession();
-        if (session) return { user: session.user, token: session.access_token };
+        if (session && session.user) {
+          return { user: session.user, token: session.access_token };
+        }
       } catch (e) {
-        console.warn('Supabase auth getSession check:', e);
+        console.warn('Supabase auth getSession check failed:', e);
       }
     }
 
-    // Check local admin session
+    // Verify stored active session
     const local = localStorage.getItem(AUTH_SESSION_KEY);
     if (local) {
       try {
@@ -153,37 +153,33 @@ export const auth = {
     const cleanEmail = (email || '').trim().toLowerCase();
     const cleanPass = (password || '').trim();
 
-    // 1. Try Supabase Auth first if configured
     const client = getSupabase();
-    if (client) {
-      try {
-        const { data, error } = await client.auth.signInWithPassword({
-          email: cleanEmail,
-          password: cleanPass
-        });
-        if (!error && data?.session) {
-          const sessionData = {
-            user: { email: data.user.email, id: data.user.id, role: 'admin' },
-            token: data.session.access_token,
-            expiresAt: Date.now() + (24 * 60 * 60 * 1000)
-          };
-          localStorage.setItem(AUTH_SESSION_KEY, JSON.stringify(sessionData));
-          return { success: true, session: sessionData };
-        }
-      } catch (err) {
-        console.warn('Supabase auth attempt failed, testing fallback credentials', err);
-      }
+    if (!client) {
+      return { 
+        success: false, 
+        error: 'Supabase cloud database is not connected. Configure project URL and Anon key in Database settings first.' 
+      };
     }
 
-    // 2. Verified fallback credentials (allows instant login on local development / setup)
-    if (cleanPass === BOOTSTRAP_ADMIN_HASH || (cleanEmail === 'admin@gulshanjewellers.com' && cleanPass === 'Gulshan1950!')) {
-      const sessionData = {
-        user: { email: cleanEmail || 'admin@gulshanjewellers.com', role: 'admin' },
-        token: 'local-bootstrap-token',
-        expiresAt: Date.now() + (24 * 60 * 60 * 1000)
-      };
-      localStorage.setItem(AUTH_SESSION_KEY, JSON.stringify(sessionData));
-      return { success: true, session: sessionData };
+    try {
+      const { data, error } = await client.auth.signInWithPassword({
+        email: cleanEmail,
+        password: cleanPass
+      });
+      if (error) {
+        return { success: false, error: error.message };
+      }
+      if (data?.session) {
+        const sessionData = {
+          user: { email: data.user.email, id: data.user.id, role: 'admin' },
+          token: data.session.access_token,
+          expiresAt: Date.now() + (24 * 60 * 60 * 1000)
+        };
+        localStorage.setItem(AUTH_SESSION_KEY, JSON.stringify(sessionData));
+        return { success: true, session: sessionData, user: data.user };
+      }
+    } catch (err) {
+      return { success: false, error: err.message || 'Authentication error.' };
     }
 
     return { 
@@ -222,7 +218,6 @@ export const db = {
       if (error) throw error;
       if (!data || data.length === 0) return null;
 
-      // Map to frontend naming conventions if needed
       return data.map(row => ({
         id: row.id,
         title: row.title,
@@ -245,12 +240,14 @@ export const db = {
         astrologicalNote: row.astrological_note
       }));
     } catch (err) {
-      console.warn('Supabase getProducts error:', err);
       return null;
     }
   },
 
   async upsertProduct(product) {
+    const session = await auth.getSession();
+    if (!session) return { success: false, error: 'Unauthorized: staff authentication required' };
+
     const client = getSupabase();
     if (!client) return { success: false, error: 'Supabase not connected' };
 
@@ -291,6 +288,9 @@ export const db = {
   },
 
   async deleteProduct(id) {
+    const session = await auth.getSession();
+    if (!session) return { success: false, error: 'Unauthorized: staff authentication required' };
+
     const client = getSupabase();
     if (!client) return { success: false, error: 'Supabase not connected' };
     try {
@@ -308,8 +308,19 @@ export const db = {
 
   // ENQUIRIES / CRM
   async getEnquiries() {
+    const session = await auth.getSession();
+    if (!session) return null; // Protect customer personal data from unauthorized access
+
     const client = getSupabase();
-    if (!client) return null;
+    if (!client) {
+      // Local fallback for offline authorized staff
+      try {
+        return JSON.parse(localStorage.getItem('gj_enquiries') || '[]');
+      } catch (e) {
+        return [];
+      }
+    }
+
     try {
       const { data, error } = await client
         .from('enquiries')
@@ -319,12 +330,16 @@ export const db = {
       if (error) throw error;
       return data || [];
     } catch (err) {
-      console.warn('Supabase getEnquiries error:', err);
-      return null;
+      try {
+        return JSON.parse(localStorage.getItem('gj_enquiries') || '[]');
+      } catch (e) {
+        return [];
+      }
     }
   },
 
   async createEnquiry(enquiry) {
+    // Public action: Allowed by RLS policy "Public can submit enquiries"
     const client = getSupabase();
     const payload = {
       id: enquiry.id || ('ENQ-' + Math.floor(1000 + Math.random() * 9000)),
@@ -346,11 +361,11 @@ export const db = {
 
         if (!error) return { success: true, data };
       } catch (err) {
-        console.warn('Supabase createEnquiry error:', err);
+        console.warn('Supabase createEnquiry notice:', err);
       }
     }
 
-    // Fallback: Always record to local storage as well
+    // Resilient local backup for offline operation
     try {
       const saved = JSON.parse(localStorage.getItem('gj_enquiries') || '[]');
       saved.unshift(payload);
@@ -361,6 +376,9 @@ export const db = {
   },
 
   async updateEnquiryStatus(id, status, notes) {
+    const session = await auth.getSession();
+    if (!session) return { success: false, error: 'Unauthorized: staff authentication required' };
+
     const client = getSupabase();
     if (client) {
       try {
@@ -371,28 +389,29 @@ export const db = {
           .update(updateObj)
           .eq('id', id);
 
-        if (!error) return { success: true };
+        if (error) throw error;
+        return { success: true };
       } catch (err) {
-        console.warn('Supabase updateEnquiryStatus error:', err);
+        return { success: false, error: err.message };
       }
     }
 
-    // Fallback local update
+    // Local storage fallback
     try {
-      const saved = JSON.parse(localStorage.getItem('gj_enquiries') || '[]');
-      const idx = saved.findIndex(e => e.id === id);
-      if (idx !== -1) {
-        saved[idx].status = status;
-        if (notes !== undefined) saved[idx].notes = notes;
-        localStorage.setItem('gj_enquiries', JSON.stringify(saved));
-        return { success: true };
+      const enquiries = JSON.parse(localStorage.getItem('gj_enquiries') || '[]');
+      const item = enquiries.find(e => e.id === id);
+      if (item) {
+        item.status = status;
+        if (notes !== undefined) item.notes = notes;
+        localStorage.setItem('gj_enquiries', JSON.stringify(enquiries));
       }
-    } catch (e) {}
-
-    return { success: false };
+      return { success: true };
+    } catch (e) {
+      return { success: false, error: e.message };
+    }
   },
 
-  // STORE SETTINGS & BULLION RATES
+  // STORE SETTINGS & RATES
   async getStoreSettings() {
     const client = getSupabase();
     if (!client) return null;
@@ -404,27 +423,34 @@ export const db = {
         .single();
 
       if (error) throw error;
-      if (data) {
-        return {
-          phone: data.phone,
-          whatsapp: data.whatsapp,
-          email: data.email,
-          hours: data.hours,
+      if (!data) return null;
+
+      return {
+        bullion_rates: {
           gold24k: data.gold_24k,
           gold22k: data.gold_22k,
           gold18k: data.gold_18k,
           silver925: data.silver_925
-        };
-      }
-      return null;
+        },
+        contact_info: {
+          phone: data.phone,
+          whatsapp: data.whatsapp,
+          email: data.email,
+          hours: data.hours
+        }
+      };
     } catch (err) {
-      console.warn('Supabase getStoreSettings error:', err);
       return null;
     }
   },
 
   async updateStoreSettings(settings) {
+    const session = await auth.getSession();
+    if (!session) return { success: false, error: 'Unauthorized: staff authentication required' };
+
     const client = getSupabase();
+    if (!client) return { success: false, error: 'Supabase not connected' };
+
     const payload = {
       id: 'default',
       phone: settings.phone,
@@ -438,25 +464,23 @@ export const db = {
       updated_at: new Date().toISOString()
     };
 
-    if (client) {
-      try {
-        const { error } = await client
-          .from('store_settings')
-          .upsert(payload);
+    try {
+      const { error } = await client
+        .from('store_settings')
+        .upsert(payload);
 
-        if (!error) return { success: true };
-      } catch (err) {
-        console.warn('Supabase updateStoreSettings error:', err);
-      }
+      if (error) throw error;
+      return { success: true };
+    } catch (err) {
+      return { success: false, error: err.message };
     }
-
-    // Save locally
-    localStorage.setItem('gj_store_settings', JSON.stringify(settings));
-    return { success: true, fallback: true };
   },
 
-  // BULK CATALOGUE MIGRATION
-  async seedCatalogue(productsList) {
+  // BULK CATALOGUE SYNC
+  async syncCatalogueToSupabase(productsList) {
+    const session = await auth.getSession();
+    if (!session) return { success: false, error: 'Unauthorized: staff authentication required' };
+
     const client = getSupabase();
     if (!client) return { success: false, error: 'Supabase not connected' };
 
@@ -483,7 +507,7 @@ export const db = {
     }));
 
     try {
-      const { data, error } = await client
+      const { error } = await client
         .from('products')
         .upsert(payloads, { onConflict: 'id' });
 

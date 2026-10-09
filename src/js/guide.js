@@ -3,7 +3,7 @@
  * Gulshan Jewellers | Est. 1950
  */
 
-import { fetchGemstones } from './data.js';
+import { fetchGemstones, normalizeAssetPath } from './data.js';
 import { openEnquiryModal, showToast } from './main.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -44,13 +44,13 @@ function initBuyerChecklist() {
   if (copyBtn) {
     copyBtn.addEventListener('click', () => {
       const checklistText = `
-Gulshan Jewellers | Est. 1950 — Gemstone Buyer's Checklist
-1. Natural vs Lab-Grown: Verify the stone is 100% earth-mined corundum/beryl.
-2. Treatment Disclosure: Ask explicitly whether the stone is unheated, heated, beryllium-diffused, or glass-filled.
-3. Clarity & Silk: Confirm natural inclusions/silk verifying earth origin.
-4. Independent Certification: Insist on an accredited testing laboratory certificate stating treatment and origin.
-5. Metal & Setting: Ensure setting allows appropriate light entry without hiding fractures.
-6. Consultation Ethics: Ensure guidance is framed responsibly without magical or guaranteed outcome promises.
+Gulshan Jewellers | Est. 1950 — Gemstone Buyer's Verification Checklist
+1. Natural Earth-Origin: Confirm the gemstone crystallized in the earth, with no synthetic lab-growth.
+2. Treatment Disclosure: Explicit disclosure of unheated vs standard heated vs chemical diffusion.
+3. Microscopic Verification: Natural inclusions/silk validating earth origin without compromising brilliance.
+4. Independent Certification: Accredited gem testing report (IIGJ or reputed testing lab) stating species, origin, and treatment.
+5. Metal & Setting: Setting designed to protect the pavilion with open basket for natural light entry.
+6. Consultation Ethics: Responsible guidance free from exaggerated supernatural or guaranteed promises.
       `.trim();
 
       navigator.clipboard.writeText(checklistText).then(() => {
@@ -77,34 +77,64 @@ function initRattiCaratCalculator() {
 
   if (!caratInput || !rattiInput) return;
 
-  caratInput.addEventListener('input', (e) => {
-    const carats = parseFloat(e.target.value);
-    if (!isNaN(carats) && carats > 0) {
-      // 1 Carat = approx 1.10 Traditional Ratti
-      const ratti = (carats * 1.0989).toFixed(2);
-      rattiInput.value = ratti;
-      if (resultText) {
-        resultText.textContent = `${carats} Carats is approximately ${ratti} Traditional Ratti (approx. ${(carats * 200).toFixed(0)} mg). Standard astrological rings typically range from 4.25 to 7.25 Ratti.`;
-      }
-    } else {
+  function updateFromCarats(carats) {
+    if (isNaN(carats) || carats <= 0) {
       rattiInput.value = '';
-      if (resultText) resultText.textContent = 'Enter a value to convert.';
+      if (resultText) resultText.textContent = 'Enter a carat weight or traditional Ratti value above to inspect exact gemological conversions.';
+      return;
     }
+
+    const mg = Math.round(carats * 200);
+    // Pakka Ratti: 1 Pakka Ratti = 182 mg (approx. 0.91 ct) -> Carats * 1.0989
+    const pakkaRatti = (carats * 1.0989).toFixed(2);
+    // Sunari Ratti: 1 Sunari Ratti = 121.5 mg (approx. 0.6075 ct) -> Carats * 1.646
+    const sunariRatti = (carats / 0.6075).toFixed(2);
+
+    rattiInput.value = pakkaRatti;
+
+    if (resultText) {
+      resultText.innerHTML = `
+        <div style="font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px;">
+          ${carats} Metric Carats = ${mg} milligrams (mg)
+        </div>
+        <div style="font-size: 0.82rem; color: var(--color-text-secondary); line-height: 1.6;">
+          &bull; <strong>Standard Gemological (Pakka) Ratti:</strong> ${pakkaRatti} Ratti (1 Ratti = 182 mg / 0.91 ct)<br>
+          &bull; <strong>Traditional Goldsmith (Sunari) Ratti:</strong> ${sunariRatti} Ratti (1 Ratti = 121.5 mg / 0.61 ct)
+        </div>
+      `;
+    }
+  }
+
+  function updateFromRatti(ratti) {
+    if (isNaN(ratti) || ratti <= 0) {
+      caratInput.value = '';
+      if (resultText) resultText.textContent = 'Enter a value to convert.';
+      return;
+    }
+
+    // Default assumes Standard Gemological (Pakka) Ratti (1 Ratti = 0.91 Carat = 182 mg)
+    const carats = (ratti * 0.91).toFixed(2);
+    const mg = Math.round(carats * 200);
+    caratInput.value = carats;
+
+    if (resultText) {
+      resultText.innerHTML = `
+        <div style="font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px;">
+          ${ratti} Standard Gemological Ratti = ${carats} Metric Carats (~${mg} mg)
+        </div>
+        <div style="font-size: 0.82rem; color: var(--color-text-secondary); line-height: 1.6;">
+          &bull; If calculated in <strong>Traditional Goldsmith (Sunari) Ratti</strong> (121.5 mg): ${(ratti * 0.6075).toFixed(2)} Carats (${Math.round(ratti * 121.5)} mg)
+        </div>
+      `;
+    }
+  }
+
+  caratInput.addEventListener('input', (e) => {
+    updateFromCarats(parseFloat(e.target.value));
   });
 
   rattiInput.addEventListener('input', (e) => {
-    const ratti = parseFloat(e.target.value);
-    if (!isNaN(ratti) && ratti > 0) {
-      // 1 Traditional Ratti = 0.91 Carats
-      const carats = (ratti * 0.91).toFixed(2);
-      caratInput.value = carats;
-      if (resultText) {
-        resultText.textContent = `${ratti} Ratti is approximately ${carats} Metric Carats (approx. ${(carats * 200).toFixed(0)} mg).`;
-      }
-    } else {
-      caratInput.value = '';
-      if (resultText) resultText.textContent = 'Enter a value to convert.';
-    }
+    updateFromRatti(parseFloat(e.target.value));
   });
 }
 
@@ -113,9 +143,10 @@ function initSpecialistCTA() {
   if (ctaBtn) {
     ctaBtn.addEventListener('click', () => {
       openEnquiryModal({
-        title: 'Gemstone Educational Consultation',
+        id: 'gemstone-consultation',
+        title: 'Gemstone Guidance Consultation',
         primaryCategory: 'gemstones',
-        image: '/images/pukhraj-hero.jpg'
+        image: 'images/pukhraj-hero.jpg'
       });
     });
   }

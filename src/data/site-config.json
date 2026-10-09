@@ -16,11 +16,11 @@
     "email": "consult@gulshanjewellers.com",
     "consultationHours": "Monday to Saturday · 11:00 AM – 7:30 PM IST"
   },
-  "placeholders": {
-    "boutiqueAddress": "Boutique Location available on private appointment [CMS Placeholder: Update with official address]",
-    "shippingPolicy": "Insured delivery & personalized handover across India [CMS Placeholder: Client to supply official policy]",
-    "returnPolicy": "Custom and certified fine gemstone orders crafted upon consultation [CMS Placeholder: Client to supply official policy]",
-    "certificationPartners": "Independent gemological laboratory certificates (e.g. IIGJ or equivalent reputed testing labs available per stone upon request)"
+  "policies": {
+    "boutiqueAddress": "Private boutique viewings in New Delhi by prior appointment. Connect with our concierge to schedule a dedicated consultation.",
+    "shippingPolicy": "Complimentary insured delivery and personalized handover across India for all certified creations.",
+    "returnPolicy": "Every creation is accompanied by certified documentation. Bespoke creations and custom rings receive lifetime authenticity support and complimentary first resizing.",
+    "certificationPartners": "Independent gemological laboratory certificates (e.g. IIGJ or equivalent accredited testing laboratories) available per stone upon request."
   },
   "navigation": [
     { "label": "Natural Gemstones", "href": "collections.html?category=gemstones" },

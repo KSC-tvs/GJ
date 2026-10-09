@@ -3,7 +3,7 @@
  * Gulshan Jewellers | Est. 1950
  */
 
-import { fetchProducts } from './data.js';
+import { fetchProducts, normalizeAssetPath } from './data.js';
 import { store } from './state/store.js';
 import { formatPrice } from './state/currency.js';
 import { openEnquiryModal } from './main.js';
@@ -16,7 +16,8 @@ let activeFilters = {
   metal: [],
   occasion: [],
   certifiedOnly: false,
-  search: ''
+  search: '',
+  sort: 'featured'
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   readUrlParameters();
   initFilterListeners();
   initMobileFilters();
+  initSortListener();
   renderProducts();
 
   // Listen to currency changes
@@ -42,6 +44,7 @@ function readUrlParameters() {
   const params = new URLSearchParams(window.location.search);
   const categoryParam = params.get('category');
   const gemstoneParam = params.get('gemstone');
+  const occasionParam = params.get('occasion');
   const searchParam = params.get('search');
 
   if (categoryParam) {
@@ -56,10 +59,26 @@ function readUrlParameters() {
     if (gemCheckbox) gemCheckbox.checked = true;
   }
 
+  if (occasionParam) {
+    activeFilters.occasion = [occasionParam];
+    const occCheckbox = document.querySelector(`input[name="occasion-filter"][value="${occasionParam}"]`);
+    if (occCheckbox) occCheckbox.checked = true;
+  }
+
   if (searchParam) {
     activeFilters.search = searchParam.toLowerCase();
     const searchInput = document.getElementById('collection-search');
     if (searchInput) searchInput.value = searchParam;
+  }
+}
+
+function initSortListener() {
+  const sortSelect = document.getElementById('collection-sort');
+  if (sortSelect) {
+    sortSelect.addEventListener('change', (e) => {
+      activeFilters.sort = e.target.value;
+      renderProducts();
+    });
   }
 }
 
@@ -134,12 +153,15 @@ function initFilterListeners() {
         metal: [],
         occasion: [],
         certifiedOnly: false,
-        search: ''
+        search: '',
+        sort: 'featured'
       };
       document.querySelectorAll('input[type="checkbox"]').forEach(c => c.checked = false);
       const allCat = document.querySelector('input[name="category-filter"][value="all"]');
       if (allCat) allCat.checked = true;
       if (searchInput) searchInput.value = '';
+      const sortSelect = document.getElementById('collection-sort');
+      if (sortSelect) sortSelect.value = 'featured';
       renderProducts();
     });
   }
@@ -179,7 +201,7 @@ function getActiveFilterCount() {
 }
 
 function filterProductList(products) {
-  return products.filter(item => {
+  let list = products.filter(item => {
     if (activeFilters.category !== 'all' && item.primaryCategory !== activeFilters.category) {
       return false;
     }
@@ -205,6 +227,20 @@ function filterProductList(products) {
     }
     return true;
   });
+
+  // Apply sorting
+  if (activeFilters.sort === 'title-asc') {
+    list.sort((a, b) => a.title.localeCompare(b.title));
+  } else if (activeFilters.sort === 'price-asc') {
+    list.sort((a, b) => (a.priceAmount || 9999999) - (b.priceAmount || 9999999));
+  } else if (activeFilters.sort === 'price-desc') {
+    list.sort((a, b) => (b.priceAmount || 0) - (a.priceAmount || 0));
+  } else {
+    // featured
+    list.sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
+  }
+
+  return list;
 }
 
 function renderProducts() {
@@ -231,10 +267,10 @@ function renderProducts() {
 
   if (filtered.length === 0) {
     grid.innerHTML = `
-      <div style="grid-column: 1 / -1; text-align: center; padding: var(--space-16) 0;">
-        <h3 style="font-size: 1.5rem; color: var(--color-ivory); margin-bottom: var(--space-2);">No pieces matched your selected filters</h3>
-        <p style="font-size: 0.9rem; color: var(--color-text-secondary); max-width: 460px; margin: 0 auto var(--space-6);">
-          Every piece at Gulshan Jewellers can also be custom-created around your specific gemstone, metal purity, or budget.
+      <div style="grid-column: 1 / -1; text-align: center; padding: var(--space-16) 0; background-color: var(--color-bg-card); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-xs);">
+        <h3 style="font-size: 1.4rem; color: var(--color-text-primary); margin-bottom: var(--space-2);">No pieces matched your selected filters</h3>
+        <p style="font-size: 0.9rem; color: var(--color-text-secondary); max-width: 480px; margin: 0 auto var(--space-6); line-height: 1.6;">
+          Every jewel at Gulshan Jewellers can also be custom-created around your specific gemstone preference, metal purity (22K, 18K, 925 Silver), or family heirloom reset.
         </p>
         <button type="button" class="btn btn-outline" data-trigger-consultation>
           Request a Custom Design Consultation
@@ -246,6 +282,7 @@ function renderProducts() {
 
   grid.innerHTML = filtered.map(item => {
     const priceFormatted = item.priceAmount ? formatPrice(item.priceAmount, currentCurrency) : item.priceDisplay;
+    const normalizedImg = normalizeAssetPath(item.image);
 
     const leftBadges = [
       item.badges?.natural ? `<span class="badge badge-natural">Natural</span>` : '',
@@ -261,16 +298,16 @@ function renderProducts() {
       <article class="product-card">
         <div class="product-card-media">
           <a href="product.html?id=${item.id}" aria-label="View ${item.title}">
-            <img src="${item.image}" alt="${item.title}" loading="lazy">
+            <img src="${normalizedImg}" alt="${item.title}" loading="lazy">
           </a>
 
-          <!-- Floating Frosted Glass Status Badges -->
+          <!-- Floating Badges -->
           ${leftBadges ? `<div class="product-badges-top-left">${leftBadges}</div>` : ''}
           ${rightBadges ? `<div class="product-badges-top-right">${rightBadges}</div>` : ''}
 
-          <!-- Modern Hover Action Overlay Bar -->
+          <!-- Action Overlay Bar -->
           <div class="product-card-actions-overlay">
-            <a href="product.html?id=${item.id}" class="card-action-icon-btn" aria-label="View piece details" title="Quick View">
+            <a href="product.html?id=${item.id}" class="card-action-icon-btn" aria-label="View piece details" title="View Details">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                 <circle cx="12" cy="12" r="3"></circle>
@@ -304,7 +341,7 @@ function renderProducts() {
     `;
   }).join('');
 
-  // Quick Enquire
+  // Bind Quick Enquire
   grid.querySelectorAll('.quick-enquire-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = btn.getAttribute('data-product-id');
@@ -313,7 +350,7 @@ function renderProducts() {
     });
   });
 
-  // Quick Add to Tray
+  // Bind Quick Add to Tray
   grid.querySelectorAll('.quick-tray-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = btn.getAttribute('data-id');
