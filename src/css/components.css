@@ -52,7 +52,7 @@
   border: 1px solid rgba(197, 168, 128, 0.18);
   padding: 2px 10px;
   border-radius: var(--radius-xs);
-  font-size: 0.7rem;
+  font-size: 0.75rem; /* 12px minimum */
   color: var(--color-gold-champagne);
 }
 
@@ -158,8 +158,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-6);
+  gap: clamp(var(--space-3), 2vw, var(--space-6));
   height: var(--header-height);
+  flex-wrap: nowrap;
   transition: height var(--transition-fast);
 }
 
@@ -169,10 +170,49 @@
 
 .brand-logo {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
   flex-shrink: 0;
-  margin-right: var(--space-4);
+  padding: 4px 0;
+  transition: opacity var(--transition-fast);
+}
+
+.brand-logo:hover {
+  opacity: 0.94;
+}
+
+.brand-logo-img {
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  min-height: 46px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-gold-champagne);
+  box-shadow: 0 2px 10px rgba(197, 168, 128, 0.28), 0 0 0 1px rgba(26, 25, 24, 0.05);
+  background-color: #0c0b0a;
+  display: block;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.site-header.scrolled .brand-logo-img {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+}
+
+.brand-logo:hover .brand-logo-img {
+  transform: scale(1.06);
+  border-color: var(--color-gold-deep);
+  box-shadow: 0 4px 16px rgba(197, 168, 128, 0.42);
+}
+
+.brand-logo-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .brand-name {
@@ -181,9 +221,14 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-text-primary);
-  line-height: 1;
-  font-weight: 500;
+  line-height: 1.1;
+  font-weight: 600;
   white-space: nowrap;
+  transition: color var(--transition-fast);
+}
+
+.brand-logo:hover .brand-name {
+  color: var(--color-gold-deep);
 }
 
 .brand-subline {
@@ -192,15 +237,17 @@
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-gold-deep);
-  margin-top: 5px;
+  margin-top: 3px;
   white-space: nowrap;
   font-weight: 500;
+  line-height: 1;
 }
 
 .main-nav {
   display: flex;
   align-items: center;
-  gap: var(--space-6);
+  gap: clamp(14px, 1.8vw, 24px);
+  margin: 0 var(--space-2);
 }
 
 .nav-link {
@@ -1609,6 +1656,25 @@ textarea.form-control {
   gap: var(--space-4);
 }
 
+.footer-brand-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.footer-brand-logo-img {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  min-height: 52px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-gold-champagne);
+  box-shadow: 0 4px 14px rgba(197, 168, 128, 0.25);
+  background-color: #0c0b0a;
+  display: block;
+}
+
 .footer-brand-title {
   font-family: var(--font-serif);
   font-size: 1.75rem;
@@ -1982,9 +2048,9 @@ textarea.form-control {
 }
 
 .mobile-heritage-tag {
-  font-size: 0.68rem;
+  font-size: 0.75rem; /* 12px accessible minimum */
   text-align: center;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-text-muted);
 }
@@ -2039,8 +2105,8 @@ textarea.form-control {
 }
 
 .mobile-dock-label {
-  font-size: 0.62rem;
-  letter-spacing: 0.05em;
+  font-size: 0.75rem; /* 12px accessible minimum */
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   font-family: var(--font-sans);
   font-weight: 500;
@@ -2136,7 +2202,7 @@ textarea.form-control {
 /* --------------------------------------------------------------------------
    Responsive Adjustments & Breakpoints
    -------------------------------------------------------------------------- */
-@media (max-width: 1180px) {
+@media (max-width: 1220px) {
   .main-nav {
     display: none;
   }
@@ -2144,7 +2210,7 @@ textarea.form-control {
   .mobile-nav-toggle {
     display: flex;
     padding: 6px;
-    margin-right: -6px;
+    margin-right: -4px;
   }
 }
 
@@ -2166,6 +2232,42 @@ textarea.form-control {
 @media (max-width: 768px) {
   body {
     padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .top-bar {
+    height: auto;
+    min-height: var(--top-bar-height);
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .brand-logo {
+    gap: 10px;
+  }
+
+  .brand-logo-img {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
+  }
+
+  .site-header.scrolled .brand-logo-img {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    min-height: 34px;
+  }
+
+  .brand-name {
+    font-size: 1.1rem;
+    letter-spacing: 0.08em;
+  }
+
+  .brand-subline {
+    font-size: 0.75rem; /* 12px minimum */
+    letter-spacing: 0.08em;
+    margin-top: 2px;
   }
 
   .nav-primary-cta {
@@ -2286,3 +2388,86 @@ textarea.form-control {
     grid-template-columns: 1fr !important;
   }
 }
+
+@media (max-width: 480px) {
+  .brand-logo {
+    gap: 8px;
+  }
+
+  .brand-logo-img {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    min-height: 34px;
+  }
+
+  .site-header.scrolled .brand-logo-img {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+  }
+
+  .brand-name {
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+  }
+
+  .brand-subline {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .header-icon-btn {
+    padding: 0 0.45rem;
+    height: 34px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Luxury Skeleton Placeholders
+   -------------------------------------------------------------------------- */
+.skeleton-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton-media {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(90deg, rgba(235, 230, 222, 0.5) 0%, rgba(248, 246, 242, 0.9) 50%, rgba(235, 230, 222, 0.5) 100%);
+  background-size: 200% 100%;
+  animation: skeletonPulse 1.8s ease-in-out infinite;
+}
+
+.skeleton-body {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.skeleton-line {
+  height: 12px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(235, 230, 222, 0.5) 0%, rgba(248, 246, 242, 0.9) 50%, rgba(235, 230, 222, 0.5) 100%);
+  background-size: 200% 100%;
+  animation: skeletonPulse 1.8s ease-in-out infinite;
+}
+
+.skeleton-line.w-80 { width: 80%; }
+.skeleton-line.w-60 { width: 60%; }
+.skeleton-line.w-40 { width: 40%; }
+
+@keyframes skeletonPulse {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+

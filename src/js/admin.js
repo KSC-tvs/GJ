@@ -641,33 +641,7 @@ function renderEnquiries() {
 }
 
 function initEnquiryListeners() {
-  document.getElementById('admin-seed-enquiry-btn')?.addEventListener('click', async () => {
-    const names = ['Siddharth Singhania', 'Meera Kapoor', 'Karan Oberoi', 'Ritu Aggarwal'];
-    const pieces = ['Royal Blue Sapphire (Neelam) Cushion', 'Zambian Emerald 22K Kada', 'Bespoke Solitaire Ring'];
-    const randName = names[Math.floor(Math.random() * names.length)];
-    const randPiece = pieces[Math.floor(Math.random() * pieces.length)];
-
-    const newEnquiry = {
-      id: 'ENQ-' + Math.floor(1000 + Math.random() * 9000),
-      date: new Date().toISOString().slice(0, 16).replace('T', ' '),
-      name: randName,
-      contact: '+91 99887 ' + Math.floor(10000 + Math.random() * 90000),
-      piece: randPiece,
-      message: 'Requesting private video consultation for gemstone verification and setting design.',
-      status: 'New'
-    };
-
-    enquiries.unshift(newEnquiry);
-    localStorage.setItem('gj_enquiries', JSON.stringify(enquiries));
-
-    // Save to Supabase
-    try {
-      await db.createEnquiry(newEnquiry);
-    } catch (_) {}
-
-    renderEnquiries();
-    showToast('New client consultation lead recorded.');
-  });
+  // Production lead listener: Leads originate strictly from customer consultation forms and WhatsApp inquiries.
 }
 
 /* --------------------------------------------------------------------------

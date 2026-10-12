@@ -5,8 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "validate-assets": "node scripts/validate-assets.cjs",
+    "prebuild": "node scripts/validate-assets.cjs && node scripts/generate-product-pages.cjs",
     "build": "vite build",
     "preview": "vite preview",
+    "verify-seo": "node scripts/verify-seo.cjs",
+    "test": "node scripts/validate-assets.cjs && node scripts/verify-seo.cjs",
     "deploy": "wrangler deploy"
   },
   "devDependencies": {

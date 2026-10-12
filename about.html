@@ -3,8 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Ethos & Heritage | Gulshan Jewellers · Est. 1950</title>
+  <title>Our Ethos &amp; Heritage | Gulshan Jewellers · Est. 1950</title>
   <meta name="description" content="Since 1950, Gulshan Jewellers has believed that jewellery should hold more than value—it should hold meaning. Learn about our commitment to natural gemstones and honest craftsmanship.">
+  <link rel="canonical" href="https://ksc-tvs.github.io/GJ/about.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Gulshan Jewellers">
+  <meta property="og:title" content="Our Ethos &amp; Heritage | Gulshan Jewellers · Est. 1950">
+  <meta property="og:description" content="Since 1950, Gulshan Jewellers has believed that jewellery should hold more than value—it should hold meaning. Learn about our commitment to natural gemstones and honest craftsmanship.">
+  <meta property="og:url" content="https://ksc-tvs.github.io/GJ/about.html">
+  <meta property="og:image" content="https://ksc-tvs.github.io/GJ/images/bespoke-workshop.jpg">
+  <meta property="og:image:alt" content="Gulshan Jewellers Heritage Workshop">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Our Ethos &amp; Heritage | Gulshan Jewellers · Est. 1950">
+  <meta name="twitter:description" content="Seven decades of fine gold, natural diamonds, rare untreated gemstones, and ethical Indian jewellery.">
+  <meta name="twitter:image" content="https://ksc-tvs.github.io/GJ/images/bespoke-workshop.jpg">
 
   <link rel="stylesheet" href="src/css/tokens.css">
   <link rel="stylesheet" href="src/css/base.css">
@@ -19,8 +35,46 @@
   <link rel="manifest" href="site.webmanifest" />
 
   <meta name="theme-color" content="#FAF8F5">
+
+  <!-- AboutPage & BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Gulshan Jewellers",
+    "description": "The heritage, craftsmanship philosophy, and gemological authenticity of Gulshan Jewellers since 1950.",
+    "url": "https://ksc-tvs.github.io/GJ/about.html",
+    "mainEntity": {
+      "@type": "JewelryStore",
+      "name": "Gulshan Jewellers",
+      "foundingDate": "1950",
+      "url": "https://ksc-tvs.github.io/GJ/"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ksc-tvs.github.io/GJ/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Our Ethos & Heritage",
+          "item": "https://ksc-tvs.github.io/GJ/about.html"
+        }
+      ]
+    }
+  }
+  </script>
 </head>
-<body>  <!-- Top Announcement Bar (Slim Luxury Utility Strip) -->
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+
+  <!-- Top Announcement Bar (Slim Luxury Utility Strip) -->
   <div class="top-bar">
     <div class="top-bar-inner">
       <div class="top-bar-left">
@@ -48,7 +102,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" aria-label="Gulshan Jewellers Home">
-        <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="brand-logo-img">
+        <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="brand-logo-img" width="46" height="46">
         <div class="brand-logo-text">
           <span class="brand-name">Gulshan Jewellers</span>
           <span class="brand-subline">Est. 1950 · Years of Crafting Legacies</span>
@@ -74,13 +128,26 @@
         </button>
 
         <!-- Tray Trigger -->
-        <button type="button" class="header-icon-btn" data-trigger-tray aria-label="Consultation Tray" title="Curated Tray">
-          <svg class="header-icon-svg" viewBox="0 0 24 24">
+        <button type="button" class="header-icon-btn" data-trigger-tray aria-label="Curated Tray" title="Curated Tray">
+          <svg class="header-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="6 3 18 3 22 9 12 22 2 9"></polygon>
+            <line x1="2" y1="9" x2="22" y2="9"></line>
+            <line x1="12" y1="22" x2="6" y2="9"></line>
+            <line x1="12" y1="22" x2="18" y2="9"></line>
+            <line x1="6" y1="3" x2="12" y2="9"></line>
+            <line x1="18" y1="3" x2="12" y2="9"></line>
+          </svg>
+          <span class="tray-counter-pill" style="display: none;">0</span>
+        </button>
+
+        <!-- Shopping Bag Trigger -->
+        <button type="button" class="header-icon-btn" data-trigger-cart aria-label="Shopping Bag" title="Shopping Bag">
+          <svg class="header-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <path d="M16 10a4 4 0 0 1-8 0"></path>
           </svg>
-          <span class="tray-counter-pill" style="display: none;">0</span>
+          <span class="cart-counter-pill" style="display: none;">0</span>
         </button>
 
         <button type="button" class="btn btn-gold btn-sm nav-primary-cta" data-trigger-consultation>
@@ -108,7 +175,7 @@
   </section>
 
   <!-- Heritage Narrative Section -->
-  <main class="container container-narrow" style="padding-bottom: var(--space-24);">
+  <main id="main-content" class="container container-narrow" tabindex="-1" style="padding-bottom: var(--space-24);">
     <div style="font-size: 1.05rem; line-height: 1.9; color: var(--color-text-secondary); display: flex; flex-direction: column; gap: var(--space-6);">
       <p>
         From fine gold and diamonds to naturally beautiful gemstones and sterling silver, every piece begins with careful selection, considered craftsmanship, and an honest conversation.
@@ -162,12 +229,13 @@
         </div>
       </div>
 
-      <div style="background-color: rgba(255, 255, 255, 0.02); border: 1px dashed var(--color-border-subtle); padding: var(--space-6); border-radius: var(--radius-xs); margin-top: var(--space-8);">
-        <span style="font-size: var(--text-xs); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-gold-champagne);">
-          [CMS Heritage Field: Founder Profile & Atelier Archives]
-        </span>
-        <p style="font-size: 0.82rem; color: var(--color-text-muted); margin-top: var(--space-2);">
-          Official archival founder photography, artisan chronicles, and physical atelier address to be managed via the client headless CMS layer upon verification.
+      <div style="background-color: var(--color-bg-surface); border: 1px solid var(--color-border-hairline); padding: var(--space-8); border-radius: var(--radius-xs); margin-top: var(--space-8);">
+        <span class="section-eyebrow" style="margin-bottom: var(--space-2);">The Atelier Archive</span>
+        <h3 style="font-size: 1.4rem; color: var(--color-ivory); margin-bottom: var(--space-3);">
+          A Family Tradition Rooted in Trust
+        </h3>
+        <p style="font-size: var(--text-sm); color: var(--color-text-secondary); line-height: 1.8;">
+          Founded in 1950, Gulshan Jewellers was built on a foundational promise: that fine jewellery should be as honest as it is beautiful. Over seven decades, generations of patrons have trusted our goldsmiths and gemmologists to source rare, untreated natural gemstones, forge hallmarked 22K gold heirlooms, and guide bespoke commissions with complete transparency. We invite you to experience this enduring heritage through a private consultation.
         </p>
       </div>
 
@@ -185,7 +253,7 @@
       <div class="footer-top">
         <div class="footer-brand-col">
           <div class="footer-brand-header">
-            <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="footer-brand-logo-img">
+            <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="footer-brand-logo-img" width="52" height="52">
             <div>
               <span class="footer-brand-title">Gulshan Jewellers</span>
               <span class="footer-brand-sub">Est. 1950 · Years of Crafting Legacies</span>
@@ -205,11 +273,13 @@
           </ul>
         </div>
         <div>
-          <h4 class="footer-col-title">Consultation</h4>
+          <h4 class="footer-col-title">Client Trust &amp; Policies</h4>
           <ul class="footer-links">
-            <li><a href="contact.html">Book Appointment</a></li>
-            <li><a href="https://wa.me/919582841454" target="_blank" rel="noopener noreferrer">WhatsApp Direct</a></li>
-            <li><a href="mailto:consult@gulshanjewellers.com">consult@gulshanjewellers.com</a></li>
+            <li><a href="policies.html">Shipping &amp; Insured Transit</a></li>
+            <li><a href="policies.html#returns">Returns &amp; Exchanges</a></li>
+            <li><a href="policies.html#hallmarking">BIS Hallmarking Policy</a></li>
+            <li><a href="policies.html#care">Jewellery Care Guide</a></li>
+            <li><a href="policies.html#privacy">Privacy &amp; Terms</a></li>
           </ul>
         </div>
         <div>

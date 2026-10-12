@@ -8,9 +8,60 @@
     "aboutShort": "Since 1950, Gulshan Jewellers has believed that jewellery should hold more than value—it should hold meaning. From fine gold and diamonds to naturally beautiful gemstones and sterling silver, every piece begins with careful selection, considered craftsmanship, and an honest conversation.",
     "disclaimer": "Gemstone traditions and astrological preferences are personal. Our consultation is designed to help you understand the stone, its quality, and your setting options; it does not guarantee outcomes."
   },
+  "business": {
+    "legalEntityName": "Gulshan Jewellers",
+    "foundedYear": 1950,
+    "city": "New Delhi",
+    "state": "Delhi",
+    "country": "India",
+    "gstNumber": null,
+    "gstStatus": "Provided on official tax invoice accompanying every dispatch",
+    "hallmarkStandard": "BIS 916 (22K) / BIS 750 (18K) / BIS 585 (14K) Gold & 925 Sterling Silver",
+    "huidPolicy": "All fine gold articles carry government-recognized BIS Hallmark laser engravings",
+    "boutiqueAddress": "Private atelier viewings in New Delhi by prior appointment",
+    "boutiqueAddressFull": null
+  },
+  "commerce": {
+    "freeShippingThreshold": 0,
+    "defaultShippingFee": 0,
+    "shippingDescription": "Complimentary Insured Courier across India with discreet tamper-evident packaging and recipient identity verification",
+    "estimatedDeliveryDays": "3–5 business days for ready-to-ship pieces; 10–14 days for bespoke settings",
+    "returns": {
+      "eligibleCategories": ["silver", "daily-diamonds", "gifting"],
+      "returnWindowDays": 15,
+      "resizingSupport": "Complimentary first ring resizing for all bespoke & fine jewellery orders",
+      "customPiecesPolicy": "Made-to-order and bespoke gemstone rings receive lifetime authenticity support and exchange eligibility"
+    }
+  },
+  "payment": {
+    "razorpayEnabled": false,
+    "razorpayKeyId": null,
+    "upiId": null,
+    "bankTransfer": {
+      "beneficiary": "Gulshan Jewellers",
+      "accountNumber": null,
+      "ifscCode": null,
+      "bankName": null
+    },
+    "note": "Payment gateway credentials will be activated when supplied by the business owner. Test & invoice shell mode is enabled."
+  },
+  "site": {
+    "name": "Gulshan Jewellers",
+    "productionOrigin": "https://ksc-tvs.github.io",
+    "basePath": "/GJ/",
+    "customDomain": null,
+    "currentBaseUrl": "https://ksc-tvs.github.io/GJ/",
+    "language": "en-IN",
+    "locale": "en_IN",
+    "themeColor": "#FAF8F5",
+    "googleSiteVerification": "ea3ec593dba1f07d",
+    "googleAnalyticsId": null
+  },
   "contact": {
     "whatsappNumber": "+919582841454",
-    "whatsappDisplay": "+91 95828 41454 (Boutique Consultation)",
+    "whatsappDisplay": "+91 95828 41454 (Boutique Concierge)",
+    "phone": "+919582841454",
+    "phoneDisplay": "+91 95828 41454",
     "instagramHandle": "gulshanjewellers1950",
     "instagramUrl": "https://instagram.com/gulshanjewellers1950",
     "email": "consult@gulshanjewellers.com",
@@ -19,7 +70,7 @@
   "policies": {
     "boutiqueAddress": "Private boutique viewings in New Delhi by prior appointment. Connect with our concierge to schedule a dedicated consultation.",
     "shippingPolicy": "Complimentary insured delivery and personalized handover across India for all certified creations.",
-    "returnPolicy": "Every creation is accompanied by certified documentation. Bespoke creations and custom rings receive lifetime authenticity support and complimentary first resizing.",
+    "returnPolicy": "Ready-to-ship silver and everyday fine jewellery enjoy a 15-day inspection window. Bespoke creations and custom rings receive lifetime authenticity support and complimentary first resizing.",
     "certificationPartners": "Independent gemological laboratory certificates (e.g. IIGJ or equivalent accredited testing laboratories) available per stone upon request."
   },
   "navigation": [

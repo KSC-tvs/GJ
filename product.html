@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ceylon Yellow Sapphire (Pukhraj) Signet Ring | Gulshan Jewellers · Est. 1950</title>
   <meta name="description" content="Certified untreated Ceylon Yellow Sapphire (Pukhraj) set in solid hand-forged 22K hallmarked gold. Complete material transparency and bespoke atelier creation since 1950.">
+  <link rel="canonical" href="https://ksc-tvs.github.io/GJ/products/pukhraj-cushion-signet-22k.html">
 
   <link rel="stylesheet" href="src/css/tokens.css">
   <link rel="stylesheet" href="src/css/base.css">
@@ -47,6 +48,8 @@
   </script>
 </head>
 <body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
 
   <!-- Top Announcement Bar -->
   <div class="top-bar">
@@ -76,7 +79,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" aria-label="Gulshan Jewellers Home">
-        <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="brand-logo-img">
+        <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="brand-logo-img" width="46" height="46">
         <div class="brand-logo-text">
           <span class="brand-name">Gulshan Jewellers</span>
           <span class="brand-subline">Est. 1950 · Years of Crafting Legacies</span>
@@ -102,13 +105,26 @@
         </button>
 
         <!-- Tray Trigger -->
-        <button type="button" class="header-icon-btn" data-trigger-tray aria-label="Consultation Tray" title="Curated Tray">
+        <button type="button" class="header-icon-btn" data-trigger-tray aria-label="Curated Tray" title="Curated Tray">
+          <svg class="header-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="6 3 18 3 22 9 12 22 2 9"></polygon>
+            <line x1="2" y1="9" x2="22" y2="9"></line>
+            <line x1="12" y1="22" x2="6" y2="9"></line>
+            <line x1="12" y1="22" x2="18" y2="9"></line>
+            <line x1="6" y1="3" x2="12" y2="9"></line>
+            <line x1="18" y1="3" x2="12" y2="9"></line>
+          </svg>
+          <span class="tray-counter-pill" style="display: none;">0</span>
+        </button>
+
+        <!-- Shopping Bag Trigger -->
+        <button type="button" class="header-icon-btn" data-trigger-cart aria-label="Shopping Bag" title="Shopping Bag">
           <svg class="header-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <path d="M16 10a4 4 0 0 1-8 0"></path>
           </svg>
-          <span class="tray-counter-pill" style="display: none;">0</span>
+          <span class="cart-counter-pill" style="display: none;">0</span>
         </button>
 
         <button type="button" class="btn btn-gold btn-sm nav-primary-cta" data-trigger-consultation>
@@ -123,7 +139,7 @@
   </header>
 
   <!-- Product Detail Container -->
-  <main class="container">
+  <main id="main-content" class="container" tabindex="-1">
     <nav style="padding: var(--space-6) 0 var(--space-2); font-size: var(--text-xs); color: var(--color-text-muted);" aria-label="Breadcrumb">
       <a href="index.html">Home</a> &nbsp;/&nbsp;
       <a href="collections.html">Collections</a> &nbsp;/&nbsp;
@@ -285,13 +301,7 @@
     </section>
   </main>
 
-  <!-- Persistent Mobile Action Bar -->
-  <aside class="mobile-action-bar">
-    <div class="mobile-action-bar-inner">
-      <button type="button" class="btn btn-outline btn-sm" data-trigger-tray>View Tray</button>
-      <a href="https://wa.me/919582841454" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">WhatsApp Concierge</a>
-    </div>
-  </aside>
+
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -299,7 +309,7 @@
       <div class="footer-top">
         <div class="footer-brand-col">
           <div class="footer-brand-header">
-            <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="footer-brand-logo-img">
+            <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="footer-brand-logo-img" width="52" height="52">
             <div>
               <span class="footer-brand-title">Gulshan Jewellers</span>
               <span class="footer-brand-sub">Est. 1950 · Years of Crafting Legacies</span>
@@ -319,11 +329,13 @@
           </ul>
         </div>
         <div>
-          <h4 class="footer-col-title">Consultation</h4>
+          <h4 class="footer-col-title">Client Trust &amp; Policies</h4>
           <ul class="footer-links">
-            <li><a href="contact.html">Book Appointment</a></li>
-            <li><a href="https://wa.me/919582841454" target="_blank" rel="noopener noreferrer">WhatsApp Direct</a></li>
-            <li><a href="mailto:consult@gulshanjewellers.com">consult@gulshanjewellers.com</a></li>
+            <li><a href="policies.html">Shipping &amp; Insured Transit</a></li>
+            <li><a href="policies.html#returns">Returns &amp; Exchanges</a></li>
+            <li><a href="policies.html#hallmarking">BIS Hallmarking Policy</a></li>
+            <li><a href="policies.html#care">Jewellery Care Guide</a></li>
+            <li><a href="policies.html#privacy">Privacy &amp; Terms</a></li>
           </ul>
         </div>
         <div>

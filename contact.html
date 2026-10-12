@@ -3,8 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consultation & Contact | Gulshan Jewellers · Est. 1950</title>
+  <title>Consultation &amp; Contact | Gulshan Jewellers · Est. 1950</title>
   <meta name="description" content="Book a private consultation with Gulshan Jewellers. Enquire about natural gemstones, bespoke fine jewellery, hallmarked gold, or gift curations.">
+  <link rel="canonical" href="https://ksc-tvs.github.io/GJ/contact.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Gulshan Jewellers">
+  <meta property="og:title" content="Consultation &amp; Contact | Gulshan Jewellers · Est. 1950">
+  <meta property="og:description" content="Book a private consultation with Gulshan Jewellers in New Delhi or via digital atelier. Enquire about natural gemstones, bespoke jewellery, and hallmarked gold.">
+  <meta property="og:url" content="https://ksc-tvs.github.io/GJ/contact.html">
+  <meta property="og:image" content="https://ksc-tvs.github.io/GJ/images/pukhraj-hero.jpg">
+  <meta property="og:image:alt" content="Gulshan Jewellers Private Atelier Consultation">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Consultation &amp; Contact | Gulshan Jewellers · Est. 1950">
+  <meta name="twitter:description" content="Book a private consultation for natural gemstones, bespoke jewellery, and hallmarked gold.">
+  <meta name="twitter:image" content="https://ksc-tvs.github.io/GJ/images/pukhraj-hero.jpg">
 
   <link rel="stylesheet" href="src/css/tokens.css">
   <link rel="stylesheet" href="src/css/base.css">
@@ -19,8 +35,51 @@
   <link rel="manifest" href="site.webmanifest" />
 
   <meta name="theme-color" content="#FAF8F5">
+
+  <!-- ContactPage & BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Gulshan Jewellers Consultation & Contact",
+    "description": "Schedule a private consultation or enquire about certified gemstones, gold jewellery, and bespoke creations.",
+    "url": "https://ksc-tvs.github.io/GJ/contact.html",
+    "mainEntity": {
+      "@type": "JewelryStore",
+      "name": "Gulshan Jewellers",
+      "telephone": "+919582841454",
+      "email": "consult@gulshanjewellers.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "New Delhi",
+        "addressRegion": "Delhi",
+        "addressCountry": "IN"
+      }
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ksc-tvs.github.io/GJ/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Consultation & Contact",
+          "item": "https://ksc-tvs.github.io/GJ/contact.html"
+        }
+      ]
+    }
+  }
+  </script>
 </head>
 <body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+
   <!-- Top Announcement Bar (Slim Luxury Utility Strip) -->
   <div class="top-bar">
     <div class="top-bar-inner">
@@ -50,7 +109,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" aria-label="Gulshan Jewellers Home">
-        <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="brand-logo-img">
+        <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="brand-logo-img" width="46" height="46">
         <div class="brand-logo-text">
           <span class="brand-name">Gulshan Jewellers</span>
           <span class="brand-subline">Est. 1950 · Years of Crafting Legacies</span>
@@ -76,13 +135,26 @@
         </button>
 
         <!-- Tray Trigger -->
-        <button type="button" class="header-icon-btn" data-trigger-tray aria-label="Consultation Tray" title="Curated Tray">
-          <svg class="header-icon-svg" viewBox="0 0 24 24">
+        <button type="button" class="header-icon-btn" data-trigger-tray aria-label="Curated Tray" title="Curated Tray">
+          <svg class="header-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="6 3 18 3 22 9 12 22 2 9"></polygon>
+            <line x1="2" y1="9" x2="22" y2="9"></line>
+            <line x1="12" y1="22" x2="6" y2="9"></line>
+            <line x1="12" y1="22" x2="18" y2="9"></line>
+            <line x1="6" y1="3" x2="12" y2="9"></line>
+            <line x1="18" y1="3" x2="12" y2="9"></line>
+          </svg>
+          <span class="tray-counter-pill" style="display: none;">0</span>
+        </button>
+
+        <!-- Shopping Bag Trigger -->
+        <button type="button" class="header-icon-btn" data-trigger-cart aria-label="Shopping Bag" title="Shopping Bag">
+          <svg class="header-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <path d="M16 10a4 4 0 0 1-8 0"></path>
           </svg>
-          <span class="tray-counter-pill" style="display: none;">0</span>
+          <span class="cart-counter-pill" style="display: none;">0</span>
         </button>
 
         <button type="button" class="btn btn-gold btn-sm nav-primary-cta" data-trigger-consultation>
@@ -110,7 +182,7 @@
   </section>
 
   <!-- Main Consultation & Contact Grid -->
-  <main class="container" style="padding-bottom: var(--space-24);">
+  <main id="main-content" class="container" tabindex="-1" style="padding-bottom: var(--space-24);">
     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); margin-bottom: var(--space-12);">
       <div class="edu-box" style="cursor: pointer;" onclick="document.getElementById('contact-pathway').value='find-gemstone'; document.getElementById('contact-name').focus();">
         <span style="color: var(--color-gold-champagne); font-size: 1.25rem;">&#9672;</span>
@@ -139,19 +211,25 @@
 
     <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-12);">
       <div>
-        <form id="contact-page-form" style="background-color: #12141A; border: 1px solid var(--color-border-subtle); padding: var(--space-8); border-radius: var(--radius-xs);">
+        <form id="contact-page-form" method="POST" action="https://formspree.io/f/xvovbqqr" novalidate style="background-color: #12141A; border: 1px solid var(--color-border-subtle); padding: var(--space-8); border-radius: var(--radius-xs);">
+          <input type="text" name="_hp_security_check" style="display:none !important;" tabindex="-1" autocomplete="off">
           <h2 style="font-size: 1.6rem; color: var(--color-ivory); margin-bottom: var(--space-6);">
             Consultation Request
           </h2>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
-            <div class="form-group">
-              <label class="form-label" for="contact-name">Your Full Name</label>
-              <input type="text" id="contact-name" name="name" class="form-control" required placeholder="e.g. Ananya Sen">
-            </div>
+          <div class="form-group">
+            <label class="form-label" for="contact-name">Your Full Name</label>
+            <input type="text" id="contact-name" name="name" class="form-control" required placeholder="e.g. Ananya Sen" autocomplete="name">
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-top: var(--space-4);">
             <div class="form-group">
               <label class="form-label" for="contact-phone">Phone / WhatsApp Number</label>
-              <input type="tel" id="contact-phone" name="phone" class="form-control" required placeholder="e.g. +91 95828 41454">
+              <input type="tel" id="contact-phone" name="phone" class="form-control" required placeholder="e.g. +91 95828 41454" autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contact-email">Email Address</label>
+              <input type="email" id="contact-email" name="email" class="form-control" placeholder="e.g. ananya@example.com" autocomplete="email">
             </div>
           </div>
 
@@ -179,16 +257,28 @@
 
           <div class="form-group" style="margin-top: var(--space-4);">
             <label class="form-label" for="contact-message">How can we assist you?</label>
-            <textarea id="contact-message" name="message" class="form-control" placeholder="Share any details: preferred gemstone, metal purity (22K, 18K, 14K, 925 Silver), carat weight, or budget considerations..."></textarea>
+            <textarea id="contact-message" name="message" class="form-control" rows="3" placeholder="Share any details: preferred gemstone, metal purity (22K, 18K, 14K, 925 Silver), carat weight, or budget considerations..."></textarea>
+          </div>
+
+          <div class="form-group" style="display: flex; gap: 8px; align-items: flex-start; margin-top: var(--space-4);">
+            <input type="checkbox" id="contact-privacy-consent" name="privacyConsent" required style="margin-top: 4px;">
+            <label for="contact-privacy-consent" style="font-size: var(--text-xs); color: var(--color-text-secondary); line-height: 1.5;">
+              I agree to the <a href="policies.html#privacy" target="_blank" style="color: var(--color-gold-deep); text-decoration: underline;">Privacy Policy</a> and consent to being contacted regarding this enquiry.
+            </label>
           </div>
 
           <p class="form-disclaimer" style="margin: var(--space-4) 0;">
             <strong>Advisory Notice:</strong> Gemstone traditions and astrological preferences are personal. Our consultation is designed to help you understand the stone, its quality, and your setting options; it does not guarantee outcomes.
           </p>
 
-          <button type="submit" class="btn btn-gold btn-lg" style="width: 100%; margin-top: var(--space-4);">
-            Submit Consultation Request
-          </button>
+          <div style="display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-4);">
+            <button type="submit" class="btn btn-gold btn-lg" style="width: 100%;">
+              Submit Consultation Request
+            </button>
+            <a href="https://wa.me/919582841454?text=Hello%20Gulshan%20Jewellers,%20I%20would%20like%20to%20request%20a%20personal%20jewellery%20consultation." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width: 100%; display: inline-flex; align-items: center; justify-content: center; text-decoration: none;">
+              WhatsApp Concierge
+            </a>
+          </div>
         </form>
       </div>
 
@@ -270,7 +360,7 @@
       <div class="footer-top">
         <div class="footer-brand-col">
           <div class="footer-brand-header">
-            <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="footer-brand-logo-img">
+            <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="footer-brand-logo-img" width="52" height="52">
             <div>
               <span class="footer-brand-title">Gulshan Jewellers</span>
               <span class="footer-brand-sub">Est. 1950 · Years of Crafting Legacies</span>
@@ -298,10 +388,14 @@
           </ul>
         </div>
         <div>
-          <h4 class="footer-col-title">Notice</h4>
-          <p style="font-size: var(--text-xs); color: var(--color-text-muted); line-height: 1.6;">
-            Consultations do not guarantee outcomes. All prices and stones subject to availability and private confirmation.
-          </p>
+          <h4 class="footer-col-title">Client Trust &amp; Policies</h4>
+          <ul class="footer-links">
+            <li><a href="policies.html">Shipping &amp; Delivery</a></li>
+            <li><a href="policies.html#returns">Returns &amp; Exchanges</a></li>
+            <li><a href="policies.html#hallmarking">BIS Hallmarking Policy</a></li>
+            <li><a href="policies.html#care">Jewellery Care Guide</a></li>
+            <li><a href="policies.html#privacy">Privacy &amp; Terms</a></li>
+          </ul>
         </div>
       </div>
 

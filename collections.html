@@ -4,7 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Collections | Gulshan Jewellers · Est. 1950</title>
-  <meta name="description" content="Explore natural untreated gemstones, fine diamonds, 22K & 18K hallmarked gold, and handcrafted sterling silver from Gulshan Jewellers.">
+  <meta name="description" content="Explore natural untreated gemstones, fine diamonds, 22K &amp; 18K hallmarked gold, and handcrafted sterling silver from Gulshan Jewellers.">
+  <link rel="canonical" href="https://ksc-tvs.github.io/GJ/collections.html">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Gulshan Jewellers">
+  <meta property="og:title" content="Fine Jewellery &amp; Gemstone Collections | Gulshan Jewellers · Est. 1950">
+  <meta property="og:description" content="Explore natural untreated gemstones, fine diamonds, 22K &amp; 18K hallmarked gold, and handcrafted sterling silver from Gulshan Jewellers.">
+  <meta property="og:url" content="https://ksc-tvs.github.io/GJ/collections.html">
+  <meta property="og:image" content="https://ksc-tvs.github.io/GJ/images/pukhraj-hero.jpg">
+  <meta property="og:image:alt" content="Gulshan Jewellers Collections Archive">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Fine Jewellery &amp; Gemstone Collections | Gulshan Jewellers">
+  <meta name="twitter:description" content="Explore natural untreated gemstones, fine diamonds, 22K &amp; 18K hallmarked gold, and handcrafted sterling silver.">
+  <meta name="twitter:image" content="https://ksc-tvs.github.io/GJ/images/pukhraj-hero.jpg">
 
   <link rel="stylesheet" href="src/css/tokens.css">
   <link rel="stylesheet" href="src/css/base.css">
@@ -19,8 +35,44 @@
   <link rel="manifest" href="site.webmanifest" />
 
   <meta name="theme-color" content="#FAF8F5">
+
+  <!-- JSON-LD CollectionPage & BreadcrumbList Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Gulshan Jewellers Curated Collections",
+    "description": "Natural untreated gemstones, diamonds, fine gold, and handcrafted sterling silver.",
+    "url": "https://ksc-tvs.github.io/GJ/collections.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Gulshan Jewellers",
+      "url": "https://ksc-tvs.github.io/GJ/"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ksc-tvs.github.io/GJ/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Collections",
+          "item": "https://ksc-tvs.github.io/GJ/collections.html"
+        }
+      ]
+    }
+  }
+  </script>
 </head>
 <body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+
   <!-- Top Announcement Bar (Slim Luxury Utility Strip) -->
   <div class="top-bar">
     <div class="top-bar-inner">
@@ -49,7 +101,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" aria-label="Gulshan Jewellers Home">
-        <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="brand-logo-img">
+        <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="brand-logo-img" width="46" height="46">
         <div class="brand-logo-text">
           <span class="brand-name">Gulshan Jewellers</span>
           <span class="brand-subline">Est. 1950 · Years of Crafting Legacies</span>
@@ -75,13 +127,26 @@
         </button>
 
         <!-- Tray Trigger -->
-        <button type="button" class="header-icon-btn" data-trigger-tray aria-label="Consultation Tray" title="Curated Tray">
-          <svg class="header-icon-svg" viewBox="0 0 24 24">
+        <button type="button" class="header-icon-btn" data-trigger-tray aria-label="Curated Tray" title="Curated Tray">
+          <svg class="header-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="6 3 18 3 22 9 12 22 2 9"></polygon>
+            <line x1="2" y1="9" x2="22" y2="9"></line>
+            <line x1="12" y1="22" x2="6" y2="9"></line>
+            <line x1="12" y1="22" x2="18" y2="9"></line>
+            <line x1="6" y1="3" x2="12" y2="9"></line>
+            <line x1="18" y1="3" x2="12" y2="9"></line>
+          </svg>
+          <span class="tray-counter-pill" style="display: none;">0</span>
+        </button>
+
+        <!-- Shopping Bag Trigger -->
+        <button type="button" class="header-icon-btn" data-trigger-cart aria-label="Shopping Bag" title="Shopping Bag">
+          <svg class="header-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <path d="M16 10a4 4 0 0 1-8 0"></path>
           </svg>
-          <span class="tray-counter-pill" style="display: none;">0</span>
+          <span class="cart-counter-pill" style="display: none;">0</span>
         </button>
 
         <button type="button" class="btn btn-gold btn-sm nav-primary-cta" data-trigger-consultation>
@@ -109,7 +174,7 @@
   </section>
 
   <!-- Collection Main Layout -->
-  <main class="container">
+  <main id="main-content" class="container" tabindex="-1">
     <!-- Mobile Filter & Sorting Bar (< 768px) -->
     <div class="mobile-filter-bar">
       <button type="button" class="mobile-filter-btn" id="mobile-filter-btn">
@@ -232,10 +297,43 @@
         </div>
 
         <div class="filter-group">
-          <h3 class="filter-group-title">Authenticity</h3>
+          <h3 class="filter-group-title">Price Range</h3>
           <div class="filter-options-list">
             <label class="filter-checkbox-label">
-              <input type="checkbox" id="filter-certified-only"> Independent Certificate Available
+              <input type="checkbox" name="price-filter" value="under-50k"> Under ₹50,000 (Everyday / Silver)
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="price-filter" value="50k-150k"> ₹50,000 – ₹1,50,000
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="price-filter" value="150k-plus"> ₹1,50,000+ (High Value / Rare)
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="price-filter" value="on-request"> Price on Private Request
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h3 class="filter-group-title">Availability</h3>
+          <div class="filter-options-list">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="avail-filter" value="in_stock"> In Stock · Ready to Dispatch
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" name="avail-filter" value="made_to_order"> Handcrafted to Order
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h3 class="filter-group-title">Authenticity &amp; Treatment</h3>
+          <div class="filter-options-list">
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="filter-certified-only"> Independent Lab Certificate
+            </label>
+            <label class="filter-checkbox-label">
+              <input type="checkbox" id="filter-untreated-only"> 100% Unheated / Untreated
             </label>
           </div>
         </div>
@@ -250,30 +348,56 @@
       <!-- Product Results Area -->
       <section>
         <div class="collection-toolbar">
-          <span id="collection-count">Loading considered pieces...</span>
+          <span id="collection-count">Loading atelier curations...</span>
           <div style="display: flex; align-items: center; gap: var(--space-2);">
             <label for="collection-sort" style="font-size: var(--text-xs);">Sort by:</label>
             <select id="collection-sort" class="collection-sort-select">
               <option value="featured">Featured Curations</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
               <option value="title-asc">Alphabetical (A-Z)</option>
             </select>
           </div>
         </div>
 
         <div class="product-grid" id="collections-product-grid">
-          <!-- Populated by collections.js -->
+          <!-- Pre-rendered Luxury Skeleton Placeholders -->
+          <article class="skeleton-card" aria-hidden="true">
+            <div class="skeleton-media"></div>
+            <div class="skeleton-body">
+              <div class="skeleton-line w-80"></div>
+              <div class="skeleton-line w-60"></div>
+              <div class="skeleton-line w-40"></div>
+            </div>
+          </article>
+          <article class="skeleton-card" aria-hidden="true">
+            <div class="skeleton-media"></div>
+            <div class="skeleton-body">
+              <div class="skeleton-line w-80"></div>
+              <div class="skeleton-line w-60"></div>
+              <div class="skeleton-line w-40"></div>
+            </div>
+          </article>
+          <article class="skeleton-card" aria-hidden="true">
+            <div class="skeleton-media"></div>
+            <div class="skeleton-body">
+              <div class="skeleton-line w-80"></div>
+              <div class="skeleton-line w-60"></div>
+              <div class="skeleton-line w-40"></div>
+            </div>
+          </article>
+          <article class="skeleton-card" aria-hidden="true">
+            <div class="skeleton-media"></div>
+            <div class="skeleton-body">
+              <div class="skeleton-line w-80"></div>
+              <div class="skeleton-line w-60"></div>
+              <div class="skeleton-line w-40"></div>
+            </div>
+          </article>
         </div>
       </section>
     </div>
   </main>
-
-  <!-- Persistent Mobile Action Bar -->
-  <aside class="mobile-action-bar">
-    <div class="mobile-action-bar-inner">
-      <button type="button" class="btn btn-outline btn-sm" data-trigger-tray>View Tray</button>
-      <a href="https://wa.me/919582841454" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">WhatsApp</a>
-    </div>
-  </aside>
 
   <!-- Footer with Staff Portal Link -->
   <footer class="site-footer">
@@ -281,7 +405,7 @@
       <div class="footer-top">
         <div class="footer-brand-col">
           <div class="footer-brand-header">
-            <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="footer-brand-logo-img">
+            <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="footer-brand-logo-img" width="52" height="52">
             <div>
               <span class="footer-brand-title">Gulshan Jewellers</span>
               <span class="footer-brand-sub">Est. 1950 · Years of Crafting Legacies</span>
@@ -301,12 +425,13 @@
           </ul>
         </div>
         <div>
-          <h4 class="footer-col-title">Bespoke Guidance</h4>
+          <h4 class="footer-col-title">Client Trust &amp; Policies</h4>
           <ul class="footer-links">
-            <li><a href="gemstone-guide.html">Gemstone Guide</a></li>
-            <li><a href="bespoke.html">Bespoke Process</a></li>
-            <li><a href="about.html">About Gulshan</a></li>
-            <li><a href="contact.html">Private Consultation</a></li>
+            <li><a href="policies.html">Shipping &amp; Insured Transit</a></li>
+            <li><a href="policies.html#returns">Returns &amp; Exchanges</a></li>
+            <li><a href="policies.html#hallmarking">BIS Hallmarking Policy</a></li>
+            <li><a href="policies.html#care">Jewellery Care Guide</a></li>
+            <li><a href="policies.html#privacy">Privacy &amp; Terms</a></li>
           </ul>
         </div>
         <div>

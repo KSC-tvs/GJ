@@ -4,8 +4,10 @@
  */
 
 import { store } from '../state/store.js';
+import { cart } from '../state/cart.js';
 import { openSearchModal } from './searchModal.js';
 import { openTrayDrawer } from './consultationTray.js';
+import { openCartDrawer } from './cartDrawer.js';
 import { openEnquiryModal } from '../main.js';
 
 let mobileDrawerDOM = null;
@@ -38,7 +40,7 @@ function createMobileDrawerDOM() {
       <!-- Header -->
       <div class="mobile-drawer-header">
         <a href="index.html" class="brand-logo" onclick="GJ.closeMobileDrawer()">
-          <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="brand-logo-img">
+          <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="brand-logo-img" width="40" height="40">
           <div class="brand-logo-text">
             <span class="brand-name" style="font-size: 1.3rem;">Gulshan Jewellers</span>
             <span class="brand-subline" style="font-size: 0.6rem;">Est. 1950 &middot; Heritage House</span>
@@ -237,18 +239,34 @@ function createMobileDockDOM() {
       <span class="mobile-dock-label">Search</span>
     </button>
 
-    <button type="button" class="mobile-dock-item mobile-dock-tray" id="mobile-dock-tray-btn">
+    <button type="button" class="mobile-dock-item mobile-dock-tray" id="mobile-dock-tray-btn" aria-label="Curated Tray">
       <div class="dock-tray-wrap">
         <svg class="mobile-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-          <circle cx="12" cy="12" r="7"></circle>
-          <path d="M12 2v3m0 14v3M2 12h3m14 0h3"></path>
+          <polygon points="6 3 18 3 22 9 12 22 2 9"></polygon>
+          <line x1="2" y1="9" x2="22" y2="9"></line>
+          <line x1="12" y1="22" x2="6" y2="9"></line>
+          <line x1="12" y1="22" x2="18" y2="9"></line>
+          <line x1="6" y1="3" x2="12" y2="9"></line>
+          <line x1="18" y1="3" x2="12" y2="9"></line>
         </svg>
         <span class="tray-counter-pill" style="${trayCount > 0 ? 'display:inline-flex;' : 'display:none;'}">${trayCount}</span>
       </div>
       <span class="mobile-dock-label">My Tray</span>
     </button>
 
-    <button type="button" class="mobile-dock-item mobile-dock-wa" id="mobile-dock-concierge-btn">
+    <button type="button" class="mobile-dock-item mobile-dock-cart" id="mobile-dock-cart-btn" aria-label="Shopping Bag">
+      <div class="dock-tray-wrap">
+        <svg class="mobile-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        <span class="cart-counter-pill" style="${cart.getItemCount() > 0 ? 'display:inline-flex;' : 'display:none;'}">${cart.getItemCount()}</span>
+      </div>
+      <span class="mobile-dock-label">Bag</span>
+    </button>
+
+    <button type="button" class="mobile-dock-item mobile-dock-wa" id="mobile-dock-concierge-btn" aria-label="Consultation Concierge">
       <svg class="mobile-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
       </svg>
@@ -268,12 +286,26 @@ function createMobileDockDOM() {
     openTrayDrawer();
   });
 
+  dock.querySelector('#mobile-dock-cart-btn').addEventListener('click', () => {
+    openCartDrawer();
+  });
+
   dock.querySelector('#mobile-dock-concierge-btn').addEventListener('click', () => {
     openEnquiryModal({
       title: 'Personal Jewellery Consultation',
       primaryCategory: 'General Boutique Enquiry'
     });
   });
+
+  // Sync cart counter pill
+  const cartPill = dock.querySelector('.mobile-dock-cart .cart-counter-pill');
+  if (cartPill) {
+    cart.subscribe(state => {
+      const count = state.items.reduce((sum, item) => sum + item.quantity, 0);
+      cartPill.textContent = count;
+      cartPill.style.display = count > 0 ? 'inline-flex' : 'none';
+    });
+  }
 }
 
 /**

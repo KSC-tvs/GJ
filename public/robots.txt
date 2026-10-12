@@ -1,0 +1,10 @@
+# Gulshan Jewellers | Est. 1950
+# Production Search Engine Crawling Directives
+# Canonical origin: https://ksc-tvs.github.io/GJ/
+
+User-agent: *
+Allow: /
+Disallow: /admin.html
+
+# Production XML Sitemap (Fully Qualified Absolute URLs)
+Sitemap: https://ksc-tvs.github.io/GJ/sitemap.xml

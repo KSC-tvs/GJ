@@ -6,6 +6,23 @@
   <title>Gulshan Jewellers | Est. 1950 · Years of Crafting Legacies</title>
   <meta name="description" content="Intimate, gem-focused Indian fine-jewellery house offering fine gold, natural diamonds, certified untreated gemstones, and handcrafted sterling silver. Bespoke consultations since 1950.">
   
+  <link rel="canonical" href="https://ksc-tvs.github.io/GJ/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Gulshan Jewellers">
+  <meta property="og:title" content="Gulshan Jewellers | Est. 1950 · Fine Jewellery &amp; Natural Gemstones">
+  <meta property="og:description" content="Intimate, gem-focused Indian fine-jewellery house offering fine gold, natural diamonds, certified untreated gemstones, and handcrafted sterling silver. Bespoke consultations since 1950.">
+  <meta property="og:url" content="https://ksc-tvs.github.io/GJ/">
+  <meta property="og:image" content="https://ksc-tvs.github.io/GJ/images/pukhraj-hero.jpg">
+  <meta property="og:image:alt" content="Gulshan Jewellers Ceylon Yellow Sapphire Masterpiece">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gulshan Jewellers | Est. 1950 · Fine Jewellery &amp; Natural Gemstones">
+  <meta name="twitter:description" content="Intimate, gem-focused Indian fine-jewellery house offering fine gold, natural diamonds, certified untreated gemstones, and handcrafted sterling silver.">
+  <meta name="twitter:image" content="https://ksc-tvs.github.io/GJ/images/pukhraj-hero.jpg">
+
   <link rel="stylesheet" href="src/css/tokens.css">
   <link rel="stylesheet" href="src/css/base.css">
   <link rel="stylesheet" href="src/css/components.css">
@@ -21,23 +38,81 @@
 
   <meta name="theme-color" content="#FAF8F5">
 
-  <!-- JSON-LD LocalBusiness & JewelryStore Schema -->
+  <!-- JSON-LD JewelryStore & Organization Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "JewelryStore",
+    "@id": "https://ksc-tvs.github.io/GJ/#organization",
     "name": "Gulshan Jewellers",
+    "alternateName": "Gulshan Jewellers Est. 1950",
+    "url": "https://ksc-tvs.github.io/GJ/",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ksc-tvs.github.io/GJ/images/logo.png",
+      "width": 512,
+      "height": 512,
+      "caption": "Gulshan Jewellers Emblem"
+    },
+    "image": "https://ksc-tvs.github.io/GJ/images/pukhraj-hero.jpg",
     "description": "Indian fine-jewellery house offering fine gold, natural diamonds, rare untreated gemstones, and sterling silver. Established 1950.",
     "foundingDate": "1950",
     "slogan": "Years of Crafting Legacies",
+    "telephone": "+919582841454",
+    "email": "consult@gulshanjewellers.com",
     "currenciesAccepted": "INR, USD, AED, GBP, EUR",
-    "paymentAccepted": "Consultation & Direct Invoice",
-    "priceRange": "$$$$",
-    "knowsAbout": ["Natural Yellow Sapphire", "Blue Sapphire", "Colombian Emerald", "Mozambique Ruby", "Blue Kyanite", "Hallmarked Gold", "Bespoke Jewellery"]
+    "paymentAccepted": "Bank Transfer, Card, UPI, Cheque, Private Invoice",
+    "priceRange": "₹₹₹₹",
+    "openingHours": "Mo-Sa 11:00-19:30",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "New Delhi",
+      "addressRegion": "Delhi",
+      "addressCountry": "IN"
+    },
+    "sameAs": [
+      "https://instagram.com/gulshanjewellers1950",
+      "https://wa.me/919582841454"
+    ],
+    "knowsAbout": [
+      "Natural Yellow Sapphire (Pukhraj)",
+      "Blue Sapphire (Neelam)",
+      "Colombian Emerald (Panna)",
+      "Mozambique Ruby (Manik)",
+      "Blue Kyanite",
+      "22K and 18K BIS Hallmarked Gold",
+      "Bespoke Jewellery Craftsmanship"
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD WebSite & SearchAction Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://ksc-tvs.github.io/GJ/#website",
+    "url": "https://ksc-tvs.github.io/GJ/",
+    "name": "Gulshan Jewellers",
+    "description": "Fine gold, natural diamonds, rare gemstones and sterling silver—crafted with care, guided by authenticity.",
+    "inLanguage": "en-IN",
+    "publisher": {
+      "@id": "https://ksc-tvs.github.io/GJ/#organization"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://ksc-tvs.github.io/GJ/collections.html?search={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
   }
   </script>
 </head>
 <body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
 
   <!-- Top Announcement Bar (Slim Luxury Utility Strip) -->
   <div class="top-bar">
@@ -68,7 +143,7 @@
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" aria-label="Gulshan Jewellers Home">
-        <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="brand-logo-img">
+        <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="brand-logo-img" width="46" height="46">
         <div class="brand-logo-text">
           <span class="brand-name">Gulshan Jewellers</span>
           <span class="brand-subline">Est. 1950 · Years of Crafting Legacies</span>
@@ -162,14 +237,27 @@
           <span class="header-search-kbd">⌘K</span>
         </button>
 
-        <!-- Consultation Tray Button -->
+        <!-- Curated Tray Button -->
         <button type="button" class="header-icon-btn" data-trigger-tray aria-label="View curated consultation tray" title="Curated Tray">
-          <svg class="header-icon-svg" viewBox="0 0 24 24">
+          <svg class="header-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="6 3 18 3 22 9 12 22 2 9"></polygon>
+            <line x1="2" y1="9" x2="22" y2="9"></line>
+            <line x1="12" y1="22" x2="6" y2="9"></line>
+            <line x1="12" y1="22" x2="18" y2="9"></line>
+            <line x1="6" y1="3" x2="12" y2="9"></line>
+            <line x1="18" y1="3" x2="12" y2="9"></line>
+          </svg>
+          <span class="tray-counter-pill" style="display: none;">0</span>
+        </button>
+
+        <!-- Shopping Bag Trigger -->
+        <button type="button" class="header-icon-btn" data-trigger-cart aria-label="Shopping Bag" title="Shopping Bag">
+          <svg class="header-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <path d="M16 10a4 4 0 0 1-8 0"></path>
           </svg>
-          <span class="tray-counter-pill" style="display: none;">0</span>
+          <span class="cart-counter-pill" style="display: none;">0</span>
         </button>
 
         <!-- Single Primary CTA -->
@@ -184,6 +272,8 @@
     </div>
   </header>
 
+  <!-- Main Landmark -->
+  <main id="main-content" tabindex="-1">
   <!-- Main Flagship Hero with Layered Scrim & Paired CTAs -->
   <section class="hero-section">
     <div class="hero-bg-media">
@@ -918,12 +1008,14 @@
   </aside>
 
   <!-- Site Footer with Staff Portal Link -->
+  </main>
+
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand-col">
           <div class="footer-brand-header">
-            <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="footer-brand-logo-img">
+            <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="footer-brand-logo-img" width="52" height="52">
             <div>
               <span class="footer-brand-title">Gulshan Jewellers</span>
               <span class="footer-brand-sub">Est. 1950 · Years of Crafting Legacies</span>
@@ -959,16 +1051,13 @@
         </div>
 
         <div>
-          <h4 class="footer-col-title">Direct Consultation</h4>
-          <p style="font-size: var(--text-sm); color: var(--color-text-secondary); margin-bottom: var(--space-3);">
-            Monday to Saturday · 11:00 AM – 7:30 PM IST
-          </p>
+          <h4 class="footer-col-title">Client Trust &amp; Policies</h4>
           <ul class="footer-links">
-            <li><a href="tel:+919582841454">+91 95828 41454</a></li>
-            <li><a href="https://wa.me/919582841454" target="_blank" rel="noopener noreferrer">WhatsApp Direct</a></li>
-            <li><a href="https://instagram.com/gulshanjewellers1950" target="_blank" rel="noopener noreferrer">@gulshanjewellers1950</a></li>
-            <li><a href="mailto:consult@gulshanjewellers.com">consult@gulshanjewellers.com</a></li>
-            <li></li>
+            <li><a href="policies.html">Shipping &amp; Insured Transit</a></li>
+            <li><a href="policies.html#returns">Returns &amp; Exchanges</a></li>
+            <li><a href="policies.html#hallmarking">BIS Hallmarking Policy</a></li>
+            <li><a href="policies.html#care">Jewellery Care Guide</a></li>
+            <li><a href="policies.html#privacy">Privacy &amp; Terms</a></li>
           </ul>
         </div>
       </div>
@@ -978,7 +1067,7 @@
           <strong>Gemstone & Astrological Advisory Note:</strong> Gemstone traditions and astrological preferences are personal. Our consultation is designed to help you understand the stone, its quality, and your setting options; it does not guarantee outcomes.
         </p>
         <p>
-          <strong>Boutique & Compliance Placeholders:</strong> Boutique visits available on private appointment. Independent gemological laboratory certificates (e.g. IIGJ or equivalent reputed testing labs) available per stone upon request. Insured delivery and personalized handover across India.
+          <strong>Atelier &amp; Service Standards:</strong> Boutique visits available on private appointment in New Delhi. Independent gemological testing laboratory certificates (e.g. IIGJ or equivalent accredited labs) available per stone upon request. Insured express delivery with tamper-evident packaging across India. For details, inspect our <a href="policies.html" style="color: var(--color-gold-champagne); text-decoration: underline;">Client Policies &amp; Standards</a>.
         </p>
       </div>
 

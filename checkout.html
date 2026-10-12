@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Checkout | Gulshan Jewellers · Est. 1950</title>
+  <meta name="description" content="Complete your purchase with complimentary insured courier across India. 256-bit encrypted checkout from Gulshan Jewellers.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ksc-tvs.github.io/GJ/checkout.html">
+
+  <link rel="stylesheet" href="src/css/tokens.css">
+  <link rel="stylesheet" href="src/css/base.css">
+  <link rel="stylesheet" href="src/css/components.css">
+  <link rel="stylesheet" href="src/css/pages.css">
+  <link rel="stylesheet" href="src/css/animations.css">
+
+  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#FAF8F5">
+</head>
+<body class="checkout-page-body">
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-left">
+        <span class="top-bar-tagline">Est. 1950 &middot; 256-Bit Encrypted Atelier Checkout &middot; Insured Delivery Across India</span>
+      </div>
+      <div class="top-bar-links">
+        <a href="https://wa.me/919582841454" target="_blank" rel="noopener noreferrer" class="top-bar-link">
+          <span>WhatsApp Assistance: +91 95828 41454</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Minimalist Checkout Header -->
+  <header class="site-header">
+    <div class="container header-inner" style="justify-content: space-between;">
+      <a href="index.html" class="brand-logo" aria-label="Gulshan Jewellers Home">
+        <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="brand-logo-img" width="46" height="46">
+        <div class="brand-logo-text">
+          <span class="brand-name">Gulshan Jewellers</span>
+          <span class="brand-subline">Est. 1950 · Years of Crafting Legacies</span>
+        </div>
+      </a>
+
+      <div style="display: flex; align-items: center; gap: var(--space-4);">
+        <span style="font-size: 0.78rem; color: var(--color-gold-deep); display: inline-flex; align-items: center; gap: 6px;">
+          <svg style="width: 14px; height: 14px; stroke: currentColor; fill: none;" viewBox="0 0 24 24" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          Encrypted Security
+        </span>
+        <a href="collections.html" class="btn btn-outline btn-sm" style="font-size: 0.75rem;">
+          &larr; Back to Catalogue
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container" style="padding-top: var(--space-8); padding-bottom: var(--space-20);" tabindex="-1">
+    <div style="margin-bottom: var(--space-6);">
+      <span class="section-eyebrow">Atelier Dispatch &middot; Direct Acquisition</span>
+      <h1 class="page-title" style="font-size: 2.2rem; margin-top: 4px;">Complete Your Acquisition</h1>
+      <p style="color: var(--color-text-secondary); font-size: 0.95rem; max-width: 680px; margin-top: var(--space-2);">
+        Every piece is prepared by our master jewellers, hallmarked, sealed in tamper-evident security packaging, and dispatched via fully insured transit.
+      </p>
+    </div>
+
+    <!-- Empty Cart Notice (if navigated with 0 items) -->
+    <div id="checkout-empty-notice" style="display: none; text-align: center; padding: var(--space-16) var(--space-4); background: var(--color-bg-card); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-xs);">
+      <h2 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-text-primary); margin-bottom: var(--space-3);">Your Shopping Bag is Currently Empty</h2>
+      <p style="color: var(--color-text-secondary); max-width: 480px; margin: 0 auto var(--space-6); font-size: 0.9rem;">
+        Explore our ready-to-ship sterling silver and everyday diamond creations, or connect with our concierge for bespoke pieces.
+      </p>
+      <a href="collections.html" class="btn btn-gold btn-lg" style="text-decoration: none;">
+        Browse Atelier Collections
+      </a>
+    </div>
+
+    <!-- Checkout Main Layout -->
+    <div id="checkout-layout-grid" class="checkout-grid" style="display: grid; grid-template-columns: 1.4fr 0.9fr; gap: var(--space-10); align-items: start;">
+      
+      <!-- Left Column: Checkout Steps Form -->
+      <form id="checkout-form" method="POST" action="https://formspree.io/f/xvovbqqr" novalidate style="display: flex; flex-direction: column; gap: var(--space-8);">
+        <!-- Honeypot spam trap -->
+        <input type="text" name="_gotcha" style="display: none !important;" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <!-- Step 1: Customer Identification -->
+        <section class="checkout-card" style="background: var(--color-bg-surface); border: 1px solid var(--color-border-subtle); padding: var(--space-6); border-radius: var(--radius-xs);">
+          <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-5);">
+            <span class="checkout-step-badge" style="width: 28px; height: 28px; border-radius: 50%; background: var(--color-gold-champagne); color: #1A1918; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 0.85rem;">1</span>
+            <h2 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--color-text-primary); margin: 0;">Contact Information</h2>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+            <div class="form-group">
+              <label for="checkout-name" class="form-label">Full Name <span style="color: var(--color-gold-deep);">*</span></label>
+              <input type="text" id="checkout-name" name="fullName" class="form-control" required placeholder="e.g. Radhika Sharma" autocomplete="name">
+              <span class="form-error-msg" id="err-checkout-name" style="display: none; color: #b91c1c; font-size: 0.72rem; margin-top: 4px;">Please enter your full name.</span>
+            </div>
+
+            <div class="form-group">
+              <label for="checkout-phone" class="form-label">Phone / WhatsApp Number <span style="color: var(--color-gold-deep);">*</span></label>
+              <input type="tel" id="checkout-phone" name="phone" class="form-control" required placeholder="e.g. +91 98110 23456" autocomplete="tel">
+              <span class="form-error-msg" id="err-checkout-phone" style="display: none; color: #b91c1c; font-size: 0.72rem; margin-top: 4px;">Please enter a valid phone number for delivery verification.</span>
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top: var(--space-4);">
+            <label for="checkout-email" class="form-label">Email Address <span style="color: var(--color-gold-deep);">*</span></label>
+            <input type="email" id="checkout-email" name="email" class="form-control" required placeholder="e.g. radhika@example.com" autocomplete="email">
+            <span style="font-size: 0.72rem; color: var(--color-text-muted); margin-top: 4px; display: block;">Official invoice and courier tracking coordinates will be transmitted here.</span>
+            <span class="form-error-msg" id="err-checkout-email" style="display: none; color: #b91c1c; font-size: 0.72rem; margin-top: 4px;">Please enter a valid email address.</span>
+          </div>
+        </section>
+
+        <!-- Step 2: Shipping Destination -->
+        <section class="checkout-card" style="background: var(--color-bg-surface); border: 1px solid var(--color-border-subtle); padding: var(--space-6); border-radius: var(--radius-xs);">
+          <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-5);">
+            <span class="checkout-step-badge" style="width: 28px; height: 28px; border-radius: 50%; background: var(--color-gold-champagne); color: #1A1918; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 0.85rem;">2</span>
+            <h2 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--color-text-primary); margin: 0;">Insured Shipping Destination</h2>
+          </div>
+
+          <div class="form-group">
+            <label for="checkout-address" class="form-label">House / Flat No., Building &amp; Street Address <span style="color: var(--color-gold-deep);">*</span></label>
+            <input type="text" id="checkout-address" name="address" class="form-control" required placeholder="e.g. 42-B, Shanti Niketan" autocomplete="street-address">
+            <span class="form-error-msg" id="err-checkout-address" style="display: none; color: #b91c1c; font-size: 0.72rem; margin-top: 4px;">Please provide your delivery address.</span>
+          </div>
+
+          <div class="form-group" style="margin-top: var(--space-4);">
+            <label for="checkout-landmark" class="form-label">Apartment, Landmark, or Suite (Optional)</label>
+            <input type="text" id="checkout-landmark" name="landmark" class="form-control" placeholder="e.g. Near Gurudwara Road">
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-4); margin-top: var(--space-4);">
+            <div class="form-group">
+              <label for="checkout-city" class="form-label">City <span style="color: var(--color-gold-deep);">*</span></label>
+              <input type="text" id="checkout-city" name="city" class="form-control" required placeholder="e.g. New Delhi" autocomplete="address-level2">
+            </div>
+
+            <div class="form-group">
+              <label for="checkout-state" class="form-label">State <span style="color: var(--color-gold-deep);">*</span></label>
+              <select id="checkout-state" name="state" class="form-control" required>
+                <option value="Delhi" selected>Delhi</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="West Bengal">West Bengal</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Other">Other State / UT</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="checkout-pincode" class="form-label">PIN Code <span style="color: var(--color-gold-deep);">*</span></label>
+              <input type="text" id="checkout-pincode" name="pincode" class="form-control" required placeholder="110021" pattern="[0-9]{6}" maxlength="6" autocomplete="postal-code">
+              <span class="form-error-msg" id="err-checkout-pincode" style="display: none; color: #b91c1c; font-size: 0.72rem; margin-top: 4px;">Enter a valid 6-digit PIN code.</span>
+            </div>
+          </div>
+
+          <!-- Delivery Mode Options -->
+          <div style="margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--color-border-hairline);">
+            <label class="form-label" style="margin-bottom: var(--space-3); font-weight: 600;">Delivery Method:</label>
+            <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+              <label style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--color-gold-champagne); background: rgba(197, 168, 128, 0.05); border-radius: var(--radius-xs); cursor: pointer;">
+                <input type="radio" name="shippingMethod" value="courier" checked style="margin-top: 3px;">
+                <div>
+                  <span style="font-weight: 600; font-size: 0.88rem; color: var(--color-text-primary); display: block;">
+                    Complimentary Insured Courier (Direct Handover)
+                  </span>
+                  <span style="font-size: 0.75rem; color: var(--color-text-secondary); line-height: 1.4; display: block; margin-top: 2px;">
+                    Discreet security sealed box, recipient signature required upon delivery. Fully insured until safe handover.
+                  </span>
+                </div>
+              </label>
+
+              <label style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-3) var(--space-4); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-xs); cursor: pointer;">
+                <input type="radio" name="shippingMethod" value="boutique" style="margin-top: 3px;">
+                <div>
+                  <span style="font-weight: 600; font-size: 0.88rem; color: var(--color-text-primary); display: block;">
+                    Private Atelier Viewing &amp; Collection (New Delhi)
+                  </span>
+                  <span style="font-size: 0.75rem; color: var(--color-text-secondary); line-height: 1.4; display: block; margin-top: 2px;">
+                    Hand-inspect your piece at our private atelier by prior appointment with personal fitting.
+                  </span>
+                </div>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- Step 3: Payment Method Selection -->
+        <section class="checkout-card" style="background: var(--color-bg-surface); border: 1px solid var(--color-border-subtle); padding: var(--space-6); border-radius: var(--radius-xs);">
+          <div style="display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-5);">
+            <span class="checkout-step-badge" style="width: 28px; height: 28px; border-radius: 50%; background: var(--color-gold-champagne); color: #1A1918; font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 0.85rem;">3</span>
+            <h2 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--color-text-primary); margin: 0;">Payment Method</h2>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: var(--space-3);">
+            <!-- Option A: UPI -->
+            <label class="payment-method-option" style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--color-gold-champagne); background: rgba(197, 168, 128, 0.05); border-radius: var(--radius-xs); cursor: pointer;">
+              <input type="radio" name="paymentMethod" value="upi" checked style="margin-top: 3px;">
+              <div style="flex: 1;">
+                <span style="font-weight: 600; font-size: 0.88rem; color: var(--color-text-primary); display: block;">
+                  UPI Instant Transfer (GPay / PhonePe / Paytm / BHIM)
+                </span>
+                <span style="font-size: 0.75rem; color: var(--color-text-secondary); display: block; margin-top: 2px;">
+                  Zero transaction surcharge. An official invoice with dynamic QR will be generated.
+                </span>
+              </div>
+            </label>
+
+            <!-- Option B: Cards -->
+            <label class="payment-method-option" style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-xs); cursor: pointer;">
+              <input type="radio" name="paymentMethod" value="cards" style="margin-top: 3px;">
+              <div style="flex: 1;">
+                <span style="font-weight: 600; font-size: 0.88rem; color: var(--color-text-primary); display: block;">
+                  Credit &amp; Debit Cards (Visa, MasterCard, RuPay, Amex)
+                </span>
+                <span style="font-size: 0.75rem; color: var(--color-text-secondary); display: block; margin-top: 2px;">
+                  Processed through 256-bit encrypted banking portal with 3D-Secure OTP authentication.
+                </span>
+              </div>
+            </label>
+
+            <!-- Option C: Bank Transfer -->
+            <label class="payment-method-option" style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-xs); cursor: pointer;">
+              <input type="radio" name="paymentMethod" value="bank_transfer" style="margin-top: 3px;">
+              <div style="flex: 1;">
+                <span style="font-weight: 600; font-size: 0.88rem; color: var(--color-text-primary); display: block;">
+                  Direct Bank Wire / NEFT / RTGS (Tax Invoice)
+                </span>
+                <span style="font-size: 0.75rem; color: var(--color-text-secondary); display: block; margin-top: 2px;">
+                  Recommended for high-value fine jewellery transactions. Dedicated dispatch officer assigned.
+                </span>
+              </div>
+            </label>
+          </div>
+
+          <!-- Special Instructions -->
+          <div class="form-group" style="margin-top: var(--space-6);">
+            <label for="checkout-notes" class="form-label">Special Delivery Instructions / Ring Sizing Notes (Optional)</label>
+            <textarea id="checkout-notes" name="notes" class="form-control" rows="2" placeholder="e.g. Specific delivery date, gift wrapping request, or ring sizing query..."></textarea>
+          </div>
+
+          <!-- Consent -->
+          <div style="margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid var(--color-border-hairline);">
+            <label style="display: flex; align-items: flex-start; gap: var(--space-3); font-size: 0.78rem; color: var(--color-text-secondary); line-height: 1.5; cursor: pointer;">
+              <input type="checkbox" id="checkout-terms-consent" name="termsConsent" required style="margin-top: 3px;">
+              <span>
+                I agree to the <a href="policies.html#terms" target="_blank" style="color: var(--color-gold-deep); text-decoration: underline;">Terms of Atelier Purchase</a> and acknowledge the <a href="policies.html#privacy" target="_blank" style="color: var(--color-gold-deep); text-decoration: underline;">Privacy Policy</a>. Dispatches are strictly accompanied by BIS hallmarked certification and official invoice.
+              </span>
+            </label>
+            <span class="form-error-msg" id="err-checkout-consent" style="display: none; color: #b91c1c; font-size: 0.72rem; margin-top: 4px;">Please accept the terms to proceed.</span>
+          </div>
+
+          <div style="margin-top: var(--space-6);">
+            <button type="submit" id="checkout-submit-btn" class="btn btn-gold btn-lg" style="width: 100%; font-size: 0.92rem; padding: 1rem 2rem;">
+              Confirm Order &amp; Generate Tax Invoice
+            </button>
+            <p style="text-align: center; font-size: 0.72rem; color: var(--color-text-muted); margin-top: var(--space-3);">
+              Upon placement, an official order confirmation &amp; invoice receipt are generated immediately.
+            </p>
+          </div>
+        </section>
+      </form>
+
+      <!-- Right Column: Order Summary Sidebar -->
+      <aside class="checkout-sidebar" style="position: sticky; top: 100px; display: flex; flex-direction: column; gap: var(--space-6);">
+        <div style="background: var(--color-bg-card); border: 1px solid var(--color-border-subtle); padding: var(--space-6); border-radius: var(--radius-xs);">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--space-4); padding-bottom: var(--space-3); border-bottom: 1px solid var(--color-border-hairline);">
+            <h2 style="font-family: var(--font-serif); font-size: 1.25rem; color: var(--color-text-primary); margin: 0;">Order Summary</h2>
+            <span id="checkout-summary-count" style="font-size: 0.75rem; color: var(--color-gold-deep); font-weight: 500;">0 Pieces</span>
+          </div>
+
+          <!-- Items list -->
+          <div id="checkout-summary-items" style="display: flex; flex-direction: column; gap: var(--space-4); max-height: 340px; overflow-y: auto; margin-bottom: var(--space-4); padding-right: 4px;">
+            <!-- Dynamically populated -->
+          </div>
+
+          <!-- Price Calculations -->
+          <div style="border-top: 1px solid var(--color-border-hairline); padding-top: var(--space-4); display: flex; flex-direction: column; gap: var(--space-2); font-size: 0.85rem;">
+            <div style="display: flex; justify-content: space-between; color: var(--color-text-secondary);">
+              <span>Item Subtotal</span>
+              <span id="checkout-subtotal-amount" style="font-weight: 600; color: var(--color-text-primary);">₹0</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; color: var(--color-text-secondary);">
+              <span>All Taxes &amp; GST</span>
+              <span>Included</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; color: var(--color-gold-deep);">
+              <span>Insured Transit (India)</span>
+              <span>Complimentary</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; margin-top: var(--space-3); padding-top: var(--space-3); border-top: 1px solid var(--color-border-subtle); font-size: 1.15rem; font-family: var(--font-serif); color: var(--color-text-primary);">
+              <span>Grand Total</span>
+              <span id="checkout-grand-total" style="color: var(--color-gold-deep); font-weight: 700;">₹0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Trust Badges Block -->
+        <div style="background: var(--color-bg-surface); border: 1px solid var(--color-border-hairline); padding: var(--space-5); border-radius: var(--radius-xs); display: flex; flex-direction: column; gap: var(--space-3);">
+          <div style="display: flex; align-items: center; gap: var(--space-3);">
+            <span style="font-size: 1.1rem; color: var(--color-gold-champagne);">&#10003;</span>
+            <span style="font-size: 0.78rem; color: var(--color-text-secondary);">BIS Hallmarked (Gold) &amp; 925 Stamped (Silver)</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: var(--space-3);">
+            <span style="font-size: 1.1rem; color: var(--color-gold-champagne);">&#10003;</span>
+            <span style="font-size: 0.78rem; color: var(--color-text-secondary);">100% Insured Direct Handover Across India</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: var(--space-3);">
+            <span style="font-size: 1.1rem; color: var(--color-gold-champagne);">&#10003;</span>
+            <span style="font-size: 0.78rem; color: var(--color-text-secondary);">15-Day Inspection Period &middot; Dedicated Concierge</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; 1950&ndash;2026 Gulshan Jewellers. All rights reserved.</span>
+        <div style="display: flex; gap: var(--space-4); font-size: var(--text-2xs);">
+          <a href="policies.html#shipping" style="color: var(--color-text-muted);">Insured Shipping</a>
+          <a href="policies.html#returns" style="color: var(--color-text-muted);">Returns Policy</a>
+          <a href="policies.html#privacy" style="color: var(--color-text-muted);">Privacy Policy</a>
+          <a href="policies.html#terms" style="color: var(--color-text-muted);">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="src/js/checkout.js"></script>
+</body>
+</html>

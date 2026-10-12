@@ -19,6 +19,12 @@ function initBespokeForm() {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Transmitting Bespoke Request...';
+    }
+
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
@@ -52,6 +58,11 @@ function initBespokeForm() {
 
     showToast('Your bespoke enquiry has been received. Our master jeweller will contact you.');
     form.reset();
+
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Bespoke Commission Request';
+    }
 
     const promptWa = confirm('Would you also like to open WhatsApp to share reference sketches or voice notes with our design team?');
     if (promptWa) {

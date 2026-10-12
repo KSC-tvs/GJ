@@ -123,28 +123,15 @@ export async function testConnection(customUrl, customKey) {
 export const auth = {
   async getSession() {
     const client = getSupabase();
-    if (client) {
-      try {
-        const { data: { session } } = await client.auth.getSession();
-        if (session && session.user) {
-          return { user: session.user, token: session.access_token };
-        }
-      } catch (e) {
-        console.warn('Supabase auth getSession check failed:', e);
-      }
-    }
+    if (!client) return null;
 
-    // Verify stored active session
-    const local = localStorage.getItem(AUTH_SESSION_KEY);
-    if (local) {
-      try {
-        const sess = JSON.parse(local);
-        if (sess && sess.expiresAt && Date.now() < sess.expiresAt) {
-          return sess;
-        }
-      } catch (e) {
-        localStorage.removeItem(AUTH_SESSION_KEY);
+    try {
+      const { data: { session } } = await client.auth.getSession();
+      if (session && session.user) {
+        return { user: session.user, token: session.access_token };
       }
+    } catch (e) {
+      console.warn('Supabase auth getSession verification failed:', e);
     }
     return null;
   },

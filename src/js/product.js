@@ -15,25 +15,31 @@ let currentProduct = null;
 
 document.addEventListener('DOMContentLoaded', async () => {
   const params = new URLSearchParams(window.location.search);
-  const productId = params.get('id') || 'pukhraj-cushion-signet-22k';
+  const rawId = params.get('id');
+  const productId = rawId ? rawId.trim() : 'pukhraj-cushion-signet-22k';
 
-  currentProduct = await fetchProductById(productId);
+  try {
+    currentProduct = await fetchProductById(productId);
 
-  if (!currentProduct) {
-    renderNotFoundState(productId);
-    return;
+    if (!currentProduct) {
+      renderNotFoundState(productId);
+      return;
+    }
+
+    Tracking.trackProductView(currentProduct.id, currentProduct.title);
+    renderProductDetails(currentProduct);
+    initMacroZoom();
+    initAccordions();
+    renderRelatedProducts(currentProduct);
+    initCertificateSimulator();
+
+    store.subscribe('currency', () => {
+      if (currentProduct) renderPrice(currentProduct);
+    });
+  } catch (err) {
+    console.error('Failed to load piece details:', err);
+    renderErrorState(productId, err);
   }
-
-  Tracking.trackProductView(currentProduct.id, currentProduct.title);
-  renderProductDetails(currentProduct);
-  initMacroZoom();
-  initAccordions();
-  renderRelatedProducts(currentProduct);
-  initCertificateSimulator();
-
-  store.subscribe('currency', () => {
-    if (currentProduct) renderPrice(currentProduct);
-  });
 });
 
 function renderPrice(product) {
@@ -41,6 +47,41 @@ function renderPrice(product) {
   if (!priceEl) return;
   const currentCurrency = store.getCurrency();
   priceEl.textContent = product.priceAmount ? formatPrice(product.priceAmount, currentCurrency) : product.priceDisplay;
+}
+
+function renderErrorState(requestedId, error) {
+  const main = document.querySelector('main.container');
+  if (!main) return;
+
+  document.title = `Atelier Catalogue Notice | Gulshan Jewellers · Est. 1950`;
+
+  main.innerHTML = `
+    <div style="text-align: center; padding: var(--space-20) var(--space-4); max-width: 640px; margin: 0 auto;">
+      <span class="section-eyebrow">Atelier Notice</span>
+      <h1 style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--color-text-primary); margin: var(--space-4) 0 var(--space-3);">
+        Unable to Retrieve Piece Details
+      </h1>
+      <p style="font-size: 1rem; color: var(--color-text-secondary); line-height: 1.7; margin-bottom: var(--space-8);">
+        A temporary network disruption occurred while retrieving catalogue details for "${requestedId || 'requested item'}". You may retry now or connect directly with our atelier team.
+      </p>
+      <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+        <button type="button" class="btn btn-gold btn-lg" onclick="window.location.reload()">Retry Connection</button>
+        <a href="collections.html" class="btn btn-outline btn-lg">Browse Collections</a>
+        <a href="https://wa.me/919582841454" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">WhatsApp Specialist</a>
+      </div>
+    </div>
+  `;
+}
+
+function updateMetaTag(attribute, key, content) {
+  if (!content) return;
+  let tag = document.querySelector(`meta[${attribute}="${key}"]`);
+  if (!tag) {
+    tag = document.createElement('meta');
+    tag.setAttribute(attribute, key);
+    document.head.appendChild(tag);
+  }
+  tag.setAttribute('content', content);
 }
 
 function renderNotFoundState(requestedId) {
@@ -69,6 +110,26 @@ function renderNotFoundState(requestedId) {
 
 function renderProductDetails(product) {
   document.title = `${product.title} | Gulshan Jewellers · Est. 1950`;
+
+  let canonicalLink = document.querySelector('link[rel="canonical"]');
+  if (!canonicalLink) {
+    canonicalLink = document.createElement('link');
+    canonicalLink.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonicalLink);
+  }
+  canonicalLink.setAttribute('href', `https://ksc-tvs.github.io/GJ/products/${product.id}.html`);
+
+  const metaDesc = document.querySelector('meta[name="description"]');
+  const descContent = `${product.title} — ${product.poeticDescriptor || product.narrative} Handcrafted legacy and certified material transparency by Gulshan Jewellers · Est. 1950.`;
+  if (metaDesc) metaDesc.setAttribute('content', descContent);
+
+  const fullImageUrl = product.image ? new URL(normalizeAssetPath(product.image), window.location.href).href : '';
+  updateMetaTag('property', 'og:title', `${product.title} | Gulshan Jewellers · Est. 1950`);
+  updateMetaTag('property', 'og:description', product.poeticDescriptor || descContent);
+  if (fullImageUrl) updateMetaTag('property', 'og:image', fullImageUrl);
+  updateMetaTag('name', 'twitter:title', `${product.title} | Gulshan Jewellers · Est. 1950`);
+  updateMetaTag('name', 'twitter:description', product.poeticDescriptor || descContent);
+  if (fullImageUrl) updateMetaTag('name', 'twitter:image', fullImageUrl);
 
   // Breadcrumbs
   const crumbCategory = document.getElementById('pdp-crumb-category');
@@ -315,7 +376,7 @@ function injectProductSchema(product) {
     '@type': 'Product',
     'name': product.title,
     'description': product.poeticDescriptor || product.narrative,
-    'image': product.image ? window.location.origin + '/' + normalizeAssetPath(product.image) : undefined,
+    'image': product.image ? new URL(normalizeAssetPath(product.image), window.location.href).href : undefined,
     'brand': {
       '@type': 'Brand',
       'name': 'Gulshan Jewellers'

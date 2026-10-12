@@ -14,8 +14,10 @@ import { initRingSizeModal, openRingSizeModal, closeRingSizeModal } from './comp
 import { initMegamenu } from './components/megamenu.js';
 import { initMobileNav, openMobileDrawer, closeMobileDrawer } from './components/mobileNav.js';
 import { initInteractiveFeatures } from './components/interactive.js';
+import { initCartDrawer, openCartDrawer, closeCartDrawer } from './components/cartDrawer.js';
+import { cart } from './state/cart.js';
 
-export { showToast, openMobileDrawer, closeMobileDrawer };
+export { showToast, openMobileDrawer, closeMobileDrawer, openCartDrawer, closeCartDrawer, cart };
 
 let siteConfig = null;
 
@@ -28,6 +30,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initMegamenu();
   initSearchModal();
   initConsultationTray();
+  initCartDrawer();
   initRingSizeModal();
   initInteractiveFeatures();
   setupGlobalTriggers();
@@ -151,37 +154,62 @@ function createDrawerDOM() {
           Every considered piece begins with an honest conversation. Share your questions regarding gemstone quality, certified origin, bespoke setting options, or personal preference.
         </p>
 
-        <form id="universal-enquiry-form">
+        <form id="universal-enquiry-form" method="POST" action="https://formspree.io/f/xvovbqqr" novalidate>
+          <input type="text" name="_hp_security_check" style="display:none !important;" tabindex="-1" autocomplete="off">
           <input type="hidden" id="enquiry-product-id" name="productId" value="">
           <input type="hidden" id="enquiry-product-name" name="productName" value="">
 
           <div class="form-group">
             <label class="form-label" for="enquiry-name">Your Full Name</label>
-            <input type="text" id="enquiry-name" name="name" class="form-control" required placeholder="e.g. Rohini Sharma">
+            <input type="text" id="enquiry-name" name="name" class="form-control" required placeholder="e.g. Rohini Sharma" autocomplete="name">
           </div>
 
-          <div class="form-group">
-            <label class="form-label" for="enquiry-contact">Phone / WhatsApp Number</label>
-            <input type="tel" id="enquiry-contact" name="phone" class="form-control" required placeholder="e.g. +91 95828 41454">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3);">
+            <div class="form-group">
+              <label class="form-label" for="enquiry-contact">Phone / WhatsApp Number</label>
+              <input type="tel" id="enquiry-contact" name="phone" class="form-control" required placeholder="e.g. +91 95828 41454" autocomplete="tel">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="enquiry-email">Email Address</label>
+              <input type="email" id="enquiry-email" name="email" class="form-control" placeholder="e.g. rohini@example.com" autocomplete="email">
+            </div>
           </div>
 
-          <div class="form-group">
-            <label class="form-label" for="enquiry-interest">Nature of Enquiry</label>
-            <select id="enquiry-interest" name="interest" class="form-control">
-              <option value="gemstone-guidance">Gemstone Quality & Astrological Guidance</option>
-              <option value="price-availability">Price & Availability on Request</option>
-              <option value="bespoke-design">Bespoke Setting / Custom Creation</option>
-              <option value="everyday-fine">Everyday Fine Jewellery / Gifting</option>
-            </select>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3);">
+            <div class="form-group">
+              <label class="form-label" for="enquiry-interest">Nature of Enquiry</label>
+              <select id="enquiry-interest" name="interest" class="form-control">
+                <option value="gemstone-guidance">Gemstone Quality & Astrological Guidance</option>
+                <option value="price-availability">Price & Availability on Request</option>
+                <option value="bespoke-design">Bespoke Setting / Custom Creation</option>
+                <option value="everyday-fine">Everyday Fine Jewellery / Gifting</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="enquiry-pref-mode">Preferred Contact Mode</label>
+              <select id="enquiry-pref-mode" name="preferredContact" class="form-control">
+                <option value="whatsapp">WhatsApp Message</option>
+                <option value="phone">Phone Call</option>
+                <option value="boutique">Private Atelier Viewing</option>
+                <option value="email">Email</option>
+              </select>
+            </div>
           </div>
 
           <div class="form-group">
             <label class="form-label" for="enquiry-message">Your Message or Requirements</label>
-            <textarea id="enquiry-message" name="message" class="form-control" placeholder="Mention preferred carat weight, natural gemstone query, metal preference (22K, 18K, 925 Silver), or occasion..."></textarea>
+            <textarea id="enquiry-message" name="message" class="form-control" rows="3" placeholder="Mention preferred carat weight, natural gemstone query, metal preference (22K, 18K, 925 Silver), or occasion..."></textarea>
           </div>
 
-          <p class="form-disclaimer">
-            <strong>Authenticity & Trust Note:</strong> Gemstone traditions and astrological preferences are personal. Our consultation is designed to help you understand the stone, its quality, and your setting options; it does not guarantee outcomes.
+          <div class="form-group" style="display: flex; gap: 8px; align-items: flex-start; margin-top: var(--space-2);">
+            <input type="checkbox" id="enquiry-privacy-consent" name="privacyConsent" required style="margin-top: 4px;">
+            <label for="enquiry-privacy-consent" style="font-size: var(--text-xs); color: var(--color-text-secondary); line-height: 1.5;">
+              I agree to the <a href="policies.html#privacy" target="_blank" style="color: var(--color-gold-deep); text-decoration: underline;">Privacy Policy</a> and consent to being contacted by the Gulshan Jewellers concierge team.
+            </label>
+          </div>
+
+          <p class="form-disclaimer" style="margin: var(--space-3) 0;">
+            <strong>Advisory Notice:</strong> Gemstone traditions and astrological preferences are personal. Our consultation is designed to help you understand the stone, its quality, and your setting options; it does not guarantee outcomes.
           </p>
 
           <div style="display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-4);">
@@ -239,18 +267,44 @@ export function closeEnquiryModal() {
 }
 
 async function handleEnquirySubmission(form) {
+  const submitBtn = form.querySelector('button[type="submit"]');
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Transmitting Consultation Request...';
+  }
+
   const formData = new FormData(form);
   const data = Object.fromEntries(formData.entries());
+
+  if (data._hp_security_check) {
+    console.warn('Spam submission intercepted by honeypot.');
+    form.reset();
+    return;
+  }
 
   Tracking.trackConsultationSubmit(data);
 
   const enquiryPayload = {
     name: data.name || 'Client',
-    contact: data.contact || data.phone || data.email || '+91 95828 41454',
+    contact: data.phone || data.email || '+91 95828 41454',
+    email: data.email || '',
+    phone: data.phone || '',
+    preferredContact: data.preferredContact || 'WhatsApp',
+    interest: data.interest || 'General Consultation',
     piece: document.getElementById('enquiry-product-name')?.value || 'Fine Jewellery & Gemstones',
     message: data.message || 'Consultation request submitted from digital boutique.',
+    privacyConsent: Boolean(data.privacyConsent),
     status: 'New'
   };
+
+  // Dispatch to Formspree endpoint as backup
+  try {
+    fetch('https://formspree.io/f/xvovbqqr', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    }).catch(() => {});
+  } catch (_) {}
 
   // 1. Dispatch to live Supabase CRM database
   try {
@@ -274,6 +328,12 @@ async function handleEnquirySubmission(form) {
 
   showToast('Thank you. A member of the Gulshan Jewellers team will be in touch shortly.');
   form.reset();
+
+  if (submitBtn) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit Consultation Request';
+  }
+
   setTimeout(() => {
     closeEnquiryModal();
   }, 1200);
@@ -293,10 +353,53 @@ function handleWhatsAppDispatch() {
 
 function setupGlobalTriggers() {
   document.addEventListener('click', (e) => {
-    const trigger = e.target.closest('[data-trigger-consultation]');
-    if (trigger) {
+    const consultationTrigger = e.target.closest('[data-trigger-consultation]');
+    if (consultationTrigger) {
       e.preventDefault();
-      openEnquiryModal();
+      const productId = consultationTrigger.getAttribute('data-product-id');
+      if (productId && window.productsData) {
+        const prod = window.productsData.find(p => p.id === productId);
+        openEnquiryModal(prod);
+      } else {
+        openEnquiryModal();
+      }
+      return;
+    }
+
+    const cartTrigger = e.target.closest('[data-trigger-cart]');
+    if (cartTrigger) {
+      e.preventDefault();
+      openCartDrawer();
+      return;
+    }
+
+    const addCartBtn = e.target.closest('[data-add-to-cart]');
+    if (addCartBtn) {
+      e.preventDefault();
+      const id = addCartBtn.getAttribute('data-id');
+      const title = addCartBtn.getAttribute('data-title');
+      const price = parseFloat(addCartBtn.getAttribute('data-price')) || 0;
+      const image = addCartBtn.getAttribute('data-image');
+      const sizeSelect = document.getElementById('pdp-size-select');
+      const size = sizeSelect ? sizeSelect.value : null;
+      cart.addItem({ id, title, price, image, size });
+      openCartDrawer();
+      return;
+    }
+
+    const buyNowBtn = e.target.closest('[data-buy-now]');
+    if (buyNowBtn) {
+      e.preventDefault();
+      const id = buyNowBtn.getAttribute('data-id');
+      const title = buyNowBtn.getAttribute('data-title');
+      const price = parseFloat(buyNowBtn.getAttribute('data-price')) || 0;
+      const image = buyNowBtn.getAttribute('data-image');
+      const sizeSelect = document.getElementById('pdp-size-select');
+      const size = sizeSelect ? sizeSelect.value : null;
+      cart.addItem({ id, title, price, image, size });
+      const isSubDir = window.location.pathname.includes('/products/');
+      window.location.href = isSubDir ? '../checkout.html' : 'checkout.html';
+      return;
     }
   });
 }
@@ -309,6 +412,8 @@ window.GJ = {
   closeSearchModal,
   openTrayDrawer,
   closeTrayDrawer,
+  openCartDrawer,
+  closeCartDrawer,
   openComparisonModal,
   closeComparisonModal,
   openRingSizeModal,
@@ -316,5 +421,6 @@ window.GJ = {
   openMobileDrawer,
   closeMobileDrawer,
   showToast,
-  store
+  store,
+  cart
 };

@@ -3,8 +3,10 @@
     "id": "pukhraj-cushion-signet-22k",
     "title": "Ceylon Yellow Sapphire (Pukhraj) Signet Ring",
     "poeticDescriptor": "Untreated golden fire in solid hand-forged 22K gold—a timeless legacy of Jupiter.",
-    "priceDisplay": "Quotation on Request · Indicative ₹2,85,000",
+    "commerceMode": "enquire",
+    "priceDisplay": "Indicative ₹2,85,000 · Quotation Confirmed on Sizing",
     "priceAmount": 285000,
+    "priceExplanation": "Indicative valuation based on 4.15 ct unheated Ceylon stone. Final price confirmed upon finger size and gold weight.",
     "primaryCategory": "gemstones",
     "gemstone": "pukhraj",
     "metal": "22k-gold",
@@ -12,13 +14,21 @@
     "occasion": "occasion",
     "featured": true,
     "isDailyWear": false,
+    "availability": "Bespoke Commission · Single Gem Curation",
+    "leadTime": "Hand-forged to bespoke finger measurement within 10–14 business days",
+    "dimensions": "14.2 mm x 12.8 mm face; 3.8 mm shank base",
     "image": "images/pukhraj-hero.jpg",
     "secondaryImage": "images/loose-sapphire.jpg",
+    "gallery": [
+      "images/pukhraj-hero.jpg",
+      "images/loose-sapphire.jpg",
+      "images/bespoke-workshop.jpg"
+    ],
     "badges": {
       "natural": true,
       "treatment": "Untreated & Unheated",
       "certification": "Certificate Available",
-      "hallmark": "22K Hallmarked Gold"
+      "hallmark": "22K BIS Hallmarked Gold"
     },
     "specs": {
       "gemstoneType": "Natural Yellow Sapphire (Pukhraj / Corundum)",
@@ -30,8 +40,10 @@
       "metalPurity": "22K Solid Yellow Gold (916 BIS Hallmarked)",
       "diamondDetails": "None (Solid gold sculpted mount)",
       "sizeLength": "Custom crafted to bespoke ring size (Standard Indian Size 12-24)",
-      "customisation": "Available in Panchdhatu, 18K Yellow Gold, or open-back basket setting"
+      "customisation": "Available in Panchdhatu, 18K Yellow Gold, or open-back basket setting",
+      "careInstructions": "Clean gently using lukewarm soapy water and soft brush. Avoid steam or harsh ultrasonic cleaning on fine jewellery."
     },
+    "returnEligibility": "Bespoke Creation: Exchange and lifetime authenticity support with complimentary first resizing.",
     "narrative": "Selected personally for its pure canary-yellow saturation and crystalline transparency, this Ceylon Pukhraj embodies our heritage ethos. The ring is forged in solid 22K gold by our senior goldsmiths, carved with traditional motifs that frame the cushion facet without concealing its natural luster.",
     "transparencyNote": "Every gemstone at Gulshan Jewellers is accompanied by a transparent disclosure of natural status and any treatment. We do not use simulated or beryllium-diffused sapphires.",
     "astrologicalNote": "Gemstone traditions and astrological preferences are personal. Our consultation is designed to help you understand the stone, its quality, and your setting options; it does not guarantee outcomes."
@@ -40,8 +52,10 @@
     "id": "neelam-royal-blue-baguette-18k",
     "title": "Royal Ceylon Blue Sapphire (Neelam) Solitaire Ring",
     "poeticDescriptor": "A little blue, a lot of brilliance. Velvety royal corundum flanked by clean tapered diamonds.",
-    "priceDisplay": "Quotation on Request · Indicative ₹4,20,000",
+    "commerceMode": "enquire",
+    "priceDisplay": "Indicative ₹4,20,000 · Quotation Confirmed on Sizing",
     "priceAmount": 420000,
+    "priceExplanation": "Indicative valuation for 3.80 ct natural unheated Ceylon blue corundum with diamond baguettes.",
     "primaryCategory": "gemstones",
     "gemstone": "neelam",
     "metal": "18k-white-gold",
@@ -49,13 +63,21 @@
     "occasion": "occasion",
     "featured": true,
     "isDailyWear": false,
+    "availability": "Bespoke Commission · Natural Unheated Corundum",
+    "leadTime": "Hand-forged to client finger size in 10–14 business days",
+    "dimensions": "13.5 mm x 10.2 mm crown; 2.6 mm knife-edge band",
     "image": "images/neelam-sapphire.jpg",
     "secondaryImage": "images/loose-sapphire.jpg",
+    "gallery": [
+      "images/neelam-sapphire.jpg",
+      "images/loose-sapphire.jpg",
+      "images/bespoke-workshop.jpg"
+    ],
     "badges": {
       "natural": true,
       "treatment": "Treatment Disclosed (Natural Unheated)",
       "certification": "IIGJ-Certified Available",
-      "hallmark": "18K Hallmarked Gold"
+      "hallmark": "18K BIS Hallmarked Gold"
     },
     "specs": {
       "gemstoneType": "Natural Blue Sapphire (Neelam / Corundum)",
@@ -66,9 +88,11 @@
       "certificate": "IIGJ / Reputed Testing Lab Report available per stone",
       "metalPurity": "18K White Gold (750 BIS Hallmarked) or Platinum",
       "diamondDetails": "Natural tapered baguette diamonds (VVS-VS, E-F color, 0.28 ctw)",
-      "sizeLength": "Hand-sized to client measurement",
-      "customisation": "Can be adapted to 925 sterling silver or 18K yellow gold setting"
+      "sizeLength": "Hand-sized to client measurement (Indian Sizes 10-22)",
+      "customisation": "Can be adapted to 925 sterling silver or 18K yellow gold setting",
+      "careInstructions": "Store individually in soft pouch. Wipe with microfiber cloth after wear."
     },
+    "returnEligibility": "Bespoke Creation: Exchange and lifetime authenticity support with complimentary first resizing.",
     "narrative": "Neelam possesses a quiet, commanding presence. We selected this oval specimen for its rich royal blue depth without heavy extinction, pairing it with architectural diamond baguettes that allow the centre stone to remain the focal point.",
     "transparencyNote": "We never sell lead-glass filled, diffusion-treated, or lab-synthesized sapphires. Full clarity and treatment details are provided prior to purchase.",
     "astrologicalNote": "Gemstone traditions and astrological preferences are personal. Our consultation is designed to help you understand the stone, its quality, and your setting options; it does not guarantee outcomes."
@@ -77,8 +101,10 @@
     "id": "emerald-colombian-bezel-pendant",
     "title": "Natural Colombian Emerald (Panna) Bezel Pendant",
     "poeticDescriptor": "Understated but unmistakable. Vivid green emerald glow embraced in a tailored 18K gold collar.",
-    "priceDisplay": "Quotation on Request · Indicative ₹1,85,000",
+    "commerceMode": "enquire",
+    "priceDisplay": "Indicative ₹1,85,000 · Quotation Confirmed on Chain Selection",
     "priceAmount": 185000,
+    "priceExplanation": "Includes 2.65 ct verified Colombian emerald in 18K gold bezel with 18-inch gold chain.",
     "primaryCategory": "gemstones",
     "gemstone": "emerald",
     "metal": "18k-gold",
@@ -86,13 +112,21 @@
     "occasion": "daily",
     "featured": true,
     "isDailyWear": true,
+    "availability": "Atelier Curation · Single Earth-Mined Emerald",
+    "leadTime": "Complimentary insured delivery within 5–7 business days",
+    "dimensions": "16.0 mm x 11.5 mm bezel pendant; 18-inch chain",
     "image": "images/emerald-pendant.jpg",
     "secondaryImage": "images/bespoke-workshop.jpg",
+    "gallery": [
+      "images/emerald-pendant.jpg",
+      "images/bespoke-workshop.jpg",
+      "images/loose-sapphire.jpg"
+    ],
     "badges": {
       "natural": true,
       "treatment": "Traditional Cedarwood Oil Disclosed",
       "certification": "Certificate Available",
-      "hallmark": "18K Hallmarked Gold"
+      "hallmark": "18K BIS Hallmarked Gold"
     },
     "specs": {
       "gemstoneType": "Natural Colombian Beryl (Emerald / Panna)",
@@ -100,12 +134,14 @@
       "caratWeight": "2.65 carats",
       "treatmentDisclosure": "Minor Traditional Colorless Cedarwood Oil (Standard industry practice; polymer/resin-free)",
       "origin": "Muzo / Chivor Basin, Colombia (Verified)",
-      "certificate": "Accredited Gemological Laboratory Certificate",
+      "certificate": "Accredited Gemological Laboratory Certificate available",
       "metalPurity": "18K Yellow Gold (750 BIS Hallmarked)",
       "diamondDetails": "None (Clean gold frame)",
       "sizeLength": "18-inch delicate wheat link chain in 18K gold included",
-      "customisation": "Can be adapted with a diamond bail or in 22K gold"
+      "customisation": "Can be adapted with a diamond bail or in 22K gold",
+      "careInstructions": "Avoid soaking emeralds or exposure to harsh detergents, perfumes, and sudden temperature shifts."
     },
+    "returnEligibility": "Atelier Piece: 15-day exchange and inspection guarantee with original certification.",
     "narrative": "This Colombian emerald features an enchanting natural 'jardin' that captures morning light. Encased in a smooth, knife-edge bezel, it is designed for the modern collector who wears fine gemstones not just on occasions, but as an everyday signature.",
     "transparencyNote": "Emeralds are inherently included stones. We disclose the exact level of clarity enhancement and strictly forbid synthetic resins or green dye infusions.",
     "astrologicalNote": "Gemstone traditions and astrological preferences are personal. Our consultation is designed to help you understand the stone, its quality, and your setting options; it does not guarantee outcomes."
@@ -114,8 +150,10 @@
     "id": "ruby-mozambique-solitaire-18k",
     "title": "Natural Mozambique Ruby (Manik) Solitaire Ring",
     "poeticDescriptor": "A story you wear. Fiery crimson ruby brilliance in a classic four-prong gold architecture.",
-    "priceDisplay": "Quotation on Request · Indicative ₹3,10,000",
+    "commerceMode": "enquire",
+    "priceDisplay": "Indicative ₹3,10,000 · Quotation Confirmed on Sizing",
     "priceAmount": 310000,
+    "priceExplanation": "Valuation for 2.40 ct untreated Mozambique ruby in hand-crafted 18K gold mount.",
     "primaryCategory": "gemstones",
     "gemstone": "ruby",
     "metal": "18k-gold",
@@ -123,13 +161,21 @@
     "occasion": "occasion",
     "featured": true,
     "isDailyWear": false,
+    "availability": "Bespoke Commission · Untreated Earth-Mined Ruby",
+    "leadTime": "Handcrafted to finger size in 10–14 business days",
+    "dimensions": "11.8 mm x 9.6 mm crown; 2.8 mm shank",
     "image": "images/ruby-solitaire.jpg",
     "secondaryImage": "images/bespoke-workshop.jpg",
+    "gallery": [
+      "images/ruby-solitaire.jpg",
+      "images/bespoke-workshop.jpg",
+      "images/gold-solitaire.jpg"
+    ],
     "badges": {
       "natural": true,
       "treatment": "Disclosed Natural (Untreated)",
       "certification": "Certificate Available",
-      "hallmark": "18K Hallmarked Gold"
+      "hallmark": "18K BIS Hallmarked Gold"
     },
     "specs": {
       "gemstoneType": "Natural Corundum (Ruby / Manik)",
@@ -140,9 +186,11 @@
       "certificate": "Reputed Gem Lab Certificate supplied",
       "metalPurity": "18K Solid Yellow Gold (750 Hallmarked)",
       "diamondDetails": "None (Pure solitaire profile)",
-      "sizeLength": "Bespoke sizing provided at consultation",
-      "customisation": "Available in 22K yellow gold or with a pavé diamond band"
+      "sizeLength": "Bespoke sizing provided at consultation (Indian Sizes 10-24)",
+      "customisation": "Available in 22K yellow gold or with a pavé diamond band",
+      "careInstructions": "Clean with warm water and mild soap. Buff with jewelry polishing cloth."
     },
+    "returnEligibility": "Bespoke Creation: Exchange and lifetime authenticity support with complimentary first resizing.",
     "narrative": "Revered across Indian heritage as the gem of the Sun (Surya), this Mozambique ruby offers an intense pigeon-blood red tone. Its faceted pavilion reflects light with a warm inner fire, balanced on a tapered knife-edge 18K band.",
     "transparencyNote": "Commercial markets often flood with composite glass-filled rubies. At Gulshan Jewellers, we strictly work with earth-mined, genuine rubies with certified treatment disclosure.",
     "astrologicalNote": "Gemstone traditions and astrological preferences are personal. Our consultation is designed to help you understand the stone, its quality, and your setting options; it does not guarantee outcomes."
@@ -151,8 +199,10 @@
     "id": "kyanite-artisan-silver-ring",
     "title": "Natural Blue Kyanite Artisan Silver Ring",
     "poeticDescriptor": "Considered, authentic resonance. Natural pleochroic blue gemstone in hand-bezelled 925 silver.",
+    "commerceMode": "direct",
     "priceDisplay": "₹18,500",
     "priceAmount": 18500,
+    "priceExplanation": "Fixed price includes GST and complimentary insured shipping across India.",
     "primaryCategory": "silver",
     "gemstone": "kyanite",
     "metal": "925-silver",
@@ -160,8 +210,16 @@
     "occasion": "daily",
     "featured": true,
     "isDailyWear": true,
+    "availability": "In Stock · Ready to Ship",
+    "leadTime": "Dispatched in 24–48 hours · Delivery in 3–5 business days",
+    "dimensions": "15.0 mm x 10.0 mm oval bezel; 3.0 mm band",
     "image": "images/kyanite-silver.jpg",
     "secondaryImage": "images/silver-bangle.jpg",
+    "gallery": [
+      "images/kyanite-silver.jpg",
+      "images/silver-bangle.jpg",
+      "images/bespoke-workshop.jpg"
+    ],
     "badges": {
       "natural": true,
       "treatment": "100% Untreated Natural",
@@ -177,9 +235,11 @@
       "certificate": "In-house Authenticity Card & Lab Option Available",
       "metalPurity": "925 Solid Sterling Silver (Hallmarked)",
       "diamondDetails": "None",
-      "sizeLength": "Custom sized to order",
-      "customisation": "Available in open-basket ring or pendant mount"
+      "sizeLength": "Available in Indian Sizes 12, 14, 16, 18, 20 (Custom size on request)",
+      "customisation": "Available in open-basket ring or pendant mount",
+      "careInstructions": "Kyanite has directional cleavage; protect against sharp impact. Store separately."
     },
+    "returnEligibility": "15-Day Inspection Period: Complimentary return or exchange with insured return courier.",
     "narrative": "For clients seeking Saturn alignment or the hypnotic beauty of deep blue without the significant expenditure of an untreated Ceylon sapphire, Blue Kyanite is our master recommendation. Set in textured, hand-burnished 925 sterling silver, this ring makes thoughtful gemstone alignment attainable with dignity.",
     "transparencyNote": "We never promote synthetic substitutes under misleading names. Kyanite is a genuine, unheated natural mineral celebrated in traditional Up-ratna wisdom.",
     "astrologicalNote": "Gemstone traditions and astrological preferences are personal. Our consultation is designed to help you understand the stone, its quality, and your setting options; it does not guarantee outcomes."
@@ -188,8 +248,10 @@
     "id": "everyday-diamond-huggie-earrings-14k",
     "title": "Everyday Natural Diamond Huggie Earrings (14K)",
     "poeticDescriptor": "Some jewellery waits for an occasion; these don't. Effortless brilliance for every sunrise.",
+    "commerceMode": "direct",
     "priceDisplay": "₹48,000",
     "priceAmount": 48000,
+    "priceExplanation": "Fixed price includes GST and complimentary insured courier across India.",
     "primaryCategory": "diamonds",
     "gemstone": "diamond",
     "metal": "14k-gold",
@@ -197,8 +259,16 @@
     "occasion": "daily",
     "featured": true,
     "isDailyWear": true,
+    "availability": "In Stock · Ready to Ship",
+    "leadTime": "Dispatched in 24–48 hours · Delivery in 3–5 business days",
+    "dimensions": "12.0 mm outer diameter; 1.8 mm width",
     "image": "images/everyday-diamonds.jpg",
     "secondaryImage": "images/gold-solitaire.jpg",
+    "gallery": [
+      "images/everyday-diamonds.jpg",
+      "images/gold-solitaire.jpg",
+      "images/bespoke-workshop.jpg"
+    ],
     "badges": {
       "natural": true,
       "treatment": "Untreated Earth-Mined Diamonds",
@@ -215,8 +285,10 @@
       "metalPurity": "14K Yellow Gold (585 BIS Hallmarked)",
       "diamondDetails": "Round Brilliant cut, GH Color, SI1-SI2 Eye-Clean clarity",
       "sizeLength": "12 mm outer diameter, secure click-latch closure",
-      "customisation": "Also available in 14K Rose Gold or 18K White Gold"
+      "customisation": "Also available in 14K Rose Gold or 18K White Gold",
+      "careInstructions": "Safe for daily shower and sleep. Periodically clean with warm soapy water."
     },
+    "returnEligibility": "15-Day Returnable: Unworn with tamper tag intact. Lifetime cleaning support.",
     "narrative": "Designed to sleep in, shower in, and live in. These huggie hoops feature micro-pavé hand-set natural diamonds engineered with a smooth hinge and low-profile latch that never snags.",
     "transparencyNote": "Gulshan Jewellers certifies all natural diamond pieces. We clearly distinguish between earth-mined diamonds and lab-created stones in our documentation."
   },
@@ -224,8 +296,10 @@
     "id": "minimalist-diamond-solitaire-pendant",
     "title": "Minimalist Bezel Diamond Pendant",
     "poeticDescriptor": "From workshop to your heart. A single drop of earth-mined brilliance for daily signature wear.",
+    "commerceMode": "direct",
     "priceDisplay": "₹62,000",
     "priceAmount": 62000,
+    "priceExplanation": "Fixed price includes 0.30 ct natural diamond in 18K gold bezel with 18-inch gold chain.",
     "primaryCategory": "diamonds",
     "gemstone": "diamond",
     "metal": "18k-gold",
@@ -233,35 +307,47 @@
     "occasion": "daily",
     "featured": true,
     "isDailyWear": true,
+    "availability": "In Stock · Ready to Ship",
+    "leadTime": "Dispatched in 24–48 hours · Delivery in 3–5 business days",
+    "dimensions": "6.2 mm bezel outer diameter; 18-inch adjustable chain",
     "image": "images/everyday-diamonds.jpg",
     "secondaryImage": "images/emerald-pendant.jpg",
+    "gallery": [
+      "images/everyday-diamonds.jpg",
+      "images/emerald-pendant.jpg",
+      "images/gold-solitaire.jpg"
+    ],
     "badges": {
       "natural": true,
       "treatment": "Untreated Natural Diamond",
       "certification": "Diamond Certificate Available",
-      "hallmark": "9K, 14K, 18K Options"
+      "hallmark": "18K BIS Hallmarked"
     },
     "specs": {
       "gemstoneType": "Natural Solitaire Diamond",
       "naturalStatus": "Natural Earth-Mined Diamond",
-      "caratWeight": "0.20 ct / 0.30 ct / 0.50 ct options",
+      "caratWeight": "0.30 ct (Standard Curation)",
       "treatmentDisclosure": "Untreated Natural Diamond",
       "origin": "Kimberley Process Compliant",
       "certificate": "Diamond Specification Card provided",
-      "metalPurity": "Available in 9K, 14K, or 18K Solid Gold",
+      "metalPurity": "18K Solid Gold (750 BIS Hallmarked)",
       "diamondDetails": "Round Brilliant Cut, F-G Color, VS Clarity",
       "sizeLength": "Adjustable 16 to 18-inch fine cable chain",
-      "customisation": "Choice of metal purity (9K, 14K, 18K) and yellow, white, or rose finish"
+      "customisation": "Choice of metal purity (14K, 18K) and yellow, white, or rose finish",
+      "careInstructions": "Keep away from harsh bleaches. Polish with lint-free soft cloth."
     },
+    "returnEligibility": "15-Day Returnable: Unworn with security tag attached.",
     "narrative": "A modern heirloom stripped of unnecessary ornament. The hand-burnished bezel holds the diamond securely without prongs, maximizing sparkle while sitting flush against the collarbone.",
-    "transparencyNote": "We offer this design across 9K, 14K, and 18K gold tiers, enabling you to choose the exact balance of gold weight and diamond size that fits your budget."
+    "transparencyNote": "We offer this design across 14K and 18K gold tiers, enabling you to choose the exact balance of gold weight and diamond size that fits your budget."
   },
   {
     "id": "handcrafted-18k-gold-solitaire-ring",
     "title": "Handcrafted 18K Gold Solitaire Ring",
     "poeticDescriptor": "Sculpted by hand with quiet proportion. A modern knife-edge silhouette with timeless presence.",
-    "priceDisplay": "From ₹1,25,000",
+    "commerceMode": "enquire",
+    "priceDisplay": "From ₹1,25,000 · Tailored to Diamond Selection",
     "priceAmount": 125000,
+    "priceExplanation": "Starting price for 0.50 ct natural diamond in 18K gold. Custom diamond specifications available.",
     "primaryCategory": "gold",
     "gemstone": "diamond",
     "metal": "18k-gold",
@@ -269,8 +355,16 @@
     "occasion": "occasion",
     "featured": true,
     "isDailyWear": true,
+    "availability": "Made to Order · Bespoke Sizing",
+    "leadTime": "Individually hand-forged in 10–12 business days",
+    "dimensions": "7.5 mm semi-bezel cup; 2.2 mm knife-edge shank",
     "image": "images/gold-solitaire.jpg",
     "secondaryImage": "images/bespoke-workshop.jpg",
+    "gallery": [
+      "images/gold-solitaire.jpg",
+      "images/bespoke-workshop.jpg",
+      "images/everyday-diamonds.jpg"
+    ],
     "badges": {
       "natural": true,
       "treatment": "Natural Earth-Mined",
@@ -286,9 +380,11 @@
       "certificate": "IGI / GIA Certificate on request",
       "metalPurity": "18K Yellow Gold (750 BIS Hallmarked)",
       "diamondDetails": "Round Brilliant, Excellent Cut, F-G Color, VVS-VS Clarity",
-      "sizeLength": "Made to exact finger measurement",
-      "customisation": "Also forged in Platinum or 18K Rose Gold"
+      "sizeLength": "Made to exact finger measurement (Indian Sizes 10-24)",
+      "customisation": "Also forged in Platinum or 18K Rose Gold",
+      "careInstructions": "Complimentary lifetime cleaning and prong inspection at our atelier."
     },
+    "returnEligibility": "Custom Order: Exchange and resizing support. Lifetime authenticity guarantee.",
     "narrative": "Forged by hand on the anvil, this ring marries ancient Indian gold purity with sleek mid-century architectural geometry. The semi-bezel cup cradles the stone securely while letting light dance across its facets.",
     "transparencyNote": "All gold purity is certified through government-approved BIS hallmarking centers. No alloy ambiguity."
   },
@@ -296,8 +392,10 @@
     "id": "silver-chiseled-cuff-bangle",
     "title": "Hand-Chiseled Sterling Silver Fluted Cuff",
     "poeticDescriptor": "Raw texture meets sculptural dignity. Heavy solid 925 silver with oxidized hand fluting.",
+    "commerceMode": "direct",
     "priceDisplay": "₹24,500",
     "priceAmount": 24500,
+    "priceExplanation": "Fixed price includes GST and insured shipping across India.",
     "primaryCategory": "silver",
     "gemstone": "none",
     "metal": "925-silver",
@@ -305,8 +403,16 @@
     "occasion": "daily",
     "featured": true,
     "isDailyWear": true,
+    "availability": "In Stock · Ready to Ship",
+    "leadTime": "Dispatched in 24–48 hours · Delivery in 3–5 business days",
+    "dimensions": "14 mm band width; 65 mm inner diameter (flexible open fit)",
     "image": "images/silver-bangle.jpg",
     "secondaryImage": "images/kyanite-silver.jpg",
+    "gallery": [
+      "images/silver-bangle.jpg",
+      "images/kyanite-silver.jpg",
+      "images/bespoke-workshop.jpg"
+    ],
     "badges": {
       "natural": false,
       "treatment": null,
@@ -323,8 +429,10 @@
       "metalPurity": "Solid 92.5% Sterling Silver",
       "diamondDetails": "None",
       "sizeLength": "Slightly malleable open cuff fit (wrist sizes 6.0 - 7.5 in)",
-      "customisation": "Custom engraving available inside band"
+      "customisation": "Custom engraving available inside band",
+      "careInstructions": "Avoid chlorine and silver dips that strip hand-oxidized patina. Buff highlights with dry cloth."
     },
+    "returnEligibility": "15-Day Returnable: Unworn in original velvet pouch.",
     "narrative": "Each fluted ridge on this cuff is hand-chiselled with traditional steel chisels, giving it an organic tactile cadence that catches the light like running water. Subtly oxidized to highlight depth.",
     "transparencyNote": "Solid sterling silver throughout, never silver-plated brass or pot metal. Tested and stamped with the authentic 925 mark."
   },
@@ -332,8 +440,10 @@
     "id": "mens-silver-signet-ring",
     "title": "Men's Sterling Silver Classic Signet Ring",
     "poeticDescriptor": "Understated but unmistakable. Smooth solid silver face with a substantial comfortable shank.",
+    "commerceMode": "direct",
     "priceDisplay": "₹14,500",
     "priceAmount": 14500,
+    "priceExplanation": "Fixed price includes GST, finger-sizing verification, and insured courier.",
     "primaryCategory": "silver",
     "gemstone": "none",
     "metal": "925-silver",
@@ -341,8 +451,16 @@
     "occasion": "daily",
     "featured": false,
     "isDailyWear": true,
+    "availability": "In Stock · Ready to Ship",
+    "leadTime": "Dispatched in 24–48 hours · Delivery in 3–5 business days",
+    "dimensions": "14 mm x 12 mm signet table; 4.5 mm tapered shank",
     "image": "images/silver-bangle.jpg",
     "secondaryImage": "images/bespoke-workshop.jpg",
+    "gallery": [
+      "images/silver-bangle.jpg",
+      "images/bespoke-workshop.jpg",
+      "images/kyanite-silver.jpg"
+    ],
     "badges": {
       "natural": false,
       "treatment": null,
@@ -359,8 +477,10 @@
       "metalPurity": "925 Sterling Silver",
       "diamondDetails": "None",
       "sizeLength": "Available in Men's sizes 18 to 26",
-      "customisation": "Bespoke monogram hand-engraving available"
+      "customisation": "Bespoke monogram hand-engraving available",
+      "careInstructions": "Store in airtight pouch when not worn to prevent natural silver tarnishing."
     },
+    "returnEligibility": "15-Day Returnable: Standard non-engraved pieces.",
     "narrative": "A masculine staple designed for everyday wear. Substantial in weight yet contoured for all-day comfort, perfect for solitary wear or personalized monogramming.",
     "transparencyNote": "Solid 925 silver casting with no hollow voids inside the shank for lasting durability."
   },
@@ -368,8 +488,10 @@
     "id": "raksha-bandhan-silver-keepsake",
     "title": "Raksha Bandhan Heritage Silver Keepsake Pendant",
     "poeticDescriptor": "A talisman of protection and lifelong bonds. Forged in pure 925 sterling silver.",
+    "commerceMode": "direct",
     "priceDisplay": "₹16,500",
     "priceAmount": 16500,
+    "priceExplanation": "Fixed price includes gift packaging, silver chain option, and insured delivery.",
     "primaryCategory": "silver",
     "gemstone": "none",
     "metal": "925-silver",
@@ -377,8 +499,16 @@
     "occasion": "gifting",
     "featured": false,
     "isDailyWear": true,
+    "availability": "In Stock · Ready to Ship",
+    "leadTime": "Dispatched in 24–48 hours · Delivery in 3–5 business days",
+    "dimensions": "22 mm circular talisman; 18-inch chain included",
     "image": "images/silver-bangle.jpg",
     "secondaryImage": "images/everyday-diamonds.jpg",
+    "gallery": [
+      "images/silver-bangle.jpg",
+      "images/everyday-diamonds.jpg",
+      "images/bespoke-workshop.jpg"
+    ],
     "badges": {
       "natural": false,
       "treatment": null,
@@ -395,8 +525,10 @@
       "metalPurity": "925 Sterling Silver",
       "diamondDetails": "None",
       "sizeLength": "Pendant with black silk cord or silver chain option",
-      "customisation": "Custom reverse-side initial engraving"
+      "customisation": "Custom reverse-side initial engraving",
+      "careInstructions": "Clean with soft cloth. Avoid direct contact with perfumes."
     },
+    "returnEligibility": "15-Day Returnable: Unengraved gift pieces in original presentation box.",
     "narrative": "Designed specifically for sibling gifting and Raksha Bandhan, this keepsake transitions beyond seasonal rituals into a piece that can be cherished as a daily pendant or bracelet talisman.",
     "transparencyNote": "Delivered in our signature midnight presentation box with an authenticity certificate."
   }
