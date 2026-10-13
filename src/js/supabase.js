@@ -503,5 +503,282 @@ export const db = {
     } catch (err) {
       return { success: false, error: err.message };
     }
+  },
+
+  // ORDERS MANAGEMENT
+  async getOrders() {
+    const session = await auth.getSession();
+    if (!session) return null;
+
+    const client = getSupabase();
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from('orders')
+          .select('*')
+          .order('created_at', { ascending: false });
+
+        if (!error && data) return data;
+      } catch (err) {
+        console.warn('Supabase getOrders notice:', err);
+      }
+    }
+
+    // Local fallback for offline mode
+    try {
+      return JSON.parse(localStorage.getItem('gj_orders') || '[]');
+    } catch (e) {
+      return [];
+    }
+  },
+
+  async createOrder(order) {
+    const client = getSupabase();
+    const payload = {
+      id: order.id,
+      customer_name: order.customer.name,
+      customer_email: order.customer.email,
+      customer_phone: order.customer.phone,
+      shipping_address: order.shippingAddress,
+      items: order.items,
+      subtotal: order.subtotal,
+      shipping_fee: order.shippingFee || 0,
+      tax_amount: order.taxAmount || 0,
+      total_amount: order.totalAmount,
+      payment_method: order.payment.method,
+      payment_status: order.payment.status,
+      payment_id: order.payment.razorpayPaymentId || null,
+      fulfillment_status: order.fulfillmentStatus || 'New',
+      tracking_carrier: order.trackingCarrier || 'Blue Dart Apex Secured',
+      tracking_number: order.trackingNumber || null,
+      notes: order.notes || '',
+      created_at: new Date().toISOString()
+    };
+
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from('orders')
+          .insert(payload);
+
+        if (!error) return { success: true, data };
+      } catch (err) {
+        console.warn('Supabase createOrder notice:', err);
+      }
+    }
+
+    // Local fallback
+    try {
+      const orders = JSON.parse(localStorage.getItem('gj_orders') || '[]');
+      orders.unshift(order);
+      localStorage.setItem('gj_orders', JSON.stringify(orders));
+    } catch (e) {}
+
+    return { success: true, fallback: true };
+  },
+
+  async updateOrderStatus(id, fulfillmentStatus, trackingCarrier, trackingNumber) {
+    const session = await auth.getSession();
+    if (!session) return { success: false, error: 'Unauthorized: staff authentication required' };
+
+    const updateObj = { 
+      fulfillment_status: fulfillmentStatus,
+      updated_at: new Date().toISOString()
+    };
+    if (trackingCarrier) updateObj.tracking_carrier = trackingCarrier;
+    if (trackingNumber) updateObj.tracking_number = trackingNumber;
+
+    const client = getSupabase();
+    if (client) {
+      try {
+        const { error } = await client
+          .from('orders')
+          .update(updateObj)
+          .eq('id', id);
+
+        if (error) throw error;
+        return { success: true };
+      } catch (err) {
+        return { success: false, error: err.message };
+      }
+    }
+
+    // Local fallback
+    try {
+      const orders = JSON.parse(localStorage.getItem('gj_orders') || '[]');
+      const target = orders.find(o => o.id === id);
+      if (target) {
+        target.fulfillmentStatus = fulfillmentStatus;
+        if (trackingCarrier) target.trackingCarrier = trackingCarrier;
+        if (trackingNumber) target.trackingNumber = trackingNumber;
+        localStorage.setItem('gj_orders', JSON.stringify(orders));
+      }
+      return { success: true };
+    } catch (e) {
+      return { success: false, error: e.message };
+    }
+  },
+
+  // CONSULTATIONS MANAGEMENT
+  async getConsultations() {
+    const session = await auth.getSession();
+    if (!session) return null;
+
+    const client = getSupabase();
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from('consultations')
+          .select('*')
+          .order('slot_date', { ascending: false });
+
+        if (!error && data) return data;
+      } catch (err) {
+        console.warn('Supabase getConsultations notice:', err);
+      }
+    }
+
+    try {
+      return JSON.parse(localStorage.getItem('gj_consultations') || '[]');
+    } catch (e) {
+      return [];
+    }
+  },
+
+  async createConsultation(booking) {
+    const client = getSupabase();
+    const payload = {
+      id: booking.id,
+      client_name: booking.clientName,
+      client_email: booking.clientEmail,
+      client_phone: booking.clientPhone,
+      service_id: booking.serviceId,
+      service_name: booking.serviceName,
+      slot_date: booking.slotDate,
+      slot_time: booking.slotTime,
+      birth_date: booking.birthDate || null,
+      birth_time: booking.birthTime || null,
+      birth_place: booking.birthPlace || null,
+      concern: booking.concern || null,
+      preferred_language: booking.preferredLanguage || 'Hindi & English',
+      payment_status: booking.paymentStatus || 'Confirmed',
+      payment_id: booking.paymentId || null,
+      status: 'Confirmed',
+      notes: booking.notes || '',
+      created_at: new Date().toISOString()
+    };
+
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from('consultations')
+          .insert(payload);
+
+        if (!error) return { success: true, data };
+      } catch (err) {
+        console.warn('Supabase createConsultation notice:', err);
+      }
+    }
+
+    try {
+      const bookings = JSON.parse(localStorage.getItem('gj_consultations') || '[]');
+      bookings.unshift(payload);
+      localStorage.setItem('gj_consultations', JSON.stringify(bookings));
+    } catch (e) {}
+
+    return { success: true, fallback: true };
+  },
+
+  async updateConsultationStatus(id, status, notes) {
+    const session = await auth.getSession();
+    if (!session) return { success: false, error: 'Unauthorized: staff authentication required' };
+
+    const updateObj = { status, updated_at: new Date().toISOString() };
+    if (notes !== undefined) updateObj.notes = notes;
+
+    const client = getSupabase();
+    if (client) {
+      try {
+        const { error } = await client
+          .from('consultations')
+          .update(updateObj)
+          .eq('id', id);
+
+        if (error) throw error;
+        return { success: true };
+      } catch (err) {
+        return { success: false, error: err.message };
+      }
+    }
+
+    try {
+      const bookings = JSON.parse(localStorage.getItem('gj_consultations') || '[]');
+      const target = bookings.find(b => b.id === id);
+      if (target) {
+        target.status = status;
+        if (notes !== undefined) target.notes = notes;
+        localStorage.setItem('gj_consultations', JSON.stringify(bookings));
+      }
+      return { success: true };
+    } catch (e) {
+      return { success: false, error: e.message };
+    }
+  },
+
+  // AUDIT LOGS
+  async getAuditLogs() {
+    const session = await auth.getSession();
+    if (!session) return null;
+
+    const client = getSupabase();
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from('audit_logs')
+          .select('*')
+          .order('created_at', { ascending: false })
+          .limit(50);
+
+        if (!error && data) return data;
+      } catch (err) {
+        console.warn('Supabase getAuditLogs notice:', err);
+      }
+    }
+
+    try {
+      return JSON.parse(localStorage.getItem('gj_audit_logs') || '[]');
+    } catch (e) {
+      return [];
+    }
+  },
+
+  async logAudit(action, targetTable, recordId, details) {
+    const session = await auth.getSession();
+    const userEmail = session?.user?.email || 'staff@gulshanjewellers.in';
+
+    const payload = {
+      user_email: userEmail,
+      role: 'staff',
+      action,
+      target_table: targetTable,
+      record_id: String(recordId || ''),
+      details: details || {},
+      created_at: new Date().toISOString()
+    };
+
+    const client = getSupabase();
+    if (client) {
+      try {
+        await client.from('audit_logs').insert(payload);
+      } catch (err) {}
+    }
+
+    try {
+      const logs = JSON.parse(localStorage.getItem('gj_audit_logs') || '[]');
+      logs.unshift(payload);
+      if (logs.length > 50) logs.pop();
+      localStorage.setItem('gj_audit_logs', JSON.stringify(logs));
+    } catch (e) {}
   }
+
 };

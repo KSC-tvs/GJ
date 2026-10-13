@@ -223,12 +223,12 @@ products.forEach(product => {
               ⚡ Buy Now
             </button>
             <button type="button" id="pdp-add-to-bag-btn" class="btn btn-outline btn-lg" data-add-to-cart data-id="${escapeHtml(product.id)}" data-title="${escapeHtml(product.title)}" data-price="${product.priceAmount || 0}" data-image="${escapeHtml(product.image)}">
-              👜 Add to Bag
+              Add to Cart
             </button>
           </div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-top: var(--space-3);">
-            <button type="button" id="pdp-add-tray-btn" class="btn btn-outline btn-sm" data-id="${escapeHtml(product.id)}">
-              + Save to Curated Tray
+            <button type="button" class="btn btn-outline btn-sm btn-wishlist-toggle" data-wishlist-id="${escapeHtml(product.id)}">
+              ♡ Save to Wishlist
             </button>
             <a href="https://wa.me/919582841454?text=${encodeURIComponent(`Hello Gulshan Jewellers, I would like to order "${product.title}" (SKU: ${product.id}, Price: ${product.priceDisplay}).`)}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm" style="display: inline-flex; align-items: center; justify-content: center; text-decoration: none;">
               WhatsApp Concierge
@@ -240,17 +240,17 @@ products.forEach(product => {
         <div class="pdp-cta-group" data-commerce-mode="enquire">
           <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: var(--space-3);">
             <button type="button" id="pdp-primary-enquire-btn" class="btn btn-gold btn-lg" data-trigger-consultation data-product-id="${escapeHtml(product.id)}">
-              Request Private Consultation
+              Enquire / Reserve Piece
             </button>
-            <button type="button" id="pdp-add-tray-btn" class="btn btn-outline btn-lg" data-id="${escapeHtml(product.id)}">
-              + Add to Curated Tray
+            <button type="button" class="btn btn-outline btn-lg btn-wishlist-toggle" data-wishlist-id="${escapeHtml(product.id)}">
+              ♡ Save to Wishlist
             </button>
           </div>
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-top: var(--space-3);">
             <button type="button" id="pdp-custom-quote-btn" class="btn btn-outline btn-sm" data-trigger-consultation data-consultation-type="bespoke">
-              Bespoke Setting Enquiry
+              Custom Setting Consultation
             </button>
-            <a href="https://wa.me/919582841454?text=${encodeURIComponent(`Hello Gulshan Jewellers, I would like to consult on "${product.title}" (SKU: ${product.id}).`)}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm" style="display: inline-flex; align-items: center; justify-content: center; text-decoration: none;">
+            <a href="https://wa.me/919582841454?text=${encodeURIComponent(`Namaste Gulshan Jewellers, I am interested in inquiring about "${product.title}" (SKU: ${product.id}).`)}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm" style="display: inline-flex; align-items: center; justify-content: center; text-decoration: none;">
               WhatsApp Specialist
             </a>
           </div>
@@ -262,7 +262,7 @@ products.forEach(product => {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${escapeHtml(product.title)} | Gulshan Jewellers · Est. 1950</title>
+  <title>${escapeHtml(product.title.length > 45 ? product.title.substring(0, 45) + '…' : product.title)} | Gulshan Jewellers</title>
   <meta name="description" content="${escapeHtml(metaDesc)}">
   <link rel="canonical" href="${productCanonicalUrl}">
 
@@ -365,21 +365,8 @@ products.forEach(product => {
           <span class="header-search-kbd">⌘K</span>
         </button>
 
-        <!-- Curated Tray Trigger -->
-        <button type="button" class="header-icon-btn" data-trigger-tray aria-label="Curated Tray" title="Curated Tray">
-          <svg class="header-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polygon points="6 3 18 3 22 9 12 22 2 9"></polygon>
-            <line x1="2" y1="9" x2="22" y2="9"></line>
-            <line x1="12" y1="22" x2="6" y2="9"></line>
-            <line x1="12" y1="22" x2="18" y2="9"></line>
-            <line x1="6" y1="3" x2="12" y2="9"></line>
-            <line x1="18" y1="3" x2="12" y2="9"></line>
-          </svg>
-          <span class="tray-counter-pill" style="display: none;">0</span>
-        </button>
-
-        <!-- Shopping Bag Trigger -->
-        <button type="button" class="header-icon-btn" data-trigger-cart aria-label="Shopping Bag" title="Shopping Bag">
+        <!-- Shopping Cart Trigger (Single Unified Cart System) -->
+        <button type="button" class="header-icon-btn" data-trigger-cart aria-label="Shopping Cart" title="Cart">
           <svg class="header-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
             <line x1="3" y1="6" x2="21" y2="6"></line>

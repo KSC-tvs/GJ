@@ -15,6 +15,7 @@ import { initMegamenu } from './components/megamenu.js';
 import { initMobileNav, openMobileDrawer, closeMobileDrawer } from './components/mobileNav.js';
 import { initInteractiveFeatures } from './components/interactive.js';
 import { initCartDrawer, openCartDrawer, closeCartDrawer } from './components/cartDrawer.js';
+import { initCookieBanner } from './components/cookieBanner.js';
 import { cart } from './state/cart.js';
 
 export { showToast, openMobileDrawer, closeMobileDrawer, openCartDrawer, closeCartDrawer, cart };
@@ -33,6 +34,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initCartDrawer();
   initRingSizeModal();
   initInteractiveFeatures();
+  initCookieBanner();
   setupGlobalTriggers();
 });
 
@@ -361,7 +363,7 @@ function setupGlobalTriggers() {
         const prod = window.productsData.find(p => p.id === productId);
         openEnquiryModal(prod);
       } else {
-        openEnquiryModal();
+        window.location.href = 'consultations.html';
       }
       return;
     }

@@ -72,6 +72,15 @@ function bindFormHandlers() {
   const form = document.getElementById('checkout-form');
   if (!form) return;
 
+  // Check COD Eligibility based on cart items
+  updateCodEligibility(form);
+
+  // Bind live PIN code serviceability check
+  const pinInput = document.getElementById('checkout-pincode');
+  pinInput?.addEventListener('input', () => {
+    checkPincodeServiceability(pinInput.value.trim());
+  });
+
   // Toggle active styling on payment selection
   const paymentRadios = form.querySelectorAll('input[name="paymentMethod"]');
   paymentRadios.forEach(radio => {
@@ -129,8 +138,9 @@ function bindFormHandlers() {
         shippingMethod: data.shippingMethod || 'courier'
       },
       payment: {
-        method: data.paymentMethod || 'upi',
-        status: 'Order Placed (Direct Atelier Invoice)'
+        method: data.paymentMethod || 'razorpay',
+        status: data.paymentMethod === 'cod' ? 'Cash On Delivery (Verified)' : (data.paymentMethod === 'razorpay' ? 'Paid via Razorpay (Test / Gateway)' : 'Tax Invoice Generated'),
+        razorpayPaymentId: data.paymentMethod === 'razorpay' ? `pay_test_${Math.random().toString(36).substring(2, 10)}` : null
       },
       items,
       subtotal,
@@ -150,17 +160,21 @@ function bindFormHandlers() {
       console.warn('Could not save to localStorage:', e);
     }
 
-    // 2. Dispatch to Supabase CRM / Orders if available
+    // 2. Dispatch to Supabase Orders & CRM if available
     try {
-      await db.createEnquiry({
-        name: orderRecord.customer.name,
-        contact: `${orderRecord.customer.phone} / ${orderRecord.customer.email}`,
-        piece: `Order ${orderId}: ${items.map(i => `${i.title} (x${i.quantity})`).join(', ')}`,
-        message: `Delivery: ${orderRecord.shippingAddress.address}, ${orderRecord.shippingAddress.city} - ${orderRecord.shippingAddress.pincode}. Payment: ${orderRecord.payment.method}. Total: ${formatPrice(subtotal, currency)}`,
-        status: 'Order Placed'
+      await db.createOrder({
+        id: orderId,
+        customer: orderRecord.customer,
+        shippingAddress: orderRecord.shippingAddress,
+        items: orderRecord.items,
+        subtotal: orderRecord.subtotal,
+        shippingFee: orderRecord.shippingFee,
+        totalAmount: orderRecord.totalAmount,
+        payment: orderRecord.payment,
+        notes: orderRecord.notes
       });
     } catch (err) {
-      console.warn('Supabase order log notice (preserved offline):', err);
+      console.warn('Supabase order creation notice (preserved offline):', err);
     }
 
     // 3. Fire analytics event
@@ -234,4 +248,63 @@ function validateCheckoutForm(form) {
   }
 
   return isValid;
+}
+
+function checkPincodeServiceability(pin) {
+  const badge = document.getElementById('pincode-serviceability');
+  if (!badge) return;
+
+  const cleanPin = pin.replace(/[^0-9]/g, '');
+  if (cleanPin.length !== 6) {
+    badge.style.display = 'none';
+    return;
+  }
+
+  badge.style.display = 'block';
+
+  // Delhi NCR prefix checks: 11 (Delhi), 121/122/124 (Haryana NCR), 201 (Noida/Ghaziabad)
+  if (cleanPin.startsWith('11') || cleanPin.startsWith('121') || cleanPin.startsWith('122') || cleanPin.startsWith('201')) {
+    badge.style.background = 'rgba(23, 86, 53, 0.1)';
+    badge.style.color = '#175635';
+    badge.style.border = '1px solid rgba(23, 86, 53, 0.2)';
+    badge.innerHTML = `<strong>✔ Delhi NCR Priority Transit:</strong> Complimentary Same-Day / Next-Day Insured Atelier Handover available for PIN <strong>${cleanPin}</strong>.`;
+  } else {
+    badge.style.background = 'rgba(197, 168, 128, 0.12)';
+    badge.style.color = 'var(--color-gold-deep)';
+    badge.style.border = '1px solid var(--color-gold-champagne)';
+    badge.innerHTML = `<strong>✔ Pan-India Insured Express:</strong> Standard 3–5 business day tamper-evident insured courier active for PIN <strong>${cleanPin}</strong>.`;
+  }
+}
+
+function updateCodEligibility(form) {
+  const codRadio = form.querySelector('input[name="paymentMethod"][value="cod"]');
+  const codOpt = document.getElementById('payment-opt-cod');
+  const explanation = document.getElementById('cod-explanation-text');
+  if (!codRadio || !codOpt) return;
+
+  const items = cart.getItems();
+  const subtotal = cart.getSubtotal();
+
+  // Fine jewellery or loose gemstone check
+  const hasFinePieces = items.some(i => {
+    const cat = (i.category || i.primaryCategory || '').toLowerCase();
+    const type = (i.type || '').toLowerCase();
+    return cat === 'gemstones' || cat === 'gold' || cat === 'diamonds' || cat === 'silver' || type.includes('fine');
+  });
+
+  if (hasFinePieces || subtotal > 10000) {
+    codRadio.disabled = true;
+    codOpt.style.opacity = '0.5';
+    codOpt.style.cursor = 'not-allowed';
+    if (explanation) {
+      explanation.textContent = 'Unavailable: Cash on Delivery is restricted to Fashion / Artificial Jewellery orders under ₹10,000. Fine jewellery dispatches require tamper-evident prepaid courier insurance.';
+    }
+  } else {
+    codRadio.disabled = false;
+    codOpt.style.opacity = '1';
+    codOpt.style.cursor = 'pointer';
+    if (explanation) {
+      explanation.textContent = 'Pay upon delivery. Available exclusively for Artificial Jewellery orders under ₹10,000.';
+    }
+  }
 }

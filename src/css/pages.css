@@ -1540,6 +1540,21 @@
     gap: var(--space-2);
   }
 
+  /* Hero Mobile Readability & High Contrast Scrim */
+  .hero-gradient-overlay {
+    background: 
+      linear-gradient(180deg, rgba(250, 248, 245, 0.96) 0%, rgba(250, 248, 245, 0.90) 55%, rgba(250, 248, 245, 0.72) 100%) !important;
+  }
+
+  .hero-content {
+    padding: var(--space-12) 0 var(--space-8);
+  }
+
+  .hero-title {
+    font-size: clamp(2.1rem, 7vw, 2.85rem);
+    color: #1A1918;
+  }
+
   /* Bespoke Mobile Optimization */
   .bespoke-hero {
     padding: var(--space-12) 0 var(--space-8);
@@ -1547,7 +1562,23 @@
 
   .bespoke-split-banner {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
+    gap: 0;
+    margin: var(--space-8) 0;
+    overflow: hidden;
+  }
+
+  .bespoke-banner-media {
+    min-height: 260px;
+    max-height: 320px;
+  }
+
+  .bespoke-banner-content {
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .bespoke-steps-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
   }
 
   .bespoke-slider-wrap {

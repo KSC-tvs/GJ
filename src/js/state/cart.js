@@ -11,9 +11,16 @@ class CartStore {
   }
 
   loadStorage() {
+    // One-time cleanup of stale legacy keys from previous templates
+    try {
+      ['ksc_cart', 'ksc_orders', 'ksc_tray', 'ksc_products'].forEach(k => localStorage.removeItem(k));
+    } catch (_) {}
+
     try {
       const data = localStorage.getItem('gj_cart');
-      return data ? JSON.parse(data) : [];
+      if (!data) return [];
+      const parsed = JSON.parse(data);
+      return Array.isArray(parsed) ? parsed : [];
     } catch (e) {
       console.warn('Error reading gj_cart from storage:', e);
       return [];
@@ -22,39 +29,56 @@ class CartStore {
 
   saveStorage() {
     try {
-      localStorage.setItem('gj_cart', JSON.stringify(this.items));
+      const safe = Array.isArray(this.items) ? this.items : [];
+      localStorage.setItem('gj_cart', JSON.stringify(safe));
     } catch (e) {
       console.warn('Error saving gj_cart to storage:', e);
     }
   }
 
+  getState() {
+    const items = this.getItems();
+    return {
+      items,
+      count: this.getItemCount(),
+      subtotal: this.getSubtotal()
+    };
+  }
+
   subscribe(callback) {
+    if (typeof callback !== 'function') return () => {};
     this.subscribers.add(callback);
-    callback(this.getItems());
+    try {
+      callback(this.getState());
+    } catch (err) {
+      console.error('Cart subscriber initial execution error:', err);
+    }
     return () => this.subscribers.delete(callback);
   }
 
   notify() {
-    const items = this.getItems();
+    const state = this.getState();
     for (const callback of this.subscribers) {
       try {
-        callback(items);
+        callback(state);
       } catch (err) {
-        console.error('Cart subscriber error:', err);
+        console.error('Cart subscriber notification error:', err);
       }
     }
   }
 
   getItems() {
-    return [...this.items];
+    return Array.isArray(this.items) ? [...this.items] : [];
   }
 
   getItemCount() {
-    return this.items.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    const list = Array.isArray(this.items) ? this.items : [];
+    return list.reduce((sum, item) => sum + (Number(item?.quantity) || 1), 0);
   }
 
   getSubtotal() {
-    return this.items.reduce((sum, item) => sum + ((item.priceAmount || 0) * (item.quantity || 1)), 0);
+    const list = Array.isArray(this.items) ? this.items : [];
+    return list.reduce((sum, item) => sum + ((Number(item?.priceAmount) || 0) * (Number(item?.quantity) || 1)), 0);
   }
 
   addItem(product, options = {}) {

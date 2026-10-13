@@ -71,22 +71,24 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.18;
   color: var(--color-text-primary);
   letter-spacing: -0.015em;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 h1 {
-  font-size: clamp(2.4rem, 4.8vw, var(--text-hero));
+  font-size: clamp(1.85rem, 5vw, var(--text-hero));
   font-weight: 400;
-  line-height: 1.1;
+  line-height: 1.12;
   letter-spacing: -0.02em;
 }
 
 h2 {
-  font-size: clamp(1.85rem, 3.5vw, var(--text-3xl));
+  font-size: clamp(1.45rem, 3.6vw, var(--text-3xl));
   line-height: 1.18;
 }
 
 h3 {
-  font-size: clamp(1.35rem, 2.2vw, var(--text-xl));
+  font-size: clamp(1.2rem, 2.4vw, var(--text-xl));
   line-height: 1.25;
 }
 

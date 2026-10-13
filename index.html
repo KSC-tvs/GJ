@@ -237,21 +237,8 @@
           <span class="header-search-kbd">⌘K</span>
         </button>
 
-        <!-- Curated Tray Button -->
-        <button type="button" class="header-icon-btn" data-trigger-tray aria-label="View curated consultation tray" title="Curated Tray">
-          <svg class="header-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polygon points="6 3 18 3 22 9 12 22 2 9"></polygon>
-            <line x1="2" y1="9" x2="22" y2="9"></line>
-            <line x1="12" y1="22" x2="6" y2="9"></line>
-            <line x1="12" y1="22" x2="18" y2="9"></line>
-            <line x1="6" y1="3" x2="12" y2="9"></line>
-            <line x1="18" y1="3" x2="12" y2="9"></line>
-          </svg>
-          <span class="tray-counter-pill" style="display: none;">0</span>
-        </button>
-
-        <!-- Shopping Bag Trigger -->
-        <button type="button" class="header-icon-btn" data-trigger-cart aria-label="Shopping Bag" title="Shopping Bag">
+                <!-- Shopping Cart Trigger (Single Unified Cart System) -->
+        <button type="button" class="header-icon-btn" data-trigger-cart aria-label="Shopping Cart" title="Cart">
           <svg class="header-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -475,11 +462,11 @@
       </div>
 
       <div class="product-grid">
-        <!-- Card 1: Ceylon Yellow Sapphire Signet -->
+        <!-- Card 1: Ceylon Yellow Sapphire Cushion Signet -->
         <article class="product-card">
           <div class="product-card-media">
-            <a href="product.html?id=pukhraj-cushion-signet-22k" aria-label="View Ceylon Yellow Sapphire Signet Ring">
-              <img src="images/pukhraj-hero.jpg" alt="Ceylon Yellow Sapphire (Pukhraj) Signet Ring" loading="lazy">
+            <a href="products/pukhraj-cushion-signet-22k.html" aria-label="View Ceylon Yellow Sapphire Signet Ring">
+              <img src="images/pukhraj-hero.jpg" alt="Ceylon Yellow Sapphire (Pukhraj) Signet Ring in 22K Gold" loading="lazy" width="400" height="400">
             </a>
 
             <!-- Floating Frosted Glass Status Badges -->
@@ -493,15 +480,16 @@
 
             <!-- Modern Action Overlay Bar -->
             <div class="product-card-actions-overlay">
-              <a href="product.html?id=pukhraj-cushion-signet-22k" class="card-action-icon-btn" aria-label="Quick View" title="Quick View">
+              <a href="products/pukhraj-cushion-signet-22k.html" class="card-action-icon-btn" aria-label="Quick View" title="Quick View">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                   <circle cx="12" cy="12" r="3"></circle>
                 </svg>
               </a>
-              <button type="button" class="card-action-icon-btn" aria-label="Add to Curated Tray" title="Add to Tray" onclick="GJ.store.addToTray({id:'pukhraj-cushion-signet-22k', title:'Ceylon Yellow Sapphire (Pukhraj) Signet Ring', priceDisplay:'Price on Request', image:'images/pukhraj-hero.jpg', specs:{gemstoneType:'Yellow Sapphire', naturalStatus:'Natural Untreated', metalPurity:'22K Gold'}}); GJ.showToast('Added to Curated Tray');">
+              <button type="button" class="card-action-icon-btn" aria-label="Add to Cart" title="Add to Cart" onclick="GJ.cart.addItem({id:'pukhraj-cushion-signet-22k', title:'Ceylon Yellow Sapphire (Pukhraj) Signet Ring', priceDisplay:'Price on Request', image:'images/pukhraj-hero.jpg'}); GJ.showToast('Added to Cart');">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
                 </svg>
               </button>
               <button type="button" class="card-action-enquire-btn" onclick="GJ.openEnquiryModal({id:'pukhraj-cushion-signet-22k', title:'Ceylon Yellow Sapphire (Pukhraj) Signet Ring', image:'images/pukhraj-hero.jpg', badges:{natural:'Natural Untreated', hallmark:'22K Gold'}})">
@@ -511,12 +499,12 @@
           </div>
           <div class="product-card-content">
             <h3 class="product-card-title">
-              <a href="product.html?id=pukhraj-cushion-signet-22k">Ceylon Yellow Sapphire (Pukhraj) Signet Ring</a>
+              <a href="products/pukhraj-cushion-signet-22k.html">Ceylon Yellow Sapphire (Pukhraj) Signet Ring</a>
             </h3>
             <p class="product-card-desc">Untreated golden fire in solid hand-forged 22K gold—a timeless legacy of Jupiter.</p>
             <div class="product-card-footer">
               <span class="product-price">Price on Request</span>
-              <a href="product.html?id=pukhraj-cushion-signet-22k" class="product-card-view-btn">
+              <a href="products/pukhraj-cushion-signet-22k.html" class="product-card-view-btn">
                 <span>View Piece</span>
                 <span>&rarr;</span>
               </a>
@@ -527,14 +515,14 @@
         <!-- Card 2: Royal Ceylon Blue Sapphire Solitaire -->
         <article class="product-card">
           <div class="product-card-media">
-            <a href="product.html?id=neelam-royal-blue-baguette-18k" aria-label="View Royal Ceylon Blue Sapphire Solitaire">
-              <img src="images/neelam-sapphire.jpg" alt="Royal Ceylon Blue Sapphire (Neelam) Solitaire Ring" loading="lazy">
+            <a href="products/neelam-royal-blue-baguette-18k.html" aria-label="View Royal Ceylon Blue Sapphire Solitaire">
+              <img src="images/neelam-sapphire.jpg" alt="Royal Ceylon Blue Sapphire (Neelam) Solitaire Ring" loading="lazy" width="400" height="400">
             </a>
 
             <!-- Floating Frosted Glass Status Badges -->
             <div class="product-badges-top-left">
               <span class="badge badge-natural">Natural</span>
-              <span class="badge badge-cert">IIGJ-Certified</span>
+              <span class="badge badge-cert">Untreated</span>
             </div>
             <div class="product-badges-top-right">
               <span class="badge badge-hallmark">18K White</span>
@@ -542,30 +530,31 @@
 
             <!-- Modern Action Overlay Bar -->
             <div class="product-card-actions-overlay">
-              <a href="product.html?id=neelam-royal-blue-baguette-18k" class="card-action-icon-btn" aria-label="Quick View" title="Quick View">
+              <a href="products/neelam-royal-blue-baguette-18k.html" class="card-action-icon-btn" aria-label="Quick View" title="Quick View">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                   <circle cx="12" cy="12" r="3"></circle>
                 </svg>
               </a>
-              <button type="button" class="card-action-icon-btn" aria-label="Add to Curated Tray" title="Add to Tray" onclick="GJ.store.addToTray({id:'neelam-royal-blue-baguette-18k', title:'Royal Ceylon Blue Sapphire (Neelam) Ring', priceDisplay:'Price on Request', image:'images/neelam-sapphire.jpg', specs:{gemstoneType:'Blue Sapphire', naturalStatus:'Natural Unheated', metalPurity:'18K White Gold'}}); GJ.showToast('Added to Curated Tray');">
+              <button type="button" class="card-action-icon-btn" aria-label="Add to Cart" title="Add to Cart" onclick="GJ.cart.addItem({id:'neelam-royal-blue-baguette-18k', title:'Royal Ceylon Blue Sapphire (Neelam) Ring', priceDisplay:'Price on Request', image:'images/neelam-sapphire.jpg'}); GJ.showToast('Added to Cart');">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
                 </svg>
               </button>
-              <button type="button" class="card-action-enquire-btn" onclick="GJ.openEnquiryModal({id:'neelam-royal-blue-baguette-18k', title:'Royal Ceylon Blue Sapphire (Neelam) Ring', image:'images/neelam-sapphire.jpg', badges:{natural:'Natural Unheated', hallmark:'18K White Gold'}})">
+              <button type="button" class="card-action-enquire-btn" onclick="GJ.openEnquiryModal({id:'neelam-royal-blue-baguette-18k', title:'Royal Ceylon Blue Sapphire (Neelam) Ring', image:'images/neelam-sapphire.jpg', badges:{natural:'Natural Untreated', hallmark:'18K White Gold'}})">
                 Enquire
               </button>
             </div>
           </div>
           <div class="product-card-content">
             <h3 class="product-card-title">
-              <a href="product.html?id=neelam-royal-blue-baguette-18k">Royal Ceylon Blue Sapphire (Neelam) Ring</a>
+              <a href="products/neelam-royal-blue-baguette-18k.html">Royal Ceylon Blue Sapphire (Neelam) Ring</a>
             </h3>
             <p class="product-card-desc">A little blue, a lot of brilliance. Velvety royal corundum flanked by clean tapered diamonds.</p>
             <div class="product-card-footer">
               <span class="product-price">Price on Request</span>
-              <a href="product.html?id=neelam-royal-blue-baguette-18k" class="product-card-view-btn">
+              <a href="products/neelam-royal-blue-baguette-18k.html" class="product-card-view-btn">
                 <span>View Piece</span>
                 <span>&rarr;</span>
               </a>
@@ -576,14 +565,14 @@
         <!-- Card 3: Natural Colombian Emerald Bezel Pendant -->
         <article class="product-card">
           <div class="product-card-media">
-            <a href="product.html?id=emerald-colombian-bezel-pendant" aria-label="View Natural Colombian Emerald Bezel Pendant">
-              <img src="images/emerald-pendant.jpg" alt="Natural Colombian Emerald (Panna) Bezel Pendant" loading="lazy">
+            <a href="products/emerald-colombian-bezel-pendant.html" aria-label="View Natural Colombian Emerald Bezel Pendant">
+              <img src="images/emerald-pendant.jpg" alt="Natural Colombian Emerald (Panna) Bezel Pendant" loading="lazy" width="400" height="400">
             </a>
 
             <!-- Floating Frosted Glass Status Badges -->
             <div class="product-badges-top-left">
               <span class="badge badge-natural">Natural</span>
-              <span class="badge badge-cert">Disclosed</span>
+              <span class="badge badge-cert">Oiled, disclosed</span>
             </div>
             <div class="product-badges-top-right">
               <span class="badge badge-hallmark">18K Gold</span>
@@ -591,15 +580,16 @@
 
             <!-- Modern Action Overlay Bar -->
             <div class="product-card-actions-overlay">
-              <a href="product.html?id=emerald-colombian-bezel-pendant" class="card-action-icon-btn" aria-label="Quick View" title="Quick View">
+              <a href="products/emerald-colombian-bezel-pendant.html" class="card-action-icon-btn" aria-label="Quick View" title="Quick View">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                   <circle cx="12" cy="12" r="3"></circle>
                 </svg>
               </a>
-              <button type="button" class="card-action-icon-btn" aria-label="Add to Curated Tray" title="Add to Tray" onclick="GJ.store.addToTray({id:'emerald-colombian-bezel-pendant', title:'Natural Colombian Emerald Bezel Pendant', priceDisplay:'Available on Enquiry', image:'images/emerald-pendant.jpg', specs:{gemstoneType:'Colombian Emerald', naturalStatus:'Natural', metalPurity:'18K Gold'}}); GJ.showToast('Added to Curated Tray');">
+              <button type="button" class="card-action-icon-btn" aria-label="Add to Cart" title="Add to Cart" onclick="GJ.cart.addItem({id:'emerald-colombian-bezel-pendant', title:'Natural Colombian Emerald Bezel Pendant', priceDisplay:'Price on Request', image:'images/emerald-pendant.jpg'}); GJ.showToast('Added to Cart');">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
                 </svg>
               </button>
               <button type="button" class="card-action-enquire-btn" onclick="GJ.openEnquiryModal({id:'emerald-colombian-bezel-pendant', title:'Natural Colombian Emerald Bezel Pendant', image:'images/emerald-pendant.jpg', badges:{natural:'Natural Colombian', hallmark:'18K Gold'}})">
@@ -609,12 +599,12 @@
           </div>
           <div class="product-card-content">
             <h3 class="product-card-title">
-              <a href="product.html?id=emerald-colombian-bezel-pendant">Natural Colombian Emerald Bezel Pendant</a>
+              <a href="products/emerald-colombian-bezel-pendant.html">Natural Colombian Emerald Bezel Pendant</a>
             </h3>
             <p class="product-card-desc">Understated but unmistakable. Vivid green emerald glow embraced in a tailored 18K gold collar.</p>
             <div class="product-card-footer">
-              <span class="product-price">Available on Enquiry</span>
-              <a href="product.html?id=emerald-colombian-bezel-pendant" class="product-card-view-btn">
+              <span class="product-price">Price on Request</span>
+              <a href="products/emerald-colombian-bezel-pendant.html" class="product-card-view-btn">
                 <span>View Piece</span>
                 <span>&rarr;</span>
               </a>
@@ -625,8 +615,8 @@
         <!-- Card 4: Natural Blue Kyanite Artisan Silver Ring -->
         <article class="product-card">
           <div class="product-card-media">
-            <a href="product.html?id=kyanite-artisan-silver-ring" aria-label="View Natural Blue Kyanite Artisan Silver Ring">
-              <img src="images/kyanite-silver.jpg" alt="Natural Blue Kyanite Artisan Silver Ring" loading="lazy">
+            <a href="products/kyanite-artisan-silver-ring.html" aria-label="View Natural Blue Kyanite Artisan Silver Ring">
+              <img src="images/kyanite-silver.jpg" alt="Natural Blue Kyanite Artisan Silver Ring" loading="lazy" width="400" height="400">
             </a>
 
             <!-- Floating Frosted Glass Status Badges -->
@@ -640,15 +630,16 @@
 
             <!-- Modern Action Overlay Bar -->
             <div class="product-card-actions-overlay">
-              <a href="product.html?id=kyanite-artisan-silver-ring" class="card-action-icon-btn" aria-label="Quick View" title="Quick View">
+              <a href="products/kyanite-artisan-silver-ring.html" class="card-action-icon-btn" aria-label="Quick View" title="Quick View">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                   <circle cx="12" cy="12" r="3"></circle>
                 </svg>
               </a>
-              <button type="button" class="card-action-icon-btn" aria-label="Add to Curated Tray" title="Add to Tray" onclick="GJ.store.addToTray({id:'kyanite-artisan-silver-ring', title:'Natural Blue Kyanite Artisan Silver Ring', priceDisplay:'Available on Enquiry', image:'images/kyanite-silver.jpg', specs:{gemstoneType:'Blue Kyanite', naturalStatus:'Natural Untreated', metalPurity:'925 Silver'}}); GJ.showToast('Added to Curated Tray');">
+              <button type="button" class="card-action-icon-btn" aria-label="Add to Cart" title="Add to Cart" onclick="GJ.cart.addItem({id:'kyanite-artisan-silver-ring', title:'Natural Blue Kyanite Artisan Silver Ring', priceAmount:18500, priceDisplay:'₹18,500', image:'images/kyanite-silver.jpg'}); GJ.showToast('Added to Cart');">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                  <line x1="3" y1="6" x2="21" y2="6"></line>
                 </svg>
               </button>
               <button type="button" class="card-action-enquire-btn" onclick="GJ.openEnquiryModal({id:'kyanite-artisan-silver-ring', title:'Natural Blue Kyanite Artisan Silver Ring', image:'images/kyanite-silver.jpg', badges:{natural:'Natural Blue Kyanite', hallmark:'925 Silver'}})">
@@ -658,12 +649,12 @@
           </div>
           <div class="product-card-content">
             <h3 class="product-card-title">
-              <a href="product.html?id=kyanite-artisan-silver-ring">Natural Blue Kyanite Artisan Silver Ring</a>
+              <a href="products/kyanite-artisan-silver-ring.html">Natural Blue Kyanite Artisan Silver Ring</a>
             </h3>
             <p class="product-card-desc">Considered, authentic resonance. Natural pleochroic blue gemstone in hand-bezelled 925 silver.</p>
             <div class="product-card-footer">
-              <span class="product-price">Available on Enquiry</span>
-              <a href="product.html?id=kyanite-artisan-silver-ring" class="product-card-view-btn">
+              <span class="product-price">₹18,500</span>
+              <a href="products/kyanite-artisan-silver-ring.html" class="product-card-view-btn">
                 <span>View Piece</span>
                 <span>&rarr;</span>
               </a>
@@ -885,9 +876,9 @@
     <div class="container">
       <div class="section-header">
         <span class="section-eyebrow">From Our Atelier</span>
-        <h2 class="section-title">The Instagram Journal</h2>
+        <h2 class="section-title">From the Atelier</h2>
         <p class="section-subtitle">
-          Intimate snapshots of raw gemstones, goldsmith benches, and finished heirlooms. Tap to enquire directly.
+          Intimate snapshots of raw gemstones, goldsmith benches, and finished heirlooms. Follow our daily craftsmanship on Instagram <a href="https://instagram.com/gulshanjewellers1950" target="_blank" rel="noopener noreferrer" style="color: var(--color-gold-deep); text-decoration: underline;">@gulshanjewellers1950</a>.
         </p>
       </div>
 

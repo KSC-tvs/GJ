@@ -17,6 +17,8 @@ import {
 
 let products = [];
 let enquiries = [];
+let orders = [];
+let consultations = [];
 let editingProductId = null;
 let isInitialized = false;
 
@@ -175,14 +177,22 @@ async function loadInitialData() {
     products = await fetchProducts();
   }
 
-  // 2. Enquiries CRM: try live Supabase, then local
+  // 2. Orders: live Supabase / local
+  await loadOrders();
+
+  // 3. Consultations: live Supabase / local
+  await loadConsultations();
+
+  // 4. Enquiries CRM: try live Supabase, then local
   await loadEnquiries();
 
-  // 3. Settings: try live Supabase, then local
+  // 5. Settings: try live Supabase, then local
   await loadSettings();
 
   // Render UI
   renderCatalogue();
+  renderOrders();
+  renderConsultations();
   renderEnquiries();
 }
 
@@ -194,9 +204,13 @@ async function refreshAllData() {
     }
   } catch (_) {}
 
+  await loadOrders();
+  await loadConsultations();
   await loadEnquiries();
   await loadSettings();
   renderCatalogue();
+  renderOrders();
+  renderConsultations();
   renderEnquiries();
 }
 
@@ -543,37 +557,8 @@ async function loadEnquiries() {
     }
   }
 
-  if (!enquiries || enquiries.length === 0) {
-    enquiries = [
-      {
-        id: 'ENQ-8901',
-        date: '2026-09-17 17:40',
-        name: 'Rajesh K. Sharma',
-        contact: '+91 98112 34567',
-        piece: 'Ceylon Yellow Sapphire (Pukhraj) Signet Ring',
-        message: 'Looking for 4.5+ ct unheated yellow sapphire for Jupiter astrological placement. Need IIGJ certificate verification.',
-        status: 'New'
-      },
-      {
-        id: 'ENQ-8902',
-        date: '2026-09-16 14:15',
-        name: 'Dr. Priya V. Nambiar',
-        contact: '+91 98201 88990',
-        piece: 'Bespoke Colombian Emerald Halo Pendant',
-        message: 'Interested in commission in 18K yellow gold with natural baguette diamonds. Budget around ₹3,00,000.',
-        status: 'In Discussion'
-      },
-      {
-        id: 'ENQ-8903',
-        date: '2026-09-15 11:20',
-        name: 'Vikram & Ananya Mehta',
-        contact: '+971 50 123 4567',
-        piece: '14K Everyday Natural Diamond Huggie Hoops',
-        message: 'Inquiring about delivery timelines to Dubai (UAE) and hallmarking documentation.',
-        status: 'Closed'
-      }
-    ];
-    localStorage.setItem('gj_enquiries', JSON.stringify(enquiries));
+  if (!Array.isArray(enquiries)) {
+    enquiries = [];
   }
 }
 
@@ -732,7 +717,9 @@ function initSettingsListeners() {
    TAB 4: Cloud Database & Supabase Sync
    -------------------------------------------------------------------------- */
 function initDatabaseTabListeners() {
-  const { url, anonKey } = getStoredConfig();
+  const cfg = getStoredConfig() || {};
+  const url = cfg.url || '';
+  const anonKey = cfg.key || cfg.anonKey || '';
   const urlInput = document.getElementById('supabase-project-url');
   const keyInput = document.getElementById('supabase-anon-key');
   const configForm = document.getElementById('admin-supabase-config-form');

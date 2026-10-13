@@ -50,12 +50,20 @@
         <button type="button" class="admin-tab-btn active" data-tab="catalogue">
           <span class="tab-icon">&#128142;</span> Catalogue & Inventory
         </button>
+        <button type="button" class="admin-tab-btn" data-tab="orders">
+          <span class="tab-icon">&#128230;</span> Orders & Fulfillment
+          <span class="admin-tab-count" id="admin-orders-badge">0</span>
+        </button>
+        <button type="button" class="admin-tab-btn" data-tab="consultations">
+          <span class="tab-icon">&#128302;</span> Astrology & Consultations
+          <span class="admin-tab-count" id="admin-consult-badge">0</span>
+        </button>
         <button type="button" class="admin-tab-btn" data-tab="enquiries">
-          <span class="tab-icon">&#128233;</span> Customer Consultations & CRM
+          <span class="tab-icon">&#128233;</span> Enquiries & CRM
           <span class="admin-tab-count" id="admin-enquiry-badge">0</span>
         </button>
         <button type="button" class="admin-tab-btn" data-tab="settings">
-          <span class="tab-icon">&#9881;</span> Store Settings & Bullion Rates
+          <span class="tab-icon">&#9881;</span> Store Settings & Rates
         </button>
         <button type="button" class="admin-tab-btn" data-tab="database">
           <span class="tab-icon">&#9729;</span> Database & Cloud Sync
@@ -116,6 +124,83 @@
             </tr>
           </thead>
           <tbody id="admin-products-tbody">
+            <!-- Populated dynamically by admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB: ORDERS & FULFILLMENT -->
+    <section id="tab-orders" class="admin-tab-content">
+      <div class="admin-section-header">
+        <div>
+          <h2 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-ivory);">Customer Orders & Logistics</h2>
+          <p style="font-size: 0.85rem; color: var(--color-text-secondary);">Live orders received via Razorpay / COD, dispatch status, tracking assignments, and tax invoices.</p>
+        </div>
+      </div>
+
+      <div class="admin-stats-grid" style="margin-bottom: var(--space-6);">
+        <div class="admin-stat-card">
+          <div class="admin-stat-num" id="admin-orders-count">0</div>
+          <div class="admin-stat-label">Total Orders Placed</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="admin-stat-num" id="admin-orders-pending">0</div>
+          <div class="admin-stat-label">Pending Dispatch</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="admin-stat-num" id="admin-orders-shipped">0</div>
+          <div class="admin-stat-label">In Transit / Delivered</div>
+        </div>
+        <div class="admin-stat-card">
+          <div class="admin-stat-num" id="admin-orders-revenue">₹0</div>
+          <div class="admin-stat-label">Fulfilled Gross Value</div>
+        </div>
+      </div>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Order ID & Date</th>
+              <th>Customer & Shipping Destination</th>
+              <th>Items & Specs</th>
+              <th>Total & Payment</th>
+              <th>Fulfillment Status</th>
+              <th>Logistics Tracking</th>
+              <th style="text-align: right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-orders-tbody">
+            <!-- Populated dynamically by admin.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB: ASTROLOGY & GEMSTONE CONSULTATIONS -->
+    <section id="tab-consultations" class="admin-tab-content">
+      <div class="admin-section-header">
+        <div>
+          <h2 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-ivory);">Astrology & Gemstone Bookings</h2>
+          <p style="font-size: 0.85rem; color: var(--color-text-secondary);">Scheduled Vedic astrology readings, gemstone recommendations, and confidential client birth data.</p>
+        </div>
+      </div>
+
+      <div class="admin-table-wrap" style="margin-top: var(--space-4);">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Booking Ref</th>
+              <th>Date & Time Slot</th>
+              <th>Client & Contact</th>
+              <th>Service Booked</th>
+              <th>Confidential Birth Intake</th>
+              <th>Session Status</th>
+              <th style="text-align: right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-consultations-tbody">
             <!-- Populated dynamically by admin.js -->
           </tbody>
         </table>
@@ -409,12 +494,12 @@
         <div id="auth-error-alert" class="auth-alert" style="display: none;"></div>
 
         <div class="form-group">
-          <label class="form-label" for="auth-email">Administrator Email or Username</label>
-          <input type="text" id="auth-email" class="form-control" placeholder="admin@gulshanjewellers.com" autocomplete="username" required>
+          <label class="form-label" for="auth-email">Administrator Email</label>
+          <input type="email" id="auth-email" class="form-control" placeholder="staff@example.com" autocomplete="username" required>
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="auth-password">Security Password / Master Key</label>
+          <label class="form-label" for="auth-password">Security Password</label>
           <input type="password" id="auth-password" class="form-control" placeholder="Enter administrative password" autocomplete="current-password" required>
         </div>
 
@@ -423,7 +508,7 @@
         </button>
 
         <div class="auth-note">
-          <small>&#128274; Secured via Supabase Auth &amp; Multi-Layer Row Level Security (RLS)</small>
+          <small>&#128274; Restricted Access &middot; Authorized Personnel Only</small>
         </div>
       </form>
     </div>

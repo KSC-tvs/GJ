@@ -416,8 +416,12 @@ function getActiveFilterCount() {
 function filterProductList(products) {
   let list = products.filter(item => {
     // 1. Category
-    if (activeFilters.category !== 'all' && item.primaryCategory !== activeFilters.category) {
-      return false;
+    if (activeFilters.category !== 'all') {
+      if (activeFilters.category === 'loose-gemstones') {
+        if (item.type !== 'loose-gemstone') return false;
+      } else if (item.primaryCategory !== activeFilters.category) {
+        return false;
+      }
     }
     // 2. Gemstone
     if (activeFilters.gemstone.length > 0 && !activeFilters.gemstone.includes(item.gemstone)) {
@@ -437,7 +441,8 @@ function filterProductList(products) {
     if (activeFilters.price.length > 0) {
       const price = item.priceAmount;
       const matchesPrice = activeFilters.price.some(range => {
-        if (range === 'under-50k') return price && price < 50000;
+        if (range === 'under-10k') return price && price < 10000;
+        if (range === 'under-50k') return price && price >= 10000 && price < 50000;
         if (range === '50k-150k') return price && price >= 50000 && price <= 150000;
         if (range === '150k-plus') return price && price > 150000;
         if (range === 'on-request') return !price;

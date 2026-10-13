@@ -166,6 +166,7 @@
               <label for="checkout-pincode" class="form-label">PIN Code <span style="color: var(--color-gold-deep);">*</span></label>
               <input type="text" id="checkout-pincode" name="pincode" class="form-control" required placeholder="110021" pattern="[0-9]{6}" maxlength="6" autocomplete="postal-code">
               <span class="form-error-msg" id="err-checkout-pincode" style="display: none; color: #b91c1c; font-size: 0.72rem; margin-top: 4px;">Enter a valid 6-digit PIN code.</span>
+              <div id="pincode-serviceability" style="display: none; font-size: 0.72rem; margin-top: 4px; padding: 4px 8px; border-radius: var(--radius-2xs);"></div>
             </div>
           </div>
 
@@ -208,33 +209,34 @@
           </div>
 
           <div style="display: flex; flex-direction: column; gap: var(--space-3);">
-            <!-- Option A: UPI -->
+            <!-- Option 1: Razorpay / Online Gateway -->
             <label class="payment-method-option" style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--color-gold-champagne); background: rgba(197, 168, 128, 0.05); border-radius: var(--radius-xs); cursor: pointer;">
-              <input type="radio" name="paymentMethod" value="upi" checked style="margin-top: 3px;">
+              <input type="radio" name="paymentMethod" value="razorpay" checked style="margin-top: 3px;">
               <div style="flex: 1;">
-                <span style="font-weight: 600; font-size: 0.88rem; color: var(--color-text-primary); display: block;">
-                  UPI Instant Transfer (GPay / PhonePe / Paytm / BHIM)
+                <span style="font-weight: 600; font-size: 0.88rem; color: var(--color-text-primary); display: flex; align-items: center; gap: 8px;">
+                  Razorpay Secure Gateway (UPI / Cards / NetBanking / EMI)
+                  <span style="font-size: 0.65rem; background: var(--color-gold-champagne); color: #1A1918; padding: 2px 6px; border-radius: 4px; font-weight: 700;">FAST &amp; SECURE</span>
                 </span>
                 <span style="font-size: 0.75rem; color: var(--color-text-secondary); display: block; margin-top: 2px;">
-                  Zero transaction surcharge. An official invoice with dynamic QR will be generated.
+                  Instant bank clearance. Google Pay, PhonePe, Paytm, RuPay, Visa, MasterCard, and credit EMI options.
                 </span>
               </div>
             </label>
 
-            <!-- Option B: Cards -->
+            <!-- Option 2: UPI Direct Transfer -->
             <label class="payment-method-option" style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-xs); cursor: pointer;">
-              <input type="radio" name="paymentMethod" value="cards" style="margin-top: 3px;">
+              <input type="radio" name="paymentMethod" value="upi" style="margin-top: 3px;">
               <div style="flex: 1;">
                 <span style="font-weight: 600; font-size: 0.88rem; color: var(--color-text-primary); display: block;">
-                  Credit &amp; Debit Cards (Visa, MasterCard, RuPay, Amex)
+                  Direct UPI / QR Transfer (Atelier Account)
                 </span>
                 <span style="font-size: 0.75rem; color: var(--color-text-secondary); display: block; margin-top: 2px;">
-                  Processed through 256-bit encrypted banking portal with 3D-Secure OTP authentication.
+                  Zero processing fees. Official tax invoice with dynamic payment QR code delivered to WhatsApp.
                 </span>
               </div>
             </label>
 
-            <!-- Option C: Bank Transfer -->
+            <!-- Option 3: Bank Transfer -->
             <label class="payment-method-option" style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-xs); cursor: pointer;">
               <input type="radio" name="paymentMethod" value="bank_transfer" style="margin-top: 3px;">
               <div style="flex: 1;">
@@ -242,7 +244,20 @@
                   Direct Bank Wire / NEFT / RTGS (Tax Invoice)
                 </span>
                 <span style="font-size: 0.75rem; color: var(--color-text-secondary); display: block; margin-top: 2px;">
-                  Recommended for high-value fine jewellery transactions. Dedicated dispatch officer assigned.
+                  Recommended for high-value fine gold &amp; precious gemstone acquisitions. Dedicated officer assigned.
+                </span>
+              </div>
+            </label>
+
+            <!-- Option 4: Cash on Delivery (COD) -->
+            <label id="payment-opt-cod" class="payment-method-option" style="display: flex; align-items: flex-start; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-xs); cursor: pointer;">
+              <input type="radio" name="paymentMethod" value="cod" style="margin-top: 3px;">
+              <div style="flex: 1;">
+                <span style="font-weight: 600; font-size: 0.88rem; color: var(--color-text-primary); display: flex; align-items: center; gap: 8px;">
+                  Cash on Delivery (Fashion &amp; Artificial Jewellery Only)
+                </span>
+                <span id="cod-explanation-text" style="font-size: 0.75rem; color: var(--color-text-secondary); display: block; margin-top: 2px;">
+                  Pay in cash at delivery. Available exclusively for Artificial Jewellery orders under ₹10,000.
                 </span>
               </div>
             </label>

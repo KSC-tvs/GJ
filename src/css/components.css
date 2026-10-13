@@ -161,6 +161,9 @@
   gap: clamp(var(--space-3), 2vw, var(--space-6));
   height: var(--header-height);
   flex-wrap: nowrap;
+  max-width: 1560px;
+  padding-left: clamp(16px, 2.5vw, 40px);
+  padding-right: clamp(16px, 2.5vw, 40px);
   transition: height var(--transition-fast);
 }
 
@@ -353,6 +356,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-3);
+  flex-shrink: 0;
 }
 
 /* Header Action Icon Buttons (Search & Tray) */
@@ -360,8 +364,10 @@
   background: #FFFFFF;
   border: 1px solid var(--color-border-subtle);
   color: var(--color-text-primary);
-  height: 40px;
-  padding: 0 0.75rem;
+  height: 44px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 0.85rem;
   border-radius: var(--radius-full);
   cursor: pointer;
   display: inline-flex;
@@ -442,6 +448,8 @@
   color: #1A1918 !important;
   border: 1px solid var(--color-gold-metallic) !important;
   box-shadow: 0 2px 14px rgba(197, 168, 128, 0.25);
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
   transition: all var(--transition-fast);
 }
 
@@ -456,12 +464,15 @@
   display: none;
   flex-direction: column;
   justify-content: space-around;
-  width: 32px;
-  height: 24px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 2px;
+  padding: 10px 8px;
+  box-sizing: border-box;
 }
 
 .mobile-nav-toggle span {
@@ -1718,6 +1729,10 @@ textarea.form-control {
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
   transition: color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 2px 0;
 }
 
 .footer-links a:hover {
@@ -2202,14 +2217,36 @@ textarea.form-control {
 /* --------------------------------------------------------------------------
    Responsive Adjustments & Breakpoints
    -------------------------------------------------------------------------- */
+@media (max-width: 1380px) {
+  .main-nav {
+    gap: clamp(8px, 1.2vw, 16px);
+  }
+
+  .nav-link {
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+  }
+
+  .brand-name {
+    font-size: 1.2rem;
+  }
+
+  .nav-primary-cta {
+    padding: 0.5rem 1.1rem !important;
+    font-size: 0.72rem !important;
+  }
+}
+
 @media (max-width: 1220px) {
   .main-nav {
     display: none;
   }
 
   .mobile-nav-toggle {
-    display: flex;
-    padding: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 8px;
     margin-right: -4px;
   }
 }
@@ -2235,10 +2272,38 @@ textarea.form-control {
   }
 
   .top-bar {
-    height: auto;
-    min-height: var(--top-bar-height);
-    padding-top: 5px;
-    padding-bottom: 5px;
+    height: 36px;
+    min-height: 36px;
+    padding: 0 var(--space-4);
+    overflow: hidden;
+  }
+
+  .top-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .top-bar-left {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: var(--space-2);
+  }
+
+  .top-bar-tagline {
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(100% - 95px);
+  }
+
+  .top-bar-links {
+    display: none !important;
   }
 
   .brand-logo {
@@ -2279,8 +2344,10 @@ textarea.form-control {
   }
 
   .header-icon-btn {
-    height: 36px;
-    padding: 0 0.55rem;
+    height: 44px;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 0 0.65rem;
   }
 
   .mobile-bottom-dock {
@@ -2471,3 +2538,96 @@ textarea.form-control {
   100% { background-position: -200% 0; }
 }
 
+
+/* --------------------------------------------------------------------------
+   Digital Personal Data Protection (DPDP) Act 2023 Cookie & Consent Banner
+   -------------------------------------------------------------------------- */
+.gj-cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: rgba(250, 248, 245, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--color-border-subtle);
+  box-shadow: 0 -8px 30px rgba(26, 25, 24, 0.12);
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+  padding: var(--space-4) var(--space-6);
+}
+
+.gj-cookie-banner.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.gj-cookie-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.gj-cookie-content {
+  flex: 1;
+  min-width: 280px;
+}
+
+.gj-cookie-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: 4px;
+  font-size: 0.88rem;
+  color: var(--color-text-primary);
+}
+
+.gj-cookie-shield {
+  font-size: 1rem;
+}
+
+.gj-cookie-text {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.gj-cookie-link {
+  color: var(--color-gold-champagne);
+  text-decoration: underline;
+  margin-left: 6px;
+}
+
+.gj-cookie-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .gj-cookie-banner {
+    padding: var(--space-4);
+    bottom: 56px; /* above mobile dock */
+  }
+  .gj-cookie-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-3);
+  }
+  .gj-cookie-actions {
+    justify-content: stretch;
+  }
+  .gj-cookie-actions .btn {
+    flex: 1;
+    text-align: center;
+    justify-content: center;
+  }
+}

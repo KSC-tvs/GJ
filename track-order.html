@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Your Order | Gulshan Jewellers · Est. 1950</title>
+  <meta name="description" content="Track your insured fine jewellery dispatch in real-time. Enter your Gulshan Jewellers Order ID and phone number.">
+  <link rel="canonical" href="https://ksc-tvs.github.io/GJ/track-order.html">
+
+  <link rel="stylesheet" href="src/css/tokens.css">
+  <link rel="stylesheet" href="src/css/base.css">
+  <link rel="stylesheet" href="src/css/components.css">
+  <link rel="stylesheet" href="src/css/pages.css">
+  <link rel="stylesheet" href="src/css/animations.css">
+
+  <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#FAF8F5">
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Skip to content</a>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-left">
+        <span class="top-bar-tagline">Est. 1950 &middot; Insured Dispatch &middot; Real-Time Atelier Tracking</span>
+      </div>
+      <div class="top-bar-links">
+        <a href="https://wa.me/919582841454" target="_blank" rel="noopener noreferrer" class="top-bar-link">
+          <span>Concierge WhatsApp: +91 95828 41454</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Gulshan Jewellers Home">
+        <img src="images/logo.png" alt="Gulshan Jewellers Emblem" class="brand-logo-img" width="46" height="46">
+        <div class="brand-logo-text">
+          <span class="brand-name">Gulshan Jewellers</span>
+          <span class="brand-subline">Est. 1950 · Years of Crafting Legacies</span>
+        </div>
+      </a>
+
+      <div style="display: flex; align-items: center; gap: var(--space-4);">
+        <a href="collections.html" class="btn btn-outline btn-sm">Catalogue</a>
+        <a href="contact.html" class="btn btn-gold btn-sm">Concierge</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content" class="container" style="padding-top: var(--space-12); padding-bottom: var(--space-20); max-width: 780px;" tabindex="-1">
+    <div style="text-align: center; margin-bottom: var(--space-8);">
+      <span class="section-eyebrow">Atelier Dispatch Status</span>
+      <h1 class="page-title" style="font-size: 2.2rem; margin-top: 4px;">Track Your Jewellery Order</h1>
+      <p style="color: var(--color-text-secondary); font-size: 0.95rem; max-width: 540px; margin: var(--space-2) auto 0;">
+        Enter your order reference code and registered phone number to view live craftsmanship, hallmarking, and insured transit milestones.
+      </p>
+    </div>
+
+    <!-- Search Form -->
+    <div style="background: var(--color-bg-surface); border: 1px solid var(--color-border-subtle); padding: var(--space-6); border-radius: var(--radius-xs); box-shadow: var(--shadow-card); margin-bottom: var(--space-8);">
+      <form id="track-order-form" style="display: grid; grid-template-columns: 1fr 1fr auto; gap: var(--space-3); align-items: flex-end;">
+        <div class="form-group">
+          <label for="track-order-id" class="form-label">Order Reference ID</label>
+          <input type="text" id="track-order-id" required placeholder="e.g. GJ-ORD-2026-1234" class="form-control" style="font-family: monospace;">
+        </div>
+        <div class="form-group">
+          <label for="track-order-phone" class="form-label">Registered Phone Number</label>
+          <input type="tel" id="track-order-phone" required placeholder="e.g. 9811023456" class="form-control">
+        </div>
+        <button type="submit" id="track-submit-btn" class="btn btn-gold" style="height: 44px; padding: 0 1.5rem;">
+          Track Status
+        </button>
+      </form>
+      <div id="track-error-msg" style="display: none; color: #b91c1c; font-size: 0.8rem; margin-top: var(--space-3);"></div>
+    </div>
+
+    <!-- Order Timeline Result (Hidden until searched) -->
+    <div id="track-result-container" style="display: none; background: var(--color-bg-surface); border: 1px solid var(--color-border-subtle); padding: var(--space-8); border-radius: var(--radius-xs); box-shadow: var(--shadow-card);">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-border-hairline); margin-bottom: var(--space-6);">
+        <div>
+          <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-muted);">Order Reference</span>
+          <h2 id="result-order-id" style="font-family: monospace; font-size: 1.3rem; color: var(--color-gold-deep); margin: 2px 0 0;">GJ-ORD-2026-0000</h2>
+        </div>
+        <div style="text-align: right;">
+          <span style="font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-muted);">Current Status</span>
+          <div id="result-status-badge" style="display: inline-block; padding: 4px 12px; background: rgba(197, 168, 128, 0.15); border: 1px solid var(--color-gold-champagne); border-radius: var(--radius-full); font-size: 0.78rem; font-weight: 600; color: var(--color-gold-deep); margin-top: 2px;">
+            Order Verified
+          </div>
+        </div>
+      </div>
+
+      <!-- Stepper Visualizer -->
+      <div style="margin-bottom: var(--space-8);">
+        <h3 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--color-text-muted); margin-bottom: var(--space-4);">Transit Milestones</h3>
+        <div id="timeline-steps" style="display: flex; flex-direction: column; gap: var(--space-4); position: relative;">
+          <!-- Populated by track-order.js -->
+        </div>
+      </div>
+
+      <!-- Order Details Summary -->
+      <div style="background: var(--color-bg-card); border: 1px solid var(--color-border-subtle); padding: var(--space-5); border-radius: var(--radius-2xs);">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); font-size: 0.82rem;">
+          <div>
+            <span style="color: var(--color-text-muted); display: block;">Recipient:</span>
+            <strong id="result-customer" style="color: var(--color-text-primary);">Client Name</strong>
+            <span id="result-address" style="color: var(--color-text-secondary); display: block; margin-top: 2px;">New Delhi, India</span>
+          </div>
+          <div>
+            <span style="color: var(--color-text-muted); display: block;">Order Placed:</span>
+            <strong id="result-date" style="color: var(--color-text-primary);">Date</strong>
+            <span id="result-total" style="color: var(--color-gold-deep); font-weight: 600; display: block; margin-top: 2px;">Total: ₹0</span>
+          </div>
+        </div>
+        <div id="result-items" style="margin-top: var(--space-4); padding-top: var(--space-3); border-top: 1px solid var(--color-border-hairline); font-size: 0.82rem; color: var(--color-text-secondary);">
+        </div>
+      </div>
+
+      <div style="margin-top: var(--space-6); text-align: center;">
+        <a id="result-whatsapp-link" href="https://wa.me/919582841454" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
+          Speak with Assigned Dispatch Concierge on WhatsApp
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>&copy; 1950&ndash;2026 Gulshan Jewellers. All rights reserved.</span>
+        <div style="display: flex; gap: var(--space-4); font-size: var(--text-2xs);">
+          <a href="policies.html#shipping" style="color: var(--color-text-muted);">Insured Shipping</a>
+          <a href="policies.html#returns" style="color: var(--color-text-muted);">Returns Policy</a>
+          <a href="policies.html#privacy" style="color: var(--color-text-muted);">Privacy Policy</a>
+          <a href="policies.html#terms" style="color: var(--color-text-muted);">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="src/js/track-order.js"></script>
+</body>
+</html>

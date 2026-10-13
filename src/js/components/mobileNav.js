@@ -239,22 +239,7 @@ function createMobileDockDOM() {
       <span class="mobile-dock-label">Search</span>
     </button>
 
-    <button type="button" class="mobile-dock-item mobile-dock-tray" id="mobile-dock-tray-btn" aria-label="Curated Tray">
-      <div class="dock-tray-wrap">
-        <svg class="mobile-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-          <polygon points="6 3 18 3 22 9 12 22 2 9"></polygon>
-          <line x1="2" y1="9" x2="22" y2="9"></line>
-          <line x1="12" y1="22" x2="6" y2="9"></line>
-          <line x1="12" y1="22" x2="18" y2="9"></line>
-          <line x1="6" y1="3" x2="12" y2="9"></line>
-          <line x1="18" y1="3" x2="12" y2="9"></line>
-        </svg>
-        <span class="tray-counter-pill" style="${trayCount > 0 ? 'display:inline-flex;' : 'display:none;'}">${trayCount}</span>
-      </div>
-      <span class="mobile-dock-label">My Tray</span>
-    </button>
-
-    <button type="button" class="mobile-dock-item mobile-dock-cart" id="mobile-dock-cart-btn" aria-label="Shopping Bag">
+    <button type="button" class="mobile-dock-item mobile-dock-cart" id="mobile-dock-cart-btn" aria-label="Shopping Cart">
       <div class="dock-tray-wrap">
         <svg class="mobile-dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
           <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
@@ -263,7 +248,7 @@ function createMobileDockDOM() {
         </svg>
         <span class="cart-counter-pill" style="${cart.getItemCount() > 0 ? 'display:inline-flex;' : 'display:none;'}">${cart.getItemCount()}</span>
       </div>
-      <span class="mobile-dock-label">Bag</span>
+      <span class="mobile-dock-label">Cart</span>
     </button>
 
     <button type="button" class="mobile-dock-item mobile-dock-wa" id="mobile-dock-concierge-btn" aria-label="Consultation Concierge">
@@ -282,10 +267,6 @@ function createMobileDockDOM() {
     openSearchModal();
   });
 
-  dock.querySelector('#mobile-dock-tray-btn').addEventListener('click', () => {
-    openTrayDrawer();
-  });
-
   dock.querySelector('#mobile-dock-cart-btn').addEventListener('click', () => {
     openCartDrawer();
   });
@@ -301,8 +282,9 @@ function createMobileDockDOM() {
   const cartPill = dock.querySelector('.mobile-dock-cart .cart-counter-pill');
   if (cartPill) {
     cart.subscribe(state => {
-      const count = state.items.reduce((sum, item) => sum + item.quantity, 0);
-      cartPill.textContent = count;
+      const items = Array.isArray(state) ? state : (state?.items || []);
+      const count = items.reduce((sum, item) => sum + (Number(item?.quantity) || 1), 0);
+      cartPill.textContent = String(count);
       cartPill.style.display = count > 0 ? 'inline-flex' : 'none';
     });
   }

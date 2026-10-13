@@ -4,7 +4,7 @@
   <!-- Core Flagship Pages -->
   <url>
     <loc>https://ksc-tvs.github.io/GJ/</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -15,13 +15,19 @@
   </url>
   <url>
     <loc>https://ksc-tvs.github.io/GJ/collections.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://ksc-tvs.github.io/GJ/consultations.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://ksc-tvs.github.io/GJ/gemstone-guide.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -32,7 +38,7 @@
   </url>
   <url>
     <loc>https://ksc-tvs.github.io/GJ/bespoke.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -43,137 +49,336 @@
   </url>
   <url>
     <loc>https://ksc-tvs.github.io/GJ/about.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://ksc-tvs.github.io/GJ/contact.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/track-order.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/policies.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>
 
   <!-- Product Pages (Pre-rendered Static HTML with Rich Schema) -->
   <url>
     <loc>https://ksc-tvs.github.io/GJ/products/pukhraj-cushion-signet-22k.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
     <image:image>
       <image:loc>https://ksc-tvs.github.io/GJ/images/pukhraj-hero.jpg</image:loc>
-      <image:title>Ceylon Yellow Sapphire (Pukhraj) Signet Ring 22K Gold</image:title>
-      <image:caption>Natural untreated 4.15 carat Ceylon Yellow Sapphire set in solid 22K gold</image:caption>
+      <image:title>Ceylon Yellow Sapphire (Pukhraj) Signet Ring</image:title>
+      <image:caption>Untreated golden fire in solid hand-forged 22K gold—a timeless legacy of Jupiter.</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://ksc-tvs.github.io/GJ/products/neelam-royal-blue-baguette-18k.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
     <image:image>
       <image:loc>https://ksc-tvs.github.io/GJ/images/neelam-sapphire.jpg</image:loc>
-      <image:title>Royal Ceylon Blue Sapphire (Neelam) Solitaire Ring 18K Gold</image:title>
-      <image:caption>Natural unheated 3.80 carat Royal Blue Sapphire flanked by tapered baguette diamonds</image:caption>
+      <image:title>Royal Ceylon Blue Sapphire (Neelam) Solitaire Ring</image:title>
+      <image:caption>A little blue, a lot of brilliance. Velvety royal corundum flanked by clean tapered diamonds.</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://ksc-tvs.github.io/GJ/products/emerald-colombian-bezel-pendant.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
     <image:image>
       <image:loc>https://ksc-tvs.github.io/GJ/images/emerald-pendant.jpg</image:loc>
-      <image:title>Natural Colombian Emerald (Panna) Bezel Pendant 18K Gold</image:title>
-      <image:caption>2.65 carat natural Colombian Emerald bezel-set in 18K yellow gold</image:caption>
+      <image:title>Natural Colombian Emerald (Panna) Bezel Pendant</image:title>
+      <image:caption>Understated but unmistakable. Vivid green emerald glow embraced in a tailored 18K gold collar.</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://ksc-tvs.github.io/GJ/products/ruby-mozambique-solitaire-18k.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
     <image:image>
       <image:loc>https://ksc-tvs.github.io/GJ/images/ruby-solitaire.jpg</image:loc>
-      <image:title>Natural Mozambique Ruby (Manik) Solitaire Ring 18K Gold</image:title>
-      <image:caption>Unheated 2.40 carat natural Mozambique Ruby in classic four-prong 18K gold setting</image:caption>
+      <image:title>Natural Mozambique Ruby (Manik) Solitaire Ring</image:title>
+      <image:caption>A story you wear. Fiery crimson ruby brilliance in a classic four-prong gold architecture.</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://ksc-tvs.github.io/GJ/products/kyanite-artisan-silver-ring.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
     <image:image>
       <image:loc>https://ksc-tvs.github.io/GJ/images/kyanite-silver.jpg</image:loc>
-      <image:title>Natural Blue Kyanite Artisan Silver Ring 925 Sterling</image:title>
-      <image:caption>Untreated 5.50 carat Himalayan Blue Kyanite set in hand-bezelled 925 sterling silver</image:caption>
+      <image:title>Natural Blue Kyanite Artisan Silver Ring</image:title>
+      <image:caption>Considered, authentic resonance. Natural pleochroic blue gemstone in hand-bezelled 925 silver.</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://ksc-tvs.github.io/GJ/products/everyday-diamond-huggie-earrings-14k.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
     <image:image>
       <image:loc>https://ksc-tvs.github.io/GJ/images/everyday-diamonds.jpg</image:loc>
-      <image:title>Everyday Natural Diamond Huggie Earrings 14K Gold</image:title>
-      <image:caption>0.36 ctw natural earth-mined round brilliant diamonds in 14K gold click-latch hoops</image:caption>
+      <image:title>Everyday Natural Diamond Huggie Earrings (14K)</image:title>
+      <image:caption>Some jewellery waits for an occasion; these don't. Effortless brilliance for every sunrise.</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://ksc-tvs.github.io/GJ/products/minimalist-diamond-solitaire-pendant.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
     <image:image>
       <image:loc>https://ksc-tvs.github.io/GJ/images/everyday-diamonds.jpg</image:loc>
-      <image:title>Minimalist Bezel Diamond Pendant 18K Gold</image:title>
-      <image:caption>Natural round brilliant diamond solitaire in hand-burnished solid gold bezel</image:caption>
+      <image:title>Minimalist Bezel Diamond Pendant</image:title>
+      <image:caption>From workshop to your heart. A single drop of earth-mined brilliance for daily signature wear.</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://ksc-tvs.github.io/GJ/products/handcrafted-18k-gold-solitaire-ring.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
     <image:image>
       <image:loc>https://ksc-tvs.github.io/GJ/images/gold-solitaire.jpg</image:loc>
       <image:title>Handcrafted 18K Gold Solitaire Ring</image:title>
-      <image:caption>0.75 ct natural diamond solitaire hand-forged in 18K yellow gold knife-edge band</image:caption>
+      <image:caption>Sculpted by hand with quiet proportion. A modern knife-edge silhouette with timeless presence.</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://ksc-tvs.github.io/GJ/products/silver-chiseled-cuff-bangle.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
     <image:image>
       <image:loc>https://ksc-tvs.github.io/GJ/images/silver-bangle.jpg</image:loc>
-      <image:title>Hand-Chiseled Sterling Silver Fluted Cuff Bangle</image:title>
-      <image:caption>Solid 42-gram hand-chiselled 925 sterling silver cuff with oxidized fluting</image:caption>
+      <image:title>Hand-Chiseled Sterling Silver Fluted Cuff</image:title>
+      <image:caption>Raw texture meets sculptural dignity. Heavy solid 925 silver with oxidized hand fluting.</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://ksc-tvs.github.io/GJ/products/mens-silver-signet-ring.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
     <image:image>
       <image:loc>https://ksc-tvs.github.io/GJ/images/silver-bangle.jpg</image:loc>
       <image:title>Men's Sterling Silver Classic Signet Ring</image:title>
-      <image:caption>Solid 14-gram 925 sterling silver classic signet ring with smooth finish</image:caption>
+      <image:caption>Understated but unmistakable. Smooth solid silver face with a substantial comfortable shank.</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://ksc-tvs.github.io/GJ/products/raksha-bandhan-silver-keepsake.html</loc>
-    <lastmod>2026-10-10</lastmod>
+    <lastmod>2026-10-12</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
     <image:image>
       <image:loc>https://ksc-tvs.github.io/GJ/images/silver-bangle.jpg</image:loc>
       <image:title>Raksha Bandhan Heritage Silver Keepsake Pendant</image:title>
-      <image:caption>Solid 925 sterling silver keepsake talisman for lifelong sibling bonds</image:caption>
+      <image:caption>A talisman of protection and lifelong bonds. Forged in pure 925 sterling silver.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/products/art-kundan-polki-choker.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://ksc-tvs.github.io/GJ/images/art-kundan-necklace.jpg</image:loc>
+      <image:title>Heritage Kundan Polki Choker &amp; Earring Set</image:title>
+      <image:caption>Regal Rajputana grandeur crafted in brass with faux uncut polki crystals and emerald-green drops.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/products/art-meenakari-chandbali-earrings.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://ksc-tvs.github.io/GJ/images/art-chandbali-earrings.jpg</image:loc>
+      <image:title>Hand-Painted Meenakari Chandbali Statement Earrings</image:title>
+      <image:caption>Lyrical crescent chandbalis adorned with cloisonné enamel, faux seed pearls, and glass stones.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/products/art-enamel-bangle-set-rajputi.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://ksc-tvs.github.io/GJ/images/art-bangle-set.jpg</image:loc>
+      <image:title>Rajputi Enamel (Meenakari) Kada Bangle Set (Set of 6)</image:title>
+      <image:caption>Vibrant floral meenakari kadas banded with micro-gold lustre—a celebration of royal festive wrists.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/products/art-temple-matte-collar-necklace.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://ksc-tvs.github.io/GJ/images/art-kundan-necklace.jpg</image:loc>
+      <image:title>South Indian Temple Motif Matte Collar Necklace</image:title>
+      <image:caption>Traditional Lakshmi and peacock motifs finished in warm antique reddish-gold matte texture.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/products/art-cz-solitaire-choker-rhodium.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://ksc-tvs.github.io/GJ/images/everyday-diamonds.jpg</image:loc>
+      <image:title>Modern American Diamond (CZ) Tennis Choker</image:title>
+      <image:caption>Precision-cut cubic zirconia solitaires set in platinum-tone rhodium for high-wattage red carpet glam.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/products/art-oxidised-boho-hasli-necklace.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://ksc-tvs.github.io/GJ/images/kyanite-silver.jpg</image:loc>
+      <image:title>Tribal Chiseled Oxidised German Silver Hasli</image:title>
+      <image:caption>Rustic bohemian neckpiece featuring geometric tribal stampings and soft chiming ghungroo charms.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/products/art-cz-eternity-bangles-pair.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://ksc-tvs.github.io/GJ/images/art-bangle-set.jpg</image:loc>
+      <image:title>American Diamond Dual-Tone Eternity Bangles (Pair)</image:title>
+      <image:caption>Classic channel-set CZ eternity bangles blending warm gold accents with cool platinum tones.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/products/art-pearl-layered-rani-haar.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://ksc-tvs.github.io/GJ/images/art-kundan-necklace.jpg</image:loc>
+      <image:title>Layered Hyderabadi Faux Pearl Rani Haar Necklace</image:title>
+      <image:caption>Seven flowing strands of graduated faux pearls anchored by an intricate Kundan centre pendant.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/products/art-jadau-floral-jhumki.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://ksc-tvs.github.io/GJ/images/art-chandbali-earrings.jpg</image:loc>
+      <image:title>Kundan Jadau Floral Bell Jhumkis with Pearl Fringes</image:title>
+      <image:caption>Classic bell-shaped jhumkas dripping with micro pearls and petal-shaped glass Kundan stones.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/products/art-sheeshpatti-mathapatti-bridal.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://ksc-tvs.github.io/GJ/images/art-kundan-necklace.jpg</image:loc>
+      <image:title>Artisan Rajputi Sheeshpatti Mathapatti Headpiece</image:title>
+      <image:caption>Handcrafted traditional bridal headpiece set with brilliant glass stones and green bead hangings.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/products/art-geometric-brass-statement-cuff.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://ksc-tvs.github.io/GJ/images/silver-bangle.jpg</image:loc>
+      <image:title>Architectural Handcrafted Brass Open Cuff</image:title>
+      <image:caption>Minimalist sculptural cuff with hand-beaten facets in warm satin gold finish.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/products/art-rose-gold-cz-cocktail-ring.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://ksc-tvs.github.io/GJ/images/gold-solitaire.jpg</image:loc>
+      <image:title>Rose Gold American Diamond Cluster Cocktail Ring</image:title>
+      <image:caption>A starburst cluster of brilliant marquise and round cubic zirconia in modern blush rose-gold tone.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/products/loose-ceylon-pukhraj-422.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://ksc-tvs.github.io/GJ/images/loose-sapphire.jpg</image:loc>
+      <image:title>Unheated Ceylon Yellow Sapphire (Pukhraj) 4.22 ct Loose Gemstone</image:title>
+      <image:caption>Vivid canary-golden natural Ceylon corundum with exceptional brilliance and zero thermal enhancement.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/products/loose-ceylon-neelam-351.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://ksc-tvs.github.io/GJ/images/loose-sapphire.jpg</image:loc>
+      <image:title>Natural Ceylon Royal Blue Sapphire (Neelam) 3.51 ct Loose Gemstone</image:title>
+      <image:caption>Deep velvety royal blue natural corundum with fine crystal silk and radiant pavilion brilliance.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/products/loose-colombian-emerald-352.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://ksc-tvs.github.io/GJ/images/loose-emerald.jpg</image:loc>
+      <image:title>Certified Natural Colombian Emerald (Panna) 3.52 ct Loose Gemstone</image:title>
+      <image:caption>Lush botanical forest green emerald from the legendary Muzo/Chivor deposits with fine jardin.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/products/loose-mozambique-ruby-310.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://ksc-tvs.github.io/GJ/images/ruby-solitaire.jpg</image:loc>
+      <image:title>Natural Untreated Mozambique Ruby (Manik) 3.10 ct Loose Gemstone</image:title>
+      <image:caption>Vibrant crimson-red corundum with natural fluorescence, untampered by heat or lead-glass flux.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://ksc-tvs.github.io/GJ/products/loose-blue-kyanite-540.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>https://ksc-tvs.github.io/GJ/images/kyanite-silver.jpg</image:loc>
+      <image:title>Natural Untreated Blue Kyanite 5.40 ct Certified Loose Gemstone</image:title>
+      <image:caption>Accessible celestial blue blade-facet gemstone, prized as an untreated alternative for Saturn contemplation.</image:caption>
     </image:image>
   </url>
 </urlset>

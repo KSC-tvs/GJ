@@ -10,7 +10,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "verify-seo": "node scripts/verify-seo.cjs",
-    "test": "node scripts/validate-assets.cjs && node scripts/verify-seo.cjs",
+    "test:cart": "node scripts/test-cart.cjs",
+    "test:rls": "node scripts/test-rls.cjs",
+    "test": "node scripts/test-cart.cjs && node scripts/validate-assets.cjs && node scripts/verify-seo.cjs && node scripts/test-rls.cjs",
     "deploy": "wrangler deploy"
   },
   "devDependencies": {

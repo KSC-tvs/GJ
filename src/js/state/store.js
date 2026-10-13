@@ -33,22 +33,33 @@ class Store {
   }
 
   subscribe(key, callback) {
+    if (typeof callback !== 'function') return () => {};
     if (!this.subscribers.has(key)) {
       this.subscribers.set(key, new Set());
     }
     this.subscribers.get(key).add(callback);
     // Immediately call with current value
-    callback(this.state[key]);
+    try {
+      callback(this.state[key]);
+    } catch (e) {
+      console.warn(`Error in store subscription callback for key '${key}':`, e);
+    }
 
     return () => {
-      this.subscribers.get(key).delete(callback);
+      this.subscribers.get(key)?.delete(callback);
     };
   }
 
   notify(key) {
     if (this.subscribers.has(key)) {
       for (const cb of this.subscribers.get(key)) {
-        cb(this.state[key]);
+        if (typeof cb === 'function') {
+          try {
+            cb(this.state[key]);
+          } catch (e) {
+            console.warn(`Error notifying store subscriber for key '${key}':`, e);
+          }
+        }
       }
     }
   }
